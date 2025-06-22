@@ -194,7 +194,7 @@ export function InteractiveDashboard() {
       <div className="rounded-xl bg-background/80 p-3 sm:p-4 border border-border/75">
         <div className="flex items-start space-x-2 sm:space-x-3">
           <div className="bg-primary/10 p-1.5 sm:p-2 rounded-full">
-            <UserIcon className="size-3 sm:size-4 text-primary" />
+            <UserIcon className="size-3 sm:size-4 text-primary dark:text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-xs sm:text-sm text-foreground break-words">
@@ -208,10 +208,10 @@ export function InteractiveDashboard() {
         </div>
       </div>
 
-      <div className="rounded-xl border border-primary/15 bg-blue-50 p-3 sm:p-4">
+      <div className="rounded-xl border border-primary/15 bg-blue-50 dark:bg-blue-950 p-3 sm:p-4">
         <div className="flex items-start space-x-2 sm:space-x-3">
           <div className="bg-primary p-1.5 sm:p-2 rounded-full">
-            <SparklesIcon className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground" />
+            <SparklesIcon className="h-3 w-3 sm:h-4 sm:w-4 text-primary-foreground dark:text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-xs sm:text-sm text-foreground mb-2 sm:mb-3 break-words">
@@ -282,8 +282,8 @@ export function InteractiveDashboard() {
               <div className="flex-1 rounded-lg bg-background border border-border/75 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-muted-foreground shadow-sm">
                 {dashboardInputPlaceholder}
               </div>
-              <div className="w-10 sm:w-12 flex items-center justify-center bg-primary p-2.5 sm:p-3 rounded-lg shadow-sm hover:bg-primary/90 transition-colors">
-                <CircleArrowUp className="size-3 sm:size-4 text-primary-foreground" />
+              <div className="w-10 sm:w-12 flex items-center justify-center bg-primary p-2.5 sm:p-3 rounded-full shadow-sm hover:bg-primary/90 transition-colors">
+                <CircleArrowUp className="size-3 sm:size-4 text-primary-foreground dark:text-white" />
               </div>
             </div>
           </div>

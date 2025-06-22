@@ -636,8 +636,10 @@ export default function LandingPage() {
                     {step.time}
                   </div>
                   <h3 className="text-xl font-bold">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                  <div className="text-sm text-gray-500">
+                  <p className="text-muted-foreground dark:text-gray-300">
+                    {step.description}
+                  </p>
+                  <div className="text-sm text-gray-500 dark:text-gray-300">
                     <div className="flex items-center justify-center space-x-2 mb-2">
                       <span
                         className={`w-2 h-2 ${step.dotColor} rounded-full`}
@@ -910,14 +912,14 @@ export default function LandingPage() {
                               <span className="text-3xl font-bold text-primary">
                                 {plan.price}
                               </span>
-                              <span className="text-muted-foreground ml-1">
+                              <span className="text-muted-foreground dark:text-gray-300 ml-1">
                                 /mois
                               </span>
                             </div>
-                            <p className="text-muted-foreground text-sm mt-2">
+                            <p className="text-muted-foreground dark:text-gray-300 text-sm mt-2">
                               {plan.description}
                             </p>
-                            <ul className="space-y-3 my-6 flex-grow text-gray-700">
+                            <ul className="space-y-3 my-6 flex-grow text-gray-700 dark:text-gray-200">
                               {plan.features.map((feature, j) => (
                                 <li key={j} className="flex items-center">
                                   <CircleCheckBigIcon className="mr-2 size-4 text-primary" />
@@ -1042,14 +1044,14 @@ export default function LandingPage() {
                               <span className="text-3xl font-bold text-primary">
                                 {plan.price}
                               </span>
-                              <span className="text-muted-foreground ml-1">
+                              <span className="text-muted-foreground dark:text-gray-300 ml-1">
                                 /mois
                               </span>
                             </div>
-                            <p className="text-muted-foreground text-sm mt-2">
+                            <p className="text-muted-foreground dark:text-gray-300 text-sm mt-2">
                               {plan.description}
                             </p>
-                            <ul className="space-y-3 my-6 flex-grow text-gray-700">
+                            <ul className="space-y-3 my-6 flex-grow text-gray-700 dark:text-gray-200">
                               {plan.features.map((feature, j) => (
                                 <li key={j} className="flex items-center">
                                   <CircleCheckBigIcon className="mr-2 size-4 text-primary" />
@@ -1169,10 +1171,10 @@ export default function LandingPage() {
                       value={`item-${i}`}
                       className="border-b border-border/40 py-2"
                     >
-                      <AccordionTrigger className="text-left font-medium hover:no-underline">
+                      <AccordionTrigger className="text-left font-medium hover:no-underline dark:text-gray-200">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground whitespace-pre-line">
+                      <AccordionContent className="text-muted-foreground dark:text-gray-300 whitespace-pre-line">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -1197,10 +1199,10 @@ export default function LandingPage() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center justify-center space-y-6 text-center"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl dark:text-white md:text-4xl lg:text-5xl font-bold tracking-tight">
                 Prêt à transformer votre flux de travail ?
               </h2>
-              <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
+              <p className="mx-auto dark:text-gray-200 max-w-[700px] text-primary-foreground/80 md:text-xl">
                 Rejoignez des milliers de clients satisfaits qui ont rationalisé
                 leurs processus et augmenté leur productivité avec notre
                 plateforme.
@@ -1222,7 +1224,7 @@ export default function LandingPage() {
                   Planifier une démo
                 </Button>
               </div>
-              <p className="text-sm text-primary-foreground/80 mt-4">
+              <p className="text-sm dark:text-gray-200 text-primary-foreground/80 mt-4">
                 Aucune carte de crédit requise. Essai gratuit de 14 jours.
                 Annulez à tout moment.
               </p>
