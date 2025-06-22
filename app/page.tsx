@@ -847,7 +847,7 @@ export default function LandingPage() {
                           "Accès API avancé",
                           "Intégrations personnalisées",
                         ],
-                        cta: "Contacter les ventes",
+                        cta: "Contactez-nous",
                       },
                     ].map((plan, i) => (
                       <motion.div
@@ -950,7 +950,7 @@ export default function LandingPage() {
                           "Accès API avancé",
                           "Intégrations personnalisées",
                         ],
-                        cta: "Contacter les ventes",
+                        cta: "Contactez-nous",
                       },
                     ].map((plan, i) => (
                       <motion.div
