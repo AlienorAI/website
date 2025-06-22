@@ -157,16 +157,18 @@ export default function LandingPage() {
       >
         <div className="container flex h-16 py-10 items-center justify-between">
           <div className="flex items-center gap-2 font-bold">
-            <Image
-              priority
-              src="/logo.png"
-              alt="ArchiBot"
-              width={27}
-              height={27}
-            />
+            <div className="bg-primary rounded-full p-1.5">
+              <Image
+                priority
+                src="/logo.svg"
+                alt="ArchiBot logo"
+                width={18}
+                height={18}
+                className="brightness-0 invert"
+              />
+            </div>
             <span>ArchiBot</span>
           </div>
-
           <div className="hidden md:flex gap-4 items-center">
             <nav className="hidden md:flex gap-8">
               <Link
@@ -1260,13 +1262,16 @@ export default function LandingPage() {
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2 font-bold">
-                <Image
-                  priority
-                  src="/logo.png"
-                  alt="ArchiBot"
-                  width={22}
-                  height={22}
-                />
+                <div className="bg-primary rounded-full p-1.5">
+                  <Image
+                    priority
+                    src="/logo.svg"
+                    alt="ArchiBot logo"
+                    width={18}
+                    height={18}
+                    className="brightness-0 invert"
+                  />
+                </div>
                 <span>ArchiBot</span>
               </div>
               <p className="text-sm text-muted-foreground">
