@@ -129,7 +129,13 @@ export default function LandingPage() {
         <div className="container flex h-16 py-10 items-center justify-between">
           <div className="flex items-center gap-2 font-bold">
             <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              <Image src="/logo.png" alt="ArchiBot" width={18} height={18} />
+              <Image
+                priority
+                src="/logo.png"
+                alt="ArchiBot"
+                width={18}
+                height={18}
+              />
             </div>
             <span>ArchiBot</span>
           </div>
@@ -964,7 +970,7 @@ export default function LandingPage() {
                       <AccordionTrigger className="text-left font-medium hover:no-underline">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
+                      <AccordionContent className="text-muted-foreground whitespace-pre-line">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -1029,6 +1035,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-2 font-bold">
                 <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
                   <Image
+                    priority
                     src="/logo.png"
                     alt="ArchiBot"
                     width={18}
