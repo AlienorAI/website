@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Archibot - Assistant IA pour vos documents",
+  title: "Archibot - L'assistant IA pour vos documents internes",
   description:
     "Transformez vos documents en assistant IA intelligent. Posez vos questions, obtenez des réponses précises avec les sources.",
 };
