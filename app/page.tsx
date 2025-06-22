@@ -800,8 +800,9 @@ export default function LandingPage() {
                 Tarification simple et transparente
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Choisissez le plan qui convient à votre entreprise. Essai
-                gratuit de 14 jours.
+                Trois formules conçues pour répondre à vos besoins de sécurité
+                et de performance. Commencez votre essai gratuit dès
+                aujourd'hui.
               </p>
             </motion.div>
 
@@ -1200,12 +1201,12 @@ export default function LandingPage() {
               className="flex flex-col items-center justify-center space-y-6 text-center"
             >
               <h2 className="text-3xl dark:text-white md:text-4xl lg:text-5xl font-bold tracking-tight">
-                Prêt à transformer votre flux de travail ?
+                Donnez vie à vos documents
               </h2>
               <p className="mx-auto dark:text-gray-200 max-w-[700px] text-primary-foreground/80 md:text-xl">
-                Rejoignez des milliers de clients satisfaits qui ont rationalisé
-                leurs processus et augmenté leur productivité avec notre
-                plateforme.
+                Transformez votre base documentaire en consultant expert
+                disponible 24h/24. Comme nos clients, libérez le potentiel caché
+                de vos fichiers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Button
