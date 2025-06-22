@@ -927,7 +927,7 @@ export default function LandingPage() {
                         features: [
                           "Jusqu'à 10 documents",
                           "Recherches limitées",
-                          "OpenAI (Azure France) ou Mistral",
+                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                         ],
