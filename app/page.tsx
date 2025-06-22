@@ -82,40 +82,40 @@ export default function LandingPage() {
 
   const features = [
     {
-      title: "Automatisation intelligente",
+      title: "Interrogez vos documents",
       description:
-        "Automatisez les tâches répétitives et les flux de travail pour gagner du temps et réduire les erreurs.",
-      icon: <Zap className="size-5" />,
+        "Uploadez vos fichiers internes et conversez naturellement avec vos documents grâce à notre IA avancée.",
+      icon: <FileText className="size-5" />,
     },
     {
-      title: "Analyses avancées",
+      title: "IA performante",
       description:
-        "Obtenez des informations précieuses avec la visualisation de données en temps réel et les rapports.",
+        "Propulsé par Mistral AI ou OpenAI via Azure France pour une performance optimale et une confidentialité maximale.",
+      icon: <ZapIcon className="size-5" />,
+    },
+    {
+      title: "Hébergement 100% français 🇫🇷",
+      description:
+        "Vos données restent en France avec nos partenaires cloud certifiés SecNumCloud pour une sécurité totale.",
+      icon: <Shield className="size-5" />,
+    },
+    {
+      title: "Recherche sémantique avancée",
+      description:
+        "Notre technologie propriétaire trouve instantanément les informations pertinentes dans vos documents avec une précision inégalée.",
       icon: <BarChart className="size-5" />,
     },
     {
       title: "Collaboration d'équipe",
       description:
-        "Travaillez ensemble de manière transparente avec des outils de communication intégrés.",
+        "Vos employés peuvent partager leurs conversations utiles avec l'équipe pour booster la productivité collective.",
       icon: <Users className="size-5" />,
     },
     {
-      title: "Sécurité d'entreprise",
+      title: "Infrastructure dédiée disponible",
       description:
-        "Protégez vos données avec un chiffrement de bout en bout et des fonctionnalités de conformité.",
-      icon: <Shield className="size-5" />,
-    },
-    {
-      title: "Intégration transparente",
-      description:
-        "Connectez-vous à vos outils préférés grâce à notre écosystème API étendu.",
+        "Déploiement privé de Mistral sur GPU, sans dépendance à l'API pour les environnements ultra-sensibles.",
       icon: <Layers className="size-5" />,
-    },
-    {
-      title: "Support 24/7",
-      description:
-        "Obtenez de l'aide quand vous en avez besoin avec notre équipe de support dédiée.",
-      icon: <Star className="size-5" />,
     },
   ];
 
@@ -325,7 +325,7 @@ export default function LandingPage() {
         </section>
 
         {/* Logos Section */}
-        <section className="w-full py-12 border-y bg-muted/30">
+        {/* <section className="w-full py-12 border-y bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <p className="text-sm font-medium text-muted-foreground">
@@ -345,7 +345,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Features Section */}
         <section id="features" className="w-full py-20 md:py-24 scroll-mt-20">
@@ -398,6 +398,127 @@ export default function LandingPage() {
                   </Card>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Comparison Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-20"
+            >
+              <div className="text-center mb-12">
+                <Badge
+                  className="mx-auto rounded-full w-fit flex items-center px-4 gap-1.5 py-1.5 text-sm font-medium mb-4"
+                  variant="secondary"
+                >
+                  <Shield className="size-4" />
+                  Comparaison
+                </Badge>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+                  Pourquoi choisir ArchiBot plutôt que ChatGPT ?
+                </h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Une solution pensée pour les entreprises qui ont besoin de
+                  sécurité et de précision.
+                </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* ChatGPT Column */}
+                  <Card className="border-orange-200 dark:border-orange-800 bg-gradient-to-b from-orange-50/50 to-background dark:from-orange-950/20">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="size-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                          <MessageSquare className="size-5 text-orange-600 dark:text-orange-400" />
+                        </div>
+                        <h4 className="text-xl font-bold">ChatGPT</h4>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Traite un seul document à la fois
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Pas de mémoire entre les conversations
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Recherche limitée dans le contexte
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Hébergement hors Europe
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Aucune source vérifiable
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* ArchiBot Column */}
+                  <Card className="border-green-200 dark:border-green-800 bg-gradient-to-b from-green-50/50 to-background dark:from-green-950/20 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-green-600 text-white px-3 py-1 text-xs font-medium rounded-bl-lg">
+                      100% sécurisé
+                    </div>
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                          <Shield className="size-5 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h4 className="text-xl font-bold">ArchiBot</h4>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Vos données restent privées et sécurisées
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Base vectorielle de tous vos documents
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Recherche simultanée dans toute votre base
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Hébergement en France 🇫🇷
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Croisement d'informations entre documents
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -533,11 +654,11 @@ export default function LandingPage() {
                 Témoignages
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Apprécié par les équipes du monde entier
+                Ils nous font confiance
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Ne nous croyez pas sur parole. Découvrez ce que nos clients ont
-                à dire sur leur expérience.
+                Découvrez comment ArchiBot transforme le quotidien des
+                entreprises qui l'utilisent.
               </p>
             </motion.div>
 
