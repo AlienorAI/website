@@ -462,31 +462,31 @@ export default function LandingPage() {
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Traite un seul document à la fois
+                            Analyse uniquement les documents fournis
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Pas de mémoire entre les conversations
+                            Recherche limitée au contexte de la conversation
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Recherche limitée dans le contexte
+                            Pas de référence précise aux sources
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Vos données sont stockées et analysées
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
                             Hébergement hors Europe
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">
-                            Aucune source vérifiable
                           </span>
                         </div>
                       </div>
@@ -509,19 +509,25 @@ export default function LandingPage() {
                         <div className="flex items-start gap-3">
                           <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Vos données restent privées et sécurisées
+                            Analyse croisée de tous vos documents
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
                           <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Base vectorielle de tous vos documents
+                            Recherche sémantique dans toute votre base
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
                           <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Recherche simultanée dans toute votre base
+                            Sources précises avec numéro de page
+                          </span>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">
+                            Vos données ne sont jamais stockées ou analysées
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
@@ -529,12 +535,6 @@ export default function LandingPage() {
                           <span className="text-sm inline-flex items-center gap-1">
                             Hébergement en France{" "}
                             <Flag country="france" width={19} height={14} />
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">
-                            Croisement d'informations entre documents
                           </span>
                         </div>
                       </div>
