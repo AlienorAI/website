@@ -925,8 +925,8 @@ export default function LandingPage() {
                         description:
                           "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
                         features: [
-                          "Jusqu'à 10 documents",
-                          "Recherches limitées",
+                          "10 documents actifs",
+                          "1000 messages mensuels",
                           "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
