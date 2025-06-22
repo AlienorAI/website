@@ -123,40 +123,41 @@ export default function LandingPage() {
           isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"
         }`}
       >
-        <div className="container flex h-16 py-12 items-center justify-between">
+        <div className="container flex h-16 py-10 items-center justify-between">
           <div className="flex items-center gap-2 font-bold">
             <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
               S
             </div>
             <span>SaaSify</span>
           </div>
-          <nav className="hidden md:flex gap-8">
-            <Link
-              href="#features"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Features
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#faq"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              FAQ
-            </Link>
-          </nav>
+
           <div className="hidden md:flex gap-4 items-center">
+            <nav className="hidden md:flex gap-8">
+              <Link
+                href="#features"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Features
+              </Link>
+              <Link
+                href="#testimonials"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="#pricing"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="#faq"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                FAQ
+              </Link>
+            </nav>
             <Button
               variant="ghost"
               size="icon"
@@ -170,12 +171,6 @@ export default function LandingPage() {
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Link
-              href="#"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Log in
-            </Link>
             <Button className="rounded-full">
               Get Started
               <ChevronRight className="ml-1 size-4" />
@@ -245,19 +240,6 @@ export default function LandingPage() {
               >
                 FAQ
               </Link>
-              <div className="flex flex-col gap-2 pt-2 border-t">
-                <Link
-                  href="#"
-                  className="py-2 text-sm font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Log in
-                </Link>
-                <Button className="rounded-full">
-                  Get Started
-                  <ChevronRight className="ml-1 size-4" />
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}
@@ -367,7 +349,7 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="w-full py-20 md:py-24">
+        <section id="features" className="w-full py-20 md:py-24 scroll-mt-20">
           <div className="container px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -504,7 +486,10 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="w-full py-20 md:py-24">
+        <section
+          id="testimonials"
+          className="w-full py-20 md:py-24 scroll-mt-20"
+        >
           <div className="container px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -618,7 +603,7 @@ export default function LandingPage() {
         {/* Pricing Section */}
         <section
           id="pricing"
-          className="w-full py-20 md:py-24 bg-muted/30 relative overflow-hidden"
+          className="w-full py-20 md:py-24 bg-muted/30 relative overflow-hidden scroll-mt-20"
         >
           <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_40%,transparent_100%)]"></div>
 
@@ -866,7 +851,7 @@ export default function LandingPage() {
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="w-full py-20 md:py-24">
+        <section id="faq" className="w-full py-20 md:py-24 scroll-mt-20">
           <div className="container px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
