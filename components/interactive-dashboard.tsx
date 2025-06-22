@@ -285,7 +285,7 @@ export function InteractiveDashboard() {
               <div className="flex-1 rounded-lg bg-background border border-border/75 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-muted-foreground shadow-sm">
                 {dashboardInputPlaceholder}
               </div>
-              <div className="w-10 sm:w-12 flex items-center justify-center bg-primary p-2.5 sm:p-3 rounded-full shadow-sm hover:bg-primary/90 transition-colors">
+              <div className="flex items-center justify-center bg-primary p-2.5 sm:p-3 rounded-full shadow-sm">
                 <CircleArrowUp className="size-3 sm:size-4 text-primary-foreground dark:text-white" />
               </div>
             </div>
