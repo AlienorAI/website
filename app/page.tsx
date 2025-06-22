@@ -16,6 +16,7 @@ import {
   BarChart,
   Check,
   ChevronRight,
+  CircleCheckBigIcon,
   CreditCardIcon,
   FileText,
   HeartIcon,
@@ -316,7 +317,7 @@ export default function LandingPage() {
                   <Check className="size-4 text-primary" />
                   <span>Essai de 14 jours</span>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="hidden sm:flex items-center gap-1">
                   <Check className="size-4 text-primary" />
                   <span>Annulez à tout moment</span>
                 </div>
@@ -791,7 +792,7 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-6xl">
               <Tabs defaultValue="monthly" className="w-full">
                 <div className="flex justify-center mb-8">
                   <TabsList className="rounded-full p-1">
@@ -804,18 +805,19 @@ export default function LandingPage() {
                   </TabsList>
                 </div>
                 <TabsContent value="monthly">
-                  <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+                  <div className="grid gap-6 lg:grid-cols-3">
                     {[
                       {
                         name: "Archibot",
                         price: "149€",
                         description:
-                          "Parfait pour les petites équipes et les startups.",
+                          "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
                         features: [
-                          "Jusqu'à 5 membres d'équipe",
-                          "Analyses de base",
-                          "5 Go de stockage",
-                          "Support par email",
+                          "Jusqu'à 10 documents",
+                          "Recherches limitées",
+                          "OpenAI (Azure France) ou Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
                         ],
                         cta: "Commencer l'essai gratuit",
                       },
@@ -823,13 +825,13 @@ export default function LandingPage() {
                         name: "Archibot Pro",
                         price: "249€",
                         description:
-                          "Idéal pour les entreprises en croissance.",
+                          "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
                         features: [
-                          "Jusqu'à 20 membres d'équipe",
-                          "Analyses avancées",
-                          "25 Go de stockage",
-                          "Support email prioritaire",
-                          "Accès API",
+                          "Documents illimités*",
+                          "Messages illimités*",
+                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
                         ],
                         cta: "Commencer l'essai gratuit",
                         popular: true,
@@ -838,14 +840,14 @@ export default function LandingPage() {
                         name: "Archibot Business",
                         price: "349€",
                         description:
-                          "Pour pour les environnements réglementés et ultra-sensibles.",
+                          "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",
                         features: [
-                          "Membres d'équipe illimités",
-                          "Analyses personnalisées",
-                          "Stockage illimité",
-                          "Support téléphonique et email 24/7",
-                          "Accès API avancé",
-                          "Intégrations personnalisées",
+                          "Documents illimités*",
+                          "Messages illimités*",
+                          "Déploiement privé de 🇫🇷Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
+                          "Aucun appel API externe",
                         ],
                         cta: "Contactez-nous",
                       },
@@ -870,7 +872,9 @@ export default function LandingPage() {
                             </div>
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
-                            <h3 className="text-2xl font-bold">{plan.name}</h3>
+                            <h3 className="text-2xl font-bold mb-2">
+                              {plan.name}
+                            </h3>
                             <div className="flex items-baseline mt-4">
                               <span className="text-3xl font-bold text-primary">
                                 {plan.price}
@@ -879,17 +883,23 @@ export default function LandingPage() {
                                 /mois
                               </span>
                             </div>
-                            <p className="text-muted-foreground mt-2">
+                            <p className="text-muted-foreground text-sm mt-2">
                               {plan.description}
                             </p>
-                            <ul className="space-y-3 my-6 flex-grow">
+                            <ul className="space-y-3 my-6 flex-grow text-gray-700">
                               {plan.features.map((feature, j) => (
                                 <li key={j} className="flex items-center">
-                                  <Check className="mr-2 size-4 text-primary" />
-                                  <span>{feature}</span>
+                                  <CircleCheckBigIcon className="mr-2 size-4 text-primary" />
+                                  <span className="text-sm">{feature}</span>
                                 </li>
                               ))}
                             </ul>
+                            {(plan.name === "Archibot Pro" ||
+                              plan.name === "Archibot Business") && (
+                              <p className="text-xs text-muted-foreground mb-4">
+                                *Soumis à une utilisation raisonnable
+                              </p>
+                            )}
                             <Button
                               className={`w-full mt-auto rounded-full ${
                                 plan.popular
@@ -907,48 +917,49 @@ export default function LandingPage() {
                   </div>
                 </TabsContent>
                 <TabsContent value="annually">
-                  <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+                  <div className="grid gap-6 lg:grid-cols-3">
                     {[
                       {
-                        name: "Débutant",
-                        price: "23€",
+                        name: "Archibot",
+                        price: "120€",
                         description:
-                          "Parfait pour les petites équipes et les startups.",
+                          "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
                         features: [
-                          "Jusqu'à 5 membres d'équipe",
-                          "Analyses de base",
-                          "5 Go de stockage",
-                          "Support par email",
+                          "Jusqu'à 10 documents",
+                          "Recherches limitées",
+                          "OpenAI (Azure France) ou Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
                         ],
                         cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Professionnel",
-                        price: "63€",
+                        name: "Archibot Pro",
+                        price: "200€",
                         description:
-                          "Idéal pour les entreprises en croissance.",
+                          "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
                         features: [
-                          "Jusqu'à 20 membres d'équipe",
-                          "Analyses avancées",
-                          "25 Go de stockage",
-                          "Support email prioritaire",
-                          "Accès API",
+                          "Documents illimités*",
+                          "Messages illimités*",
+                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
                         ],
                         cta: "Commencer l'essai gratuit",
                         popular: true,
                       },
                       {
-                        name: "Entreprise",
-                        price: "159€",
+                        name: "Archibot Business",
+                        price: "280€",
                         description:
-                          "Pour les grandes organisations avec des besoins complexes.",
+                          "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",
                         features: [
-                          "Membres d'équipe illimités",
-                          "Analyses personnalisées",
-                          "Stockage illimité",
-                          "Support téléphonique et email 24/7",
-                          "Accès API avancé",
-                          "Intégrations personnalisées",
+                          "Documents illimités*",
+                          "Messages illimités*",
+                          "Déploiement privé de 🇫🇷Mistral",
+                          "Hébergement 100% en France",
+                          "Aucune donnée réutilisée",
+                          "Aucun appel API externe",
                         ],
                         cta: "Contactez-nous",
                       },
@@ -973,7 +984,9 @@ export default function LandingPage() {
                             </div>
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
-                            <h3 className="text-2xl font-bold">{plan.name}</h3>
+                            <h3 className="text-2xl font-bold mb-2">
+                              {plan.name}
+                            </h3>
                             <div className="flex items-baseline mt-4">
                               <span className="text-3xl font-bold text-primary">
                                 {plan.price}
@@ -982,17 +995,23 @@ export default function LandingPage() {
                                 /mois
                               </span>
                             </div>
-                            <p className="text-muted-foreground mt-2">
+                            <p className="text-muted-foreground text-sm mt-2">
                               {plan.description}
                             </p>
-                            <ul className="space-y-3 my-6 flex-grow">
+                            <ul className="space-y-3 my-6 flex-grow text-gray-700">
                               {plan.features.map((feature, j) => (
                                 <li key={j} className="flex items-center">
-                                  <Check className="mr-2 size-4 text-primary" />
-                                  <span>{feature}</span>
+                                  <CircleCheckBigIcon className="mr-2 size-4 text-primary" />
+                                  <span className="text-sm">{feature}</span>
                                 </li>
                               ))}
                             </ul>
+                            {(plan.name === "Archibot Pro" ||
+                              plan.name === "Archibot Business") && (
+                              <p className="text-xs text-muted-foreground mb-4">
+                                *Soumis à une utilisation raisonnable
+                              </p>
+                            )}
                             <Button
                               className={`w-full mt-auto rounded-full ${
                                 plan.popular
