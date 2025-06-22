@@ -79,39 +79,39 @@ export default function LandingPage() {
 
   const features = [
     {
-      title: "Smart Automation",
+      title: "Automatisation intelligente",
       description:
-        "Automate repetitive tasks and workflows to save time and reduce errors.",
+        "Automatisez les tâches répétitives et les flux de travail pour gagner du temps et réduire les erreurs.",
       icon: <Zap className="size-5" />,
     },
     {
-      title: "Advanced Analytics",
+      title: "Analyses avancées",
       description:
-        "Gain valuable insights with real-time data visualization and reporting.",
+        "Obtenez des informations précieuses avec la visualisation de données en temps réel et les rapports.",
       icon: <BarChart className="size-5" />,
     },
     {
-      title: "Team Collaboration",
+      title: "Collaboration d'équipe",
       description:
-        "Work together seamlessly with integrated communication tools.",
+        "Travaillez ensemble de manière transparente avec des outils de communication intégrés.",
       icon: <Users className="size-5" />,
     },
     {
-      title: "Enterprise Security",
+      title: "Sécurité d'entreprise",
       description:
-        "Keep your data safe with end-to-end encryption and compliance features.",
+        "Protégez vos données avec un chiffrement de bout en bout et des fonctionnalités de conformité.",
       icon: <Shield className="size-5" />,
     },
     {
-      title: "Seamless Integration",
+      title: "Intégration transparente",
       description:
-        "Connect with your favorite tools through our extensive API ecosystem.",
+        "Connectez-vous à vos outils préférés grâce à notre écosystème API étendu.",
       icon: <Layers className="size-5" />,
     },
     {
-      title: "24/7 Support",
+      title: "Support 24/7",
       description:
-        "Get help whenever you need it with our dedicated support team.",
+        "Obtenez de l'aide quand vous en avez besoin avec notre équipe de support dédiée.",
       icon: <Star className="size-5" />,
     },
   ];
@@ -126,9 +126,9 @@ export default function LandingPage() {
         <div className="container flex h-16 py-10 items-center justify-between">
           <div className="flex items-center gap-2 font-bold">
             <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              S
+              <Image src="/logo.png" alt="ArchiBot" width={18} height={18} />
             </div>
-            <span>SaaSify</span>
+            <span>ArchiBot</span>
           </div>
 
           <div className="hidden md:flex gap-4 items-center">
@@ -137,19 +137,19 @@ export default function LandingPage() {
                 href="#features"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Features
+                Fonctionnalités
               </Link>
               <Link
                 href="#testimonials"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Testimonials
+                Témoignages
               </Link>
               <Link
                 href="#pricing"
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Pricing
+                Tarifs
               </Link>
               <Link
                 href="#faq"
@@ -169,10 +169,10 @@ export default function LandingPage() {
               ) : (
                 <Moon className="size-[18px]" />
               )}
-              <span className="sr-only">Toggle theme</span>
+              <span className="sr-only">Basculer le thème</span>
             </Button>
             <Button className="rounded-full">
-              Get Started
+              Commencer
               <ChevronRight className="ml-1 size-4" />
             </Button>
           </div>
@@ -199,7 +199,7 @@ export default function LandingPage() {
               ) : (
                 <Menu className="size-5" />
               )}
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">Basculer le menu</span>
             </Button>
           </div>
         </div>
@@ -217,21 +217,21 @@ export default function LandingPage() {
                 className="py-2 text-sm font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Features
+                Fonctionnalités
               </Link>
               <Link
                 href="#testimonials"
                 className="py-2 text-sm font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Testimonials
+                Témoignages
               </Link>
               <Link
                 href="#pricing"
                 className="py-2 text-sm font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Pricing
+                Tarifs
               </Link>
               <Link
                 href="#faq"
@@ -289,15 +289,15 @@ export default function LandingPage() {
               <div className="flex items-center justify-center gap-4 mt-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Check className="size-4 text-primary" />
-                  <span>No credit card</span>
+                  <span>Aucune carte de crédit</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Check className="size-4 text-primary" />
-                  <span>14-day trial</span>
+                  <span>Essai de 14 jours</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Check className="size-4 text-primary" />
-                  <span>Cancel anytime</span>
+                  <span>Annulez à tout moment</span>
                 </div>
               </div>
             </motion.div>
@@ -313,7 +313,7 @@ export default function LandingPage() {
                   src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
                   width={1280}
                   height={720}
-                  alt="SaaSify dashboard"
+                  alt="Tableau de bord ArchiBot"
                   className="w-full h-auto"
                   priority
                 />
@@ -330,7 +330,7 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <p className="text-sm font-medium text-muted-foreground">
-                Trusted by innovative companies worldwide
+                Utilisé par des entreprises innovantes à travers le monde
               </p>
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -363,15 +363,15 @@ export default function LandingPage() {
                 variant="secondary"
               >
                 <SparklesIcon className="size-4" />
-                Features
+                Fonctionnalités
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Everything You Need to Succeed
+                Tout ce dont vous avez besoin pour réussir
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Our comprehensive platform provides all the tools you need to
-                streamline your workflow, boost productivity, and achieve your
-                goals.
+                Notre plateforme complète fournit tous les outils dont vous avez
+                besoin pour rationaliser votre flux de travail, augmenter la
+                productivité et atteindre vos objectifs.
               </p>
             </motion.div>
 
@@ -420,14 +420,14 @@ export default function LandingPage() {
                 variant="secondary"
               >
                 <WandSparklesIcon className="size-4" />
-                How It Works
+                Comment ça marche
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Simple Process, Powerful Results
+                Processus simple, résultats puissants
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Get started in minutes and see the difference our platform can
-                make for your business.
+                Commencez en quelques minutes et voyez la différence que notre
+                plateforme peut apporter.
               </p>
             </motion.div>
 
@@ -435,21 +435,21 @@ export default function LandingPage() {
               {[
                 {
                   step: "01",
-                  title: "Create Account",
+                  title: "Créer un compte",
                   description:
-                    "Sign up in seconds with just your email. No credit card required to get started.",
+                    "Inscrivez-vous en quelques secondes avec juste votre email. Aucune carte de crédit requise pour commencer.",
                 },
                 {
                   step: "02",
-                  title: "Configure Workspace",
+                  title: "Configurer l'espace de travail",
                   description:
-                    "Customize your workspace to match your team's unique workflow and requirements.",
+                    "Personnalisez votre espace de travail pour correspondre au flux de travail unique de votre équipe et aux exigences.",
                 },
                 {
                   step: "03",
-                  title: "Boost Productivity",
+                  title: "Augmenter la productivité",
                   description:
-                    "Start using our powerful features to streamline processes and achieve your goals.",
+                    "Commencez à utiliser nos fonctionnalités puissantes pour rationaliser les processus et atteindre vos objectifs.",
                 },
               ].map((step, i) => (
                 <motion.div
@@ -503,14 +503,14 @@ export default function LandingPage() {
                 variant="secondary"
               >
                 <HeartIcon className="size-4" />
-                Testimonials
+                Témoignages
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Loved by Teams Worldwide
+                Apprécié par les équipes du monde entier
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Don't just take our word for it. See what our customers have to
-                say about their experience.
+                Ne nous croyez pas sur parole. Découvrez ce que nos clients ont
+                à dire sur leur expérience.
               </p>
             </motion.div>
 
@@ -518,42 +518,42 @@ export default function LandingPage() {
               {[
                 {
                   quote:
-                    "SaaSify has transformed how we manage our projects. The automation features have saved us countless hours of manual work.",
+                    "ArchiBot a transformé la façon dont nous gérons nos projets. Les fonctionnalités d'automatisation nous ont fait économiser d'innombrables heures de travail manuel.",
                   author: "Sarah Johnson",
-                  role: "Project Manager, TechCorp",
+                  role: "Chef de projet, TechCorp",
                   rating: 5,
                 },
                 {
                   quote:
-                    "The analytics dashboard provides insights we never had access to before. It's helped us make data-driven decisions that have improved our ROI.",
+                    "Le tableau de bord d'analyse fournit des informations auxquelles nous n'avions jamais eu accès auparavant. Cela nous a aidés à prendre des décisions basées sur les données qui ont amélioré notre ROI.",
                   author: "Michael Chen",
-                  role: "Marketing Director, GrowthLabs",
+                  role: "Directeur marketing, GrowthLabs",
                   rating: 5,
                 },
                 {
                   quote:
-                    "Customer support is exceptional. Any time we've had an issue, the team has been quick to respond and resolve it. Couldn't ask for better service.",
+                    "Le support client est exceptionnel. Chaque fois que nous avons eu un problème, l'équipe a été rapide à répondre et à le résoudre. On ne pourrait pas demander un meilleur service.",
                   author: "Emily Rodriguez",
-                  role: "Operations Lead, StartupX",
+                  role: "Responsable des opérations, StartupX",
                   rating: 5,
                 },
                 {
                   quote:
-                    "We've tried several similar solutions, but none compare to the ease of use and comprehensive features of SaaSify. It's been a game-changer.",
+                    "Nous avons essayé plusieurs solutions similaires, mais aucune ne se compare à la facilité d'utilisation et aux fonctionnalités complètes d'ArchiBot. Cela a changé la donne.",
                   author: "David Kim",
-                  role: "CEO, InnovateNow",
+                  role: "PDG, InnovateNow",
                   rating: 5,
                 },
                 {
                   quote:
-                    "The collaboration tools have made remote work so much easier for our team. We're more productive than ever despite being spread across different time zones.",
+                    "Les outils de collaboration ont rendu le travail à distance beaucoup plus facile pour notre équipe. Nous sommes plus productifs que jamais malgré le fait d'être répartis sur différents fuseaux horaires.",
                   author: "Lisa Patel",
-                  role: "HR Director, RemoteFirst",
+                  role: "Directrice RH, RemoteFirst",
                   rating: 5,
                 },
                 {
                   quote:
-                    "Implementation was seamless, and the ROI was almost immediate. We've reduced our operational costs by 30% since switching to SaaSify.",
+                    "La mise en œuvre a été transparente, et le ROI a été presque immédiat. Nous avons réduit nos coûts opérationnels de 30% depuis le passage à ArchiBot.",
                   author: "James Wilson",
                   role: "COO, ScaleUp Inc",
                   rating: 5,
@@ -620,14 +620,14 @@ export default function LandingPage() {
                 variant="secondary"
               >
                 <CreditCardIcon className="size-4" />
-                Pricing
+                Tarifs
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Simple, Transparent Pricing
+                Tarification simple et transparente
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Choose the plan that's right for your business. All plans
-                include a 14-day free trial.
+                Choisissez le plan qui convient à votre entreprise. Tous les
+                plans incluent un essai gratuit de 14 jours.
               </p>
             </motion.div>
 
@@ -636,10 +636,10 @@ export default function LandingPage() {
                 <div className="flex justify-center mb-8">
                   <TabsList className="rounded-full p-1">
                     <TabsTrigger value="monthly" className="rounded-full px-6">
-                      Monthly
+                      Mensuel
                     </TabsTrigger>
                     <TabsTrigger value="annually" className="rounded-full px-6">
-                      Annually (Save 20%)
+                      Annuel (Économisez 20%)
                     </TabsTrigger>
                   </TabsList>
                 </div>
@@ -647,45 +647,47 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
                     {[
                       {
-                        name: "Starter",
-                        price: "$29",
-                        description: "Perfect for small teams and startups.",
+                        name: "Débutant",
+                        price: "29€",
+                        description:
+                          "Parfait pour les petites équipes et les startups.",
                         features: [
-                          "Up to 5 team members",
-                          "Basic analytics",
-                          "5GB storage",
-                          "Email support",
+                          "Jusqu'à 5 membres d'équipe",
+                          "Analyses de base",
+                          "5 Go de stockage",
+                          "Support par email",
                         ],
-                        cta: "Start Free Trial",
+                        cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Professional",
-                        price: "$79",
-                        description: "Ideal for growing businesses.",
+                        name: "Professionnel",
+                        price: "79€",
+                        description:
+                          "Idéal pour les entreprises en croissance.",
                         features: [
-                          "Up to 20 team members",
-                          "Advanced analytics",
-                          "25GB storage",
-                          "Priority email support",
-                          "API access",
+                          "Jusqu'à 20 membres d'équipe",
+                          "Analyses avancées",
+                          "25 Go de stockage",
+                          "Support email prioritaire",
+                          "Accès API",
                         ],
-                        cta: "Start Free Trial",
+                        cta: "Commencer l'essai gratuit",
                         popular: true,
                       },
                       {
-                        name: "Enterprise",
-                        price: "$199",
+                        name: "Entreprise",
+                        price: "199€",
                         description:
-                          "For large organizations with complex needs.",
+                          "Pour les grandes organisations avec des besoins complexes.",
                         features: [
-                          "Unlimited team members",
-                          "Custom analytics",
-                          "Unlimited storage",
-                          "24/7 phone & email support",
-                          "Advanced API access",
-                          "Custom integrations",
+                          "Membres d'équipe illimités",
+                          "Analyses personnalisées",
+                          "Stockage illimité",
+                          "Support téléphonique et email 24/7",
+                          "Accès API avancé",
+                          "Intégrations personnalisées",
                         ],
-                        cta: "Contact Sales",
+                        cta: "Contacter les ventes",
                       },
                     ].map((plan, i) => (
                       <motion.div
@@ -704,7 +706,7 @@ export default function LandingPage() {
                         >
                           {plan.popular && (
                             <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
-                              Most Popular
+                              Le plus populaire
                             </div>
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
@@ -714,7 +716,7 @@ export default function LandingPage() {
                                 {plan.price}
                               </span>
                               <span className="text-muted-foreground ml-1">
-                                /month
+                                /mois
                               </span>
                             </div>
                             <p className="text-muted-foreground mt-2">
@@ -748,45 +750,47 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
                     {[
                       {
-                        name: "Starter",
-                        price: "$23",
-                        description: "Perfect for small teams and startups.",
+                        name: "Débutant",
+                        price: "23€",
+                        description:
+                          "Parfait pour les petites équipes et les startups.",
                         features: [
-                          "Up to 5 team members",
-                          "Basic analytics",
-                          "5GB storage",
-                          "Email support",
+                          "Jusqu'à 5 membres d'équipe",
+                          "Analyses de base",
+                          "5 Go de stockage",
+                          "Support par email",
                         ],
-                        cta: "Start Free Trial",
+                        cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Professional",
-                        price: "$63",
-                        description: "Ideal for growing businesses.",
+                        name: "Professionnel",
+                        price: "63€",
+                        description:
+                          "Idéal pour les entreprises en croissance.",
                         features: [
-                          "Up to 20 team members",
-                          "Advanced analytics",
-                          "25GB storage",
-                          "Priority email support",
-                          "API access",
+                          "Jusqu'à 20 membres d'équipe",
+                          "Analyses avancées",
+                          "25 Go de stockage",
+                          "Support email prioritaire",
+                          "Accès API",
                         ],
-                        cta: "Start Free Trial",
+                        cta: "Commencer l'essai gratuit",
                         popular: true,
                       },
                       {
-                        name: "Enterprise",
-                        price: "$159",
+                        name: "Entreprise",
+                        price: "159€",
                         description:
-                          "For large organizations with complex needs.",
+                          "Pour les grandes organisations avec des besoins complexes.",
                         features: [
-                          "Unlimited team members",
-                          "Custom analytics",
-                          "Unlimited storage",
-                          "24/7 phone & email support",
-                          "Advanced API access",
-                          "Custom integrations",
+                          "Membres d'équipe illimités",
+                          "Analyses personnalisées",
+                          "Stockage illimité",
+                          "Support téléphonique et email 24/7",
+                          "Accès API avancé",
+                          "Intégrations personnalisées",
                         ],
-                        cta: "Contact Sales",
+                        cta: "Contacter les ventes",
                       },
                     ].map((plan, i) => (
                       <motion.div
@@ -805,7 +809,7 @@ export default function LandingPage() {
                         >
                           {plan.popular && (
                             <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
-                              Most Popular
+                              Le plus populaire
                             </div>
                           )}
                           <CardContent className="p-6 flex flex-col h-full">
@@ -815,7 +819,7 @@ export default function LandingPage() {
                                 {plan.price}
                               </span>
                               <span className="text-muted-foreground ml-1">
-                                /month
+                                /mois
                               </span>
                             </div>
                             <p className="text-muted-foreground mt-2">
@@ -868,10 +872,11 @@ export default function LandingPage() {
                 FAQ
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Frequently Asked Questions
+                Questions fréquemment posées
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Find answers to common questions about our platform.
+                Trouvez des réponses aux questions courantes sur notre
+                plateforme.
               </p>
             </motion.div>
 
@@ -879,35 +884,38 @@ export default function LandingPage() {
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
-                    question: "How does the 14-day free trial work?",
+                    question:
+                      "Comment fonctionne l'essai gratuit de 14 jours ?",
                     answer:
-                      "Our 14-day free trial gives you full access to all features of your selected plan. No credit card is required to sign up, and you can cancel at any time during the trial period with no obligation.",
+                      "Notre essai gratuit de 14 jours vous donne un accès complet à toutes les fonctionnalités de votre plan sélectionné. Aucune carte de crédit n'est requise pour s'inscrire, et vous pouvez annuler à tout moment pendant la période d'essai sans obligation.",
                   },
                   {
-                    question: "Can I change plans later?",
+                    question: "Puis-je changer de plan plus tard ?",
                     answer:
-                      "Yes, you can upgrade or downgrade your plan at any time. If you upgrade, the new pricing will be prorated for the remainder of your billing cycle. If you downgrade, the new pricing will take effect at the start of your next billing cycle.",
-                  },
-                  {
-                    question: "Is there a limit to how many users I can add?",
-                    answer:
-                      "The number of users depends on your plan. The Starter plan allows up to 5 team members, the Professional plan allows up to 20, and the Enterprise plan has no limit on team members.",
+                      "Oui, vous pouvez mettre à niveau ou rétrograder votre plan à tout moment. Si vous mettez à niveau, le nouveau prix sera calculé au prorata pour le reste de votre cycle de facturation. Si vous rétrogradez, le nouveau prix prendra effet au début de votre prochain cycle de facturation.",
                   },
                   {
                     question:
-                      "Do you offer discounts for nonprofits or educational institutions?",
+                      "Y a-t-il une limite au nombre d'utilisateurs que je peux ajouter ?",
                     answer:
-                      "Yes, we offer special pricing for nonprofits, educational institutions, and open-source projects. Please contact our sales team for more information.",
+                      "Le nombre d'utilisateurs dépend de votre plan. Le plan Débutant permet jusqu'à 5 membres d'équipe, le plan Professionnel permet jusqu'à 20, et le plan Entreprise n'a pas de limite sur le nombre de membres d'équipe.",
                   },
                   {
-                    question: "How secure is my data?",
+                    question:
+                      "Offrez-vous des réductions pour les organisations à but non lucratif ou les institutions éducatives ?",
                     answer:
-                      "We take security very seriously. All data is encrypted both in transit and at rest. We use industry-standard security practices and regularly undergo security audits. Our platform is compliant with GDPR, CCPA, and other relevant regulations.",
+                      "Oui, nous offrons des tarifs spéciaux pour les organisations à but non lucratif, les institutions éducatives et les projets open source. Veuillez contacter notre équipe de vente pour plus d'informations.",
                   },
                   {
-                    question: "What kind of support do you offer?",
+                    question:
+                      "À quel point mes données sont-elles sécurisées ?",
                     answer:
-                      "Support varies by plan. All plans include email support, with the Professional plan offering priority email support. The Enterprise plan includes 24/7 phone and email support. We also have an extensive knowledge base and community forum available to all users.",
+                      "Nous prenons la sécurité très au sérieux. Toutes les données sont chiffrées en transit et au repos. Nous utilisons des pratiques de sécurité standard de l'industrie et subissons régulièrement des audits de sécurité. Notre plateforme est conforme au RGPD, CCPA et autres réglementations pertinentes.",
+                  },
+                  {
+                    question: "Quel type de support offrez-vous ?",
+                    answer:
+                      "Le support varie selon le plan. Tous les plans incluent le support par email, avec le plan Professionnel offrant un support email prioritaire. Le plan Entreprise inclut un support téléphonique et email 24/7. Nous avons également une base de connaissances étendue et un forum communautaire disponibles pour tous les utilisateurs.",
                   },
                 ].map((faq, i) => (
                   <motion.div
@@ -950,11 +958,12 @@ export default function LandingPage() {
               className="flex flex-col items-center justify-center space-y-6 text-center"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                Ready to Transform Your Workflow?
+                Prêt à transformer votre flux de travail ?
               </h2>
               <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
-                Join thousands of satisfied customers who have streamlined their
-                processes and boosted productivity with our platform.
+                Rejoignez des milliers de clients satisfaits qui ont rationalisé
+                leurs processus et augmenté leur productivité avec notre
+                plateforme.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Button
@@ -962,7 +971,7 @@ export default function LandingPage() {
                   variant="secondary"
                   className="rounded-full h-12 px-8 text-base"
                 >
-                  Start Free Trial
+                  Commencer l'essai gratuit
                   <ArrowRight className="ml-2 size-4" />
                 </Button>
                 <Button
@@ -970,11 +979,12 @@ export default function LandingPage() {
                   variant="outline"
                   className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
                 >
-                  Schedule a Demo
+                  Planifier une démo
                 </Button>
               </div>
               <p className="text-sm text-primary-foreground/80 mt-4">
-                No credit card required. 14-day free trial. Cancel anytime.
+                Aucune carte de crédit requise. Essai gratuit de 14 jours.
+                Annulez à tout moment.
               </p>
             </motion.div>
           </div>
@@ -986,13 +996,19 @@ export default function LandingPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 font-bold">
                 <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-                  S
+                  <Image
+                    src="/logo.png"
+                    alt="ArchiBot"
+                    width={18}
+                    height={18}
+                  />
                 </div>
-                <span>SaaSify</span>
+                <span>ArchiBot</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Streamline your workflow with our all-in-one SaaS platform.
-                Boost productivity and scale your business.
+                Rationalisez votre flux de travail avec notre plateforme SaaS
+                tout-en-un. Augmentez la productivité et développez votre
+                entreprise.
               </p>
               <div className="flex gap-4">
                 <Link
@@ -1060,14 +1076,14 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="space-y-4">
-              <h4 className="text-sm font-bold">Product</h4>
+              <h4 className="text-sm font-bold">Produit</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
                     href="#features"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Features
+                    Fonctionnalités
                   </Link>
                 </li>
                 <li>
@@ -1075,7 +1091,7 @@ export default function LandingPage() {
                     href="#pricing"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Pricing
+                    Tarifs
                   </Link>
                 </li>
                 <li>
@@ -1083,7 +1099,7 @@ export default function LandingPage() {
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Integrations
+                    Intégrations
                   </Link>
                 </li>
                 <li>
@@ -1097,7 +1113,7 @@ export default function LandingPage() {
               </ul>
             </div>
             <div className="space-y-4">
-              <h4 className="text-sm font-bold">Resources</h4>
+              <h4 className="text-sm font-bold">Ressources</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
@@ -1134,14 +1150,14 @@ export default function LandingPage() {
               </ul>
             </div>
             <div className="space-y-4">
-              <h4 className="text-sm font-bold">Company</h4>
+              <h4 className="text-sm font-bold">Entreprise</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    About
+                    À propos
                   </Link>
                 </li>
                 <li>
@@ -1149,7 +1165,7 @@ export default function LandingPage() {
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Careers
+                    Carrières
                   </Link>
                 </li>
                 <li>
@@ -1157,7 +1173,7 @@ export default function LandingPage() {
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Privacy Policy
+                    Politique de confidentialité
                   </Link>
                 </li>
                 <li>
@@ -1165,7 +1181,7 @@ export default function LandingPage() {
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Terms of Service
+                    Conditions d'utilisation
                   </Link>
                 </li>
               </ul>
@@ -1173,26 +1189,26 @@ export default function LandingPage() {
           </div>
           <div className="flex flex-col gap-4 sm:flex-row justify-between items-center border-t border-border/40 pt-8">
             <p className="text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} SaaSify. All rights reserved.
+              &copy; {new Date().getFullYear()} ArchiBot. Tous droits réservés.
             </p>
             <div className="flex gap-4">
               <Link
                 href="#"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Privacy Policy
+                Politique de confidentialité
               </Link>
               <Link
                 href="#"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Terms of Service
+                Conditions d'utilisation
               </Link>
               <Link
                 href="#"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Cookie Policy
+                Politique des cookies
               </Link>
             </div>
           </div>
