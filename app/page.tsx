@@ -810,7 +810,7 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3">
                     {[
                       {
-                        name: "Archibot",
+                        name: "ArchiBot",
                         price: "149€",
                         description:
                           "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
@@ -831,7 +831,7 @@ export default function LandingPage() {
                         cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Archibot Pro",
+                        name: "ArchiBot Pro",
                         price: "249€",
                         description:
                           "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
@@ -853,7 +853,7 @@ export default function LandingPage() {
                         popular: true,
                       },
                       {
-                        name: "Archibot Business",
+                        name: "ArchiBot Business",
                         price: "349€",
                         description:
                           "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",
@@ -942,7 +942,7 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3">
                     {[
                       {
-                        name: "Archibot",
+                        name: "ArchiBot",
                         price: "120€",
                         description:
                           "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
@@ -963,7 +963,7 @@ export default function LandingPage() {
                         cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Archibot Pro",
+                        name: "ArchiBot Pro",
                         price: "200€",
                         description:
                           "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
@@ -985,7 +985,7 @@ export default function LandingPage() {
                         popular: true,
                       },
                       {
-                        name: "Archibot Business",
+                        name: "ArchiBot Business",
                         price: "280€",
                         description:
                           "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",

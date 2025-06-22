@@ -28,7 +28,7 @@ interface DashboardMessage {
 
 export function InteractiveDashboard() {
   // Hardcoded French translations from the provided JSON
-  const dashboardTitle = "Chat Archibot";
+  const dashboardTitle = "Chat ArchiBot";
   const dashboardUsefulAnswer = "Réponse utile";
   const dashboardTabs = {
     onboarding: "Onboarding",
