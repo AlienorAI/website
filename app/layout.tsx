@@ -7,10 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SaaSify - Optimisez votre flux de travail",
+  title: "Archibot - Assistant IA pour vos documents",
   description:
-    "Augmentez votre productivité, réduisez vos coûts et développez votre entreprise avec notre plateforme SaaS tout-en-un.",
-  generator: "v0.dev",
+    "Transformez vos documents en assistant IA intelligent. Posez vos questions, obtenez des réponses précises avec les sources.",
 };
 
 export default function RootLayout({
