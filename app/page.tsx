@@ -131,7 +131,7 @@ export default function LandingPage() {
     {
       title: "Recherche sémantique avancée",
       description:
-        "Notre technologie propriétaire trouve instantanément les informations pertinentes dans vos documents avec une précision inégalée.",
+        "Notre technologie propriétaire trouve instantanément les informations pertinentes avec des résultats ciblés et contextualisés.",
       icon: <BarChart className="size-5" />,
     },
     {
