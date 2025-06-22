@@ -1,5 +1,7 @@
 "use client";
 
+import { Flag } from "@/components/flag";
+import { InteractiveDashboard } from "@/components/interactive-dashboard";
 import {
   Accordion,
   AccordionContent,
@@ -13,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRightIcon,
   BarChart,
   Check,
   ChevronRight,
@@ -40,8 +43,6 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { InteractiveDashboard } from "@/components/interactive-dashboard";
-import { Flag } from "@/components/flag";
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,8 +92,21 @@ export default function LandingPage() {
     },
     {
       title: "IA performante et sécurisée",
-      description:
-        "Propulsé par Mistral AI ou OpenAI via Azure France avec contrat de confidentialité renforcée pour un mix optimal de performance et sécurité.",
+      description: (
+        <>
+          Propulsé par Mistral AI ou OpenAI via Azure France avec contrat{" "}
+          <Link
+            href="https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy?tabs=azure-portal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline group inline-flex gap-0.5"
+          >
+            Zero Data Retention
+            <ArrowUpRightIcon className="size-3.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+          </Link>{" "}
+          pour un mix optimal de performance et sécurité.
+        </>
+      ),
       icon: <ZapIcon className="size-5" />,
     },
     {
@@ -104,9 +118,10 @@ export default function LandingPage() {
             href="https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="text-primary hover:underline group inline-flex gap-0.5"
           >
             SecNumCloud
+            <ArrowUpRightIcon className="size-3.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
           </Link>{" "}
           pour une sécurité totale.
         </>
@@ -479,9 +494,16 @@ export default function LandingPage() {
                         </div>
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">
+
+                          <Link
+                            href="https://openai.com/index/response-to-nyt-data-demands/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex gap-0.5 text-sm group"
+                          >
                             Vos données sont stockées et analysées
-                          </span>
+                            <ArrowUpRightIcon className="size-3.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
                         </div>
                         <div className="flex items-start gap-3">
                           <X className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
@@ -527,7 +549,7 @@ export default function LandingPage() {
                         <div className="flex items-start gap-3">
                           <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">
-                            Vos données ne sont jamais stockées ou analysées
+                            Vos données restent privées et sécurisées
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
