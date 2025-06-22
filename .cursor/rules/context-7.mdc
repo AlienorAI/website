@@ -1,0 +1,6 @@
+---
+description: Context7
+globs: 
+alwaysApply: false
+---
+use context7
