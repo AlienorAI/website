@@ -95,8 +95,20 @@ export default function LandingPage() {
     },
     {
       title: "Hébergement 100% français 🇫🇷",
-      description:
-        "Vos données restent en France avec nos partenaires cloud certifiés SecNumCloud pour une sécurité totale.",
+      description: (
+        <>
+          Vos données restent en France avec nos partenaires cloud certifiés{" "}
+          <Link
+            href="https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            SecNumCloud
+          </Link>{" "}
+          pour une sécurité totale.
+        </>
+      ),
       icon: <Shield className="size-5" />,
     },
     {
