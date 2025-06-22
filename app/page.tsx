@@ -566,11 +566,12 @@ export default function LandingPage() {
                 Comment ça marche
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Processus simple, résultats puissants
+                De vos documents à votre assistant IA en 3 étapes
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Commencez en quelques minutes et voyez la différence que notre
-                plateforme peut apporter.
+                Transformez votre base documentaire en assistant intelligent en
+                moins de 15 minutes. Sécurité garantie, traitement en France,
+                résultats instantanés.
               </p>
             </motion.div>
 
