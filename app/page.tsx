@@ -386,12 +386,13 @@ export default function LandingPage() {
                 Fonctionnalités
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Tout ce dont vous avez besoin pour réussir
+                L'IA conversationnelle pour vos documents d'entreprise
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Notre plateforme complète fournit tous les outils dont vous avez
-                besoin pour rationaliser votre flux de travail, augmenter la
-                productivité et atteindre vos objectifs.
+                Transformez vos documents internes en assistant IA intelligent.
+                Sécurité maximale, hébergement français, et recherche sémantique
+                avancée pour répondre instantanément à toutes vos questions
+                métier.
               </p>
             </motion.div>
 
