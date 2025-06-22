@@ -593,7 +593,7 @@ export default function LandingPage() {
                   icon: Zap,
                   gradientColor: "from-green-500 to-green-600",
                   dotColor: "bg-green-400",
-                  features: ["Analyse sémantique", "Indexation intelligente"],
+                  features: ["Indexation intelligente", "Analyse sémantique"],
                 },
                 {
                   step: "03",
