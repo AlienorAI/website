@@ -296,7 +296,7 @@ export default function LandingPage() {
                 Le chatbot IA ultra-performant pour tous vos documents internes.
                 Sécurité avancée, hébergement 100% en{" "}
                 <Image
-                  className="inline mr-1 mb-1"
+                  className="inline mr-1.5 mb-1"
                   priority
                   src="/rooster.png"
                   alt="Emoji de coq"
