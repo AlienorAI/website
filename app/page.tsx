@@ -41,6 +41,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { InteractiveDashboard } from "@/components/interactive-dashboard";
+import { Flag } from "@/components/flag";
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -95,7 +96,7 @@ export default function LandingPage() {
       icon: <ZapIcon className="size-5" />,
     },
     {
-      title: "Hébergement 100% français 🇫🇷",
+      title: "Hébergement 100% français",
       description: (
         <>
           Vos données restent en France avec nos partenaires cloud certifiés{" "}
@@ -517,8 +518,9 @@ export default function LandingPage() {
                         </div>
                         <div className="flex items-start gap-3">
                           <Check className="size-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm">
-                            Hébergement en France 🇫🇷
+                          <span className="text-sm inline-flex items-center gap-1">
+                            Hébergement en France{" "}
+                            <Flag country="france" width={19} height={14} />
                           </span>
                         </div>
                         <div className="flex items-start gap-3">
@@ -787,8 +789,8 @@ export default function LandingPage() {
                 Tarification simple et transparente
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Choisissez le plan qui convient à votre entreprise. Tous les
-                plans incluent un essai gratuit de 14 jours.
+                Choisissez le plan qui convient à votre entreprise. Essai
+                gratuit de 14 jours.
               </p>
             </motion.div>
 
@@ -815,7 +817,14 @@ export default function LandingPage() {
                         features: [
                           "10 documents actifs",
                           "1000 messages mensuels",
-                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              <Flag country="us" width={16} height={12} />
+                              OpenAI (Azure France) ou{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                         ],
@@ -829,7 +838,14 @@ export default function LandingPage() {
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
-                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              <Flag country="us" width={16} height={12} />
+                              OpenAI (Azure France) ou{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                         ],
@@ -844,7 +860,13 @@ export default function LandingPage() {
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
-                          "Déploiement privé de 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              Déploiement privé de{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                           "Aucun appel API externe",
@@ -927,7 +949,14 @@ export default function LandingPage() {
                         features: [
                           "10 documents actifs",
                           "1000 messages mensuels",
-                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              <Flag country="us" width={16} height={12} />
+                              OpenAI (Azure France) ou{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                         ],
@@ -941,7 +970,14 @@ export default function LandingPage() {
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
-                          "🇺🇸OpenAI (Azure France) ou 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              <Flag country="us" width={16} height={12} />
+                              OpenAI (Azure France) ou{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                         ],
@@ -956,7 +992,13 @@ export default function LandingPage() {
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
-                          "Déploiement privé de 🇫🇷Mistral",
+                          <>
+                            <span className="inline-flex items-center gap-1">
+                              Déploiement privé de{" "}
+                              <Flag country="france" width={16} height={12} />
+                              Mistral
+                            </span>
+                          </>,
                           "Hébergement 100% en France",
                           "Aucune donnée réutilisée",
                           "Aucun appel API externe",
