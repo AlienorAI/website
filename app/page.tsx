@@ -1171,13 +1171,13 @@ export default function LandingPage() {
                   {
                     question: "Existe-t-il une solution sans appel API ?",
                     answer:
-                      'Oui.\n\nEn plus de notre offre standard, nous proposons une offre "Secure" qui exécute un modèle IA (Mistral) sur un serveur GPU dédié en France, sans aucun appel à une API externe.\n\nCette option est idéale pour les entreprises des secteurs sensibles ou fortement régulés, et garantit un niveau de confidentialité maximal.',
+                      "Oui.\n\nNotre offre Business exécute Mistral AI sur un serveur GPU dédié en France, sans aucun appel à l'API externe.\n\nCette option est idéale pour les entreprises des secteurs sensibles ou fortement régulés, et garantit un niveau de confidentialité maximal.",
                   },
                   {
                     question:
                       "Quels modèles sont utilisés pour répondre aux questions ?",
                     answer:
-                      'Deux options sont disponibles selon vos besoins :\n\n- OpenAI via Azure France : les données ne sont pas utilisées pour entraîner les modèles, et restent sur le territoire européen.\n\n- Mistral AI, un modèle français performant, exécuté soit via API (France), soit en local sur GPU (option "Secure").',
+                      "Deux options sont disponibles selon vos besoins :\n\n- OpenAI via Azure France : les données ne sont pas utilisées pour entraîner les modèles, et restent sur le territoire européen.\n\n- Mistral AI, un modèle français performant, exécuté soit via API (Azure France), soit en local sur GPU (offre Business).",
                   },
                   {
                     question: "La solution est-elle conforme au RGPD ?",
