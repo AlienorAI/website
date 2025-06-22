@@ -252,15 +252,15 @@ export function InteractiveDashboard() {
           </span>
         </div>
 
-        <Tabs defaultValue="conversation1" className="w-full">
-          <TabsList className="w-full bg-muted/50">
-            <TabsTrigger className="w-full" value="conversation1">
+        <Tabs defaultValue="conversation1" className="w-full px-3 sm:px-8">
+          <TabsList className="w-full bg-muted/50 rounded-full">
+            <TabsTrigger className="w-full rounded-full" value="conversation1">
               <div className="flex items-center gap-1.5">
                 <tab1Info.icon className="h-4 w-4" />
                 <span className="text-xs sm:text-sm">{tab1Info.title}</span>
               </div>
             </TabsTrigger>
-            <TabsTrigger className="w-full" value="conversation2">
+            <TabsTrigger className="w-full rounded-full" value="conversation2">
               <div className="flex items-center gap-1.5">
                 <tab2Info.icon className="h-4 w-4" />
                 <span className="text-xs sm:text-sm">{tab2Info.title}</span>
