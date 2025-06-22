@@ -17,10 +17,12 @@ import {
   Check,
   ChevronRight,
   CreditCardIcon,
+  FileText,
   HeartIcon,
   InfoIcon,
   Layers,
   Menu,
+  MessageSquare,
   Moon,
   Shield,
   ShieldCheckIcon,
@@ -37,6 +39,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { InteractiveDashboard } from "@/components/interactive-dashboard";
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -172,8 +175,8 @@ export default function LandingPage() {
               <span className="sr-only">Basculer le thème</span>
             </Button>
             <Button className="rounded-full">
-              Commencer
-              <ChevronRight className="ml-1 size-4" />
+              Essayez
+              <ChevronRight className="size-4" />
             </Button>
           </div>
           <div className="flex items-center gap-4 md:hidden">
@@ -308,17 +311,7 @@ export default function LandingPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative mx-auto max-w-5xl"
             >
-              <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
-                <Image
-                  src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
-                  width={1280}
-                  height={720}
-                  alt="Tableau de bord ArchiBot"
-                  className="w-full h-auto"
-                  priority
-                />
-                <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
-              </div>
+              <InteractiveDashboard />
               <div className="absolute -bottom-6 -right-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl opacity-70"></div>
               <div className="absolute -top-6 -left-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-secondary/30 to-primary/30 blur-3xl opacity-70"></div>
             </motion.div>
@@ -435,21 +428,42 @@ export default function LandingPage() {
               {[
                 {
                   step: "01",
-                  title: "Créer un compte",
+                  title: "Ajoutez vos documents",
                   description:
-                    "Inscrivez-vous en quelques secondes avec juste votre email. Aucune carte de crédit requise pour commencer.",
+                    "Téléchargez vos documents et laissez notre IA les analyser pour créer une base de connaissances.",
+                  timeColor: "bg-blue-100 text-blue-800",
+                  time: "5-10 minutes",
+                  icon: FileText,
+                  gradientColor: "from-blue-500 to-blue-600",
+                  dotColor: "bg-blue-400",
+                  features: [
+                    "Reconnaissance haute performance",
+                    "Traitement en France",
+                  ],
                 },
                 {
                   step: "02",
-                  title: "Configurer l'espace de travail",
+                  title: "Entraînement IA",
                   description:
-                    "Personnalisez votre espace de travail pour correspondre au flux de travail unique de votre équipe et aux exigences.",
+                    "Notre intelligence artificielle traite et indexe vos documents pour une recherche optimale.",
+                  timeColor: "bg-green-100 text-green-800",
+                  time: "3-5 minutes",
+                  icon: Zap,
+                  gradientColor: "from-green-500 to-green-600",
+                  dotColor: "bg-green-400",
+                  features: ["Analyse sémantique", "Indexation intelligente"],
                 },
                 {
                   step: "03",
-                  title: "Augmenter la productivité",
+                  title: "Discutez avec votre assistant",
                   description:
-                    "Commencez à utiliser nos fonctionnalités puissantes pour rationaliser les processus et atteindre vos objectifs.",
+                    "Posez vos questions et obtenez des réponses précises avec les sources de vos documents.",
+                  timeColor: "bg-purple-100 text-purple-800",
+                  time: "Instantané",
+                  icon: MessageSquare,
+                  gradientColor: "from-purple-500 to-purple-500",
+                  dotColor: "bg-purple-400",
+                  features: ["Réponses avec sources", "Interface intuitive"],
                 },
               ].map((step, i) => (
                 <motion.div
@@ -460,23 +474,30 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="relative z-10 flex flex-col items-center text-center space-y-4"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground text-xl font-bold shadow-lg">
-                    {/* {step.step} */}
-                    <ZapIcon className="size-7" />
+                  <div
+                    className={`flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${step.gradientColor} text-white text-xl font-bold shadow-lg`}
+                  >
+                    <step.icon className="size-7" />
                   </div>
-                  <div className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">
-                    5-10 minutes
+                  <div
+                    className={`${step.timeColor} text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4`}
+                  >
+                    {step.time}
                   </div>
                   <h3 className="text-xl font-bold">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   <div className="text-sm text-gray-500">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                      <span>Analyse sémantique</span>
+                      <span
+                        className={`w-2 h-2 ${step.dotColor} rounded-full`}
+                      ></span>
+                      <span>{step.features[0]}</span>
                     </div>
                     <div className="flex items-center justify-center space-x-2">
-                      <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                      <span>Indexation intelligente</span>
+                      <span
+                        className={`w-2 h-2 ${step.dotColor} rounded-full`}
+                      ></span>
+                      <span>{step.features[1]}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -647,8 +668,8 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
                     {[
                       {
-                        name: "Débutant",
-                        price: "29€",
+                        name: "Archibot",
+                        price: "149€",
                         description:
                           "Parfait pour les petites équipes et les startups.",
                         features: [
@@ -660,8 +681,8 @@ export default function LandingPage() {
                         cta: "Commencer l'essai gratuit",
                       },
                       {
-                        name: "Professionnel",
-                        price: "79€",
+                        name: "Archibot Pro",
+                        price: "249€",
                         description:
                           "Idéal pour les entreprises en croissance.",
                         features: [
@@ -675,10 +696,10 @@ export default function LandingPage() {
                         popular: true,
                       },
                       {
-                        name: "Entreprise",
-                        price: "199€",
+                        name: "Archibot Business",
+                        price: "349€",
                         description:
-                          "Pour les grandes organisations avec des besoins complexes.",
+                          "Pour pour les environnements réglementés et ultra-sensibles.",
                         features: [
                           "Membres d'équipe illimités",
                           "Analyses personnalisées",
@@ -872,7 +893,8 @@ export default function LandingPage() {
                 FAQ
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Questions fréquemment posées
+                Toutes les réponses à vos questions sur la sécurité et la
+                confidentialité de vos données
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
                 Trouvez des réponses aux questions courantes sur notre
@@ -884,38 +906,48 @@ export default function LandingPage() {
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
-                    question:
-                      "Comment fonctionne l'essai gratuit de 14 jours ?",
+                    question: "Où sont hébergées mes données ?",
                     answer:
-                      "Notre essai gratuit de 14 jours vous donne un accès complet à toutes les fonctionnalités de votre plan sélectionné. Aucune carte de crédit n'est requise pour s'inscrire, et vous pouvez annuler à tout moment pendant la période d'essai sans obligation.",
-                  },
-                  {
-                    question: "Puis-je changer de plan plus tard ?",
-                    answer:
-                      "Oui, vous pouvez mettre à niveau ou rétrograder votre plan à tout moment. Si vous mettez à niveau, le nouveau prix sera calculé au prorata pour le reste de votre cycle de facturation. Si vous rétrogradez, le nouveau prix prendra effet au début de votre prochain cycle de facturation.",
+                      "Toutes vos données, fichiers PDF, contenus extraits, base vectorielle, base de données, cache, sont hébergées exclusivement en France, dans des centres de données localisés à Paris.\n\nL'infrastructure est conforme au RGPD, et aucune donnée ne transite en dehors de l'Union Européenne.\n\nL'ensemble du traitement est effectué sur des serveurs privés, sécurisés, et 100% français.",
                   },
                   {
                     question:
-                      "Y a-t-il une limite au nombre d'utilisateurs que je peux ajouter ?",
+                      "Mes données sont-elles utilisées pour entraîner une intelligence artificielle ?",
                     answer:
-                      "Le nombre d'utilisateurs dépend de votre plan. Le plan Débutant permet jusqu'à 5 membres d'équipe, le plan Professionnel permet jusqu'à 20, et le plan Entreprise n'a pas de limite sur le nombre de membres d'équipe.",
+                      "Non. Vos données ne sont jamais utilisées pour entraîner ou améliorer un modèle d'IA, que ce soit en interne ou par un fournisseur tiers.\n\nLes modèles utilisés dans notre solution (Mistral ou OpenAI) sont configurés pour ne conserver aucune trace des échanges et ne pas exploiter les données transmises.",
                   },
                   {
                     question:
-                      "Offrez-vous des réductions pour les organisations à but non lucratif ou les institutions éducatives ?",
+                      "Le modèle d'intelligence artificielle peut-il voir l'intégralité de mes documents ?",
                     answer:
-                      "Oui, nous offrons des tarifs spéciaux pour les organisations à but non lucratif, les institutions éducatives et les projets open source. Veuillez contacter notre équipe de vente pour plus d'informations.",
+                      "Non. Lorsqu'un utilisateur pose une question, seule une sélection ciblée de passages pertinents est transmise au modèle pour générer une réponse.\n\nCela limite fortement l'exposition de vos documents, tout en garantissant la pertinence des réponses.",
+                  },
+                  {
+                    question: "Qui a accès à mes documents ?",
+                    answer:
+                      "Seuls les utilisateurs de votre entreprise autorisés via une authentification sécurisée ont accès à l'interface et aux documents.\n\nAucun tiers, aucun prestataire technique, ni même notre équipe, n'accède aux contenus sans votre accord explicite.",
                   },
                   {
                     question:
-                      "À quel point mes données sont-elles sécurisées ?",
+                      "Peut-on supprimer toutes les données si on arrête ?",
                     answer:
-                      "Nous prenons la sécurité très au sérieux. Toutes les données sont chiffrées en transit et au repos. Nous utilisons des pratiques de sécurité standard de l'industrie et subissons régulièrement des audits de sécurité. Notre plateforme est conforme au RGPD, CCPA et autres réglementations pertinentes.",
+                      "Oui. Vous pouvez supprimer l'ensemble de vos données à tout moment : documents, textes extraits, index vectoriels, historiques de recherche, etc.\n\nUne procédure complète d'effacement est disponible sur demande, avec confirmation écrite.",
                   },
                   {
-                    question: "Quel type de support offrez-vous ?",
+                    question: "Existe-t-il une solution sans appel API ?",
                     answer:
-                      "Le support varie selon le plan. Tous les plans incluent le support par email, avec le plan Professionnel offrant un support email prioritaire. Le plan Entreprise inclut un support téléphonique et email 24/7. Nous avons également une base de connaissances étendue et un forum communautaire disponibles pour tous les utilisateurs.",
+                      'Oui.\n\nEn plus de notre offre standard, nous proposons une offre "Secure" qui exécute un modèle IA (Mistral) sur un serveur GPU dédié en France, sans aucun appel à une API externe.\n\nCette option est idéale pour les entreprises des secteurs sensibles ou fortement régulés, et garantit un niveau de confidentialité maximal.',
+                  },
+                  {
+                    question:
+                      "Quels modèles sont utilisés pour répondre aux questions ?",
+                    answer:
+                      'Deux options sont disponibles selon vos besoins :\n\n- OpenAI via Azure France : les données ne sont pas utilisées pour entraîner les modèles, et restent sur le territoire européen.\n\n- Mistral, un modèle français performant, exécuté soit via API (France), soit en local sur GPU (option "Secure").',
+                  },
+                  {
+                    question: "La solution est-elle conforme au RGPD ?",
+                    answer:
+                      "Oui. La solution est conçue pour être 100% conforme au RGPD :\n\n- Hébergement en France\n- Aucune utilisation des données à des fins commerciales ou d'entraînement\n- Droit à l'effacement\n- Pas de profilage utilisateur\n- Journalisation et supervision sur demande",
                   },
                 ].map((faq, i) => (
                   <motion.div
@@ -977,7 +1009,7 @@ export default function LandingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10"
+                  className="rounded-full h-12 px-8 text-base bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
                 >
                   Planifier une démo
                 </Button>
