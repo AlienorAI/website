@@ -195,7 +195,7 @@ export default function LandingPage() {
               <span className="sr-only">Basculer le thème</span>
             </Button>
             <Button className="rounded-full">
-              Essayez
+              Essayez maintenant
               <ChevronRight className="size-4" />
             </Button>
           </div>
@@ -294,7 +294,16 @@ export default function LandingPage() {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Le chatbot IA ultra-performant pour tous vos documents internes.
-                Sécurité avancée, hébergement 100% en France.
+                Sécurité avancée, hébergement 100% en{" "}
+                <Image
+                  className="inline mr-1 mb-1"
+                  priority
+                  src="/rooster.png"
+                  alt="Emoji de coq"
+                  width={27}
+                  height={27}
+                />
+                France.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="rounded-full h-12 px-8 text-base">
