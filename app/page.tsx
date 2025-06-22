@@ -143,7 +143,7 @@ export default function LandingPage() {
     {
       title: "Infrastructure dédiée disponible",
       description:
-        "Déploiement privé de Mistral sur GPU, sans dépendance à l'API pour les environnements ultra-sensibles.",
+        "Déploiement privé de Mistral AI sur GPU, sans dépendance à l'API pour les environnements ultra-sensibles.",
       icon: <Layers className="size-5" />,
     },
   ];
@@ -849,7 +849,7 @@ export default function LandingPage() {
                         name: "ArchiBot",
                         price: "149€",
                         description:
-                          "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
+                          "Idéal pour les entrepreneurs qui souhaitent intégrer l'IA à leur quotidien professionnel.",
                         features: [
                           "10 documents actifs",
                           "1000 messages mensuels",
@@ -858,7 +858,7 @@ export default function LandingPage() {
                               <Flag country="us" width={16} height={12} />
                               OpenAI (Azure France) ou{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -879,7 +879,7 @@ export default function LandingPage() {
                               <Flag country="us" width={16} height={12} />
                               OpenAI (Azure France) ou{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -892,7 +892,7 @@ export default function LandingPage() {
                         name: "ArchiBot Business",
                         price: "349€",
                         description:
-                          "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",
+                          "Spécialement développé pour les secteurs sensibles avec une infrastructure dédiée.",
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
@@ -900,7 +900,7 @@ export default function LandingPage() {
                             <span className="inline-flex items-center gap-1">
                               Déploiement privé de{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -981,7 +981,7 @@ export default function LandingPage() {
                         name: "ArchiBot",
                         price: "120€",
                         description:
-                          "Idéal pour les entrepreneurs qui veulent intégrer l'IA dans leurs documents internes.",
+                          "Idéal pour les entrepreneurs qui souhaitent intégrer l'IA à leur quotidien professionnel.",
                         features: [
                           "10 documents actifs",
                           "1000 messages mensuels",
@@ -990,7 +990,7 @@ export default function LandingPage() {
                               <Flag country="us" width={16} height={12} />
                               OpenAI (Azure France) ou{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -1011,7 +1011,7 @@ export default function LandingPage() {
                               <Flag country="us" width={16} height={12} />
                               OpenAI (Azure France) ou{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -1024,7 +1024,7 @@ export default function LandingPage() {
                         name: "ArchiBot Business",
                         price: "280€",
                         description:
-                          "Spécialement conçu pour les secteurs sensibles avec une infrastructure dédiée.",
+                          "Spécialement développé pour les secteurs sensibles avec une infrastructure dédiée.",
                         features: [
                           "Documents illimités*",
                           "Messages illimités*",
@@ -1032,7 +1032,7 @@ export default function LandingPage() {
                             <span className="inline-flex items-center gap-1">
                               Déploiement privé de{" "}
                               <Flag country="france" width={16} height={12} />
-                              Mistral
+                              Mistral AI
                             </span>
                           </>,
                           "Hébergement 100% en France",
@@ -1149,7 +1149,7 @@ export default function LandingPage() {
                     question:
                       "Mes données sont-elles utilisées pour entraîner une intelligence artificielle ?",
                     answer:
-                      "Non. Vos données ne sont jamais utilisées pour entraîner ou améliorer un modèle d'IA, que ce soit en interne ou par un fournisseur tiers.\n\nLes modèles utilisés dans notre solution (Mistral ou OpenAI) sont configurés pour ne conserver aucune trace des échanges et ne pas exploiter les données transmises.",
+                      "Non. Vos données ne sont jamais utilisées pour entraîner ou améliorer un modèle d'IA, que ce soit en interne ou par un fournisseur tiers.\n\nLes modèles utilisés dans notre solution (Mistral AI ou OpenAI) sont configurés pour ne conserver aucune trace des échanges et ne pas exploiter les données transmises.",
                   },
                   {
                     question:
@@ -1177,7 +1177,7 @@ export default function LandingPage() {
                     question:
                       "Quels modèles sont utilisés pour répondre aux questions ?",
                     answer:
-                      'Deux options sont disponibles selon vos besoins :\n\n- OpenAI via Azure France : les données ne sont pas utilisées pour entraîner les modèles, et restent sur le territoire européen.\n\n- Mistral, un modèle français performant, exécuté soit via API (France), soit en local sur GPU (option "Secure").',
+                      'Deux options sont disponibles selon vos besoins :\n\n- OpenAI via Azure France : les données ne sont pas utilisées pour entraîner les modèles, et restent sur le territoire européen.\n\n- Mistral AI, un modèle français performant, exécuté soit via API (France), soit en local sur GPU (option "Secure").',
                   },
                   {
                     question: "La solution est-elle conforme au RGPD ?",
