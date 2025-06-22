@@ -1020,8 +1020,7 @@ export default function LandingPage() {
                 FAQ
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Toutes les réponses à vos questions sur la sécurité et la
-                confidentialité de vos données
+                Questions fréquentes
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
                 Trouvez des réponses aux questions courantes sur notre
