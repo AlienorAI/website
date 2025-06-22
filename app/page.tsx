@@ -89,9 +89,9 @@ export default function LandingPage() {
       icon: <FileText className="size-5" />,
     },
     {
-      title: "IA performante",
+      title: "IA performante et sécurisée",
       description:
-        "Propulsé par Mistral AI ou OpenAI via Azure France pour une performance optimale et une confidentialité maximale.",
+        "Propulsé par Mistral AI ou OpenAI via Azure France avec contrat de confidentialité renforcée pour un mix optimal de performance et sécurité.",
       icon: <ZapIcon className="size-5" />,
     },
     {
@@ -121,7 +121,7 @@ export default function LandingPage() {
     {
       title: "Collaboration d'équipe",
       description:
-        "Vos employés peuvent partager leurs conversations utiles avec l'équipe pour booster la productivité collective.",
+        "Partagez les réponses utiles avec votre équipe pour traiter les sujets plus rapidement et faire avancer vos projets.",
       icon: <Users className="size-5" />,
     },
     {
