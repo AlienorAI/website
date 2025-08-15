@@ -105,7 +105,6 @@ function TestimonialCard({
       {...props}
       className="relative flex  w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl  sm:w-96 h-fit"
     >
-
       <div
         aria-hidden="true"
         className="absolute inset-0 rounded-2xl bg-gradient-to-b from-sky-700 to-sky-900"

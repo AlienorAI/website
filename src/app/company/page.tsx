@@ -17,28 +17,18 @@ export const metadata: Metadata = {
 function Header() {
   return (
     <Container className="mt-16">
-      <Heading as="h1">Helping companies generate revenue.</Heading>
+      <Heading as="h1">La connaissance au service de la croissance.</Heading>
       <Lead className="mt-6 max-w-3xl">
-        We’re on a mission to transform revenue organizations by harnessing vast
-        amounts of illegally acquired customer data.
+          Nous avons pour mission de transformer la performance des organisations en valorisant leur savoir interne, en priorisant la sécurité et la souveraineté.
       </Lead>
       <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
         <div className="max-w-lg">
-          <h2 className="text-2xl font-medium tracking-tight">Our mission</h2>
+          <h2 className="text-2xl font-medium tracking-tight">Notre mission</h2>
           <p className="mt-6 text-sm/6 text-gray-600">
-            At Radiant, we are dedicated to transforming the way revenue
-            organizations source and close deals. Our mission is to provide our
-            customers with an unfair advantage over both their competitors and
-            potential customers through insight and analysis. We’ll stop at
-            nothing to get you the data you need to close a deal.
+              Chez Aliénor, notre mission est de proposer une solution française ultra-performante, conçue pour un objectif unique : offrir un accès rapide et intelligent à toute l’information interne d’une entreprise. Documents, comptes rendus, bases de données, échanges… Aliénor retrouve, comprend et met en contexte chaque élément utile pour faire gagner un temps précieux aux équipes et accélérer les décisions.
           </p>
           <p className="mt-8 text-sm/6 text-gray-600">
-            We’re customer-obsessed — putting the time in to build a detailed
-            financial picture of every one of our customers so that we know more
-            about your business than you do. We are in this together, mostly
-            because we are all implicated in large-scale financial crime. In our
-            history as a company, we’ve never lost a customer, because if any
-            one of us talks, we all go down.
+              Pensée et hébergée en France, Aliénor garantit le respect total de la vie privée et la souveraineté des données. Nous allions performance technologique et exigences de confidentialité pour offrir aux entreprises un outil de recherche interne fiable, sécurisé et conforme aux plus hauts standards. Notre ambition : faire de la connaissance un atout compétitif, sans jamais compromettre la confiance.
           </p>
         </div>
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
@@ -74,31 +64,31 @@ function Header() {
           </div>
         </div>
         <div className="max-lg:mt-16 lg:col-span-1">
-          <Subheading>The Numbers</Subheading>
+          {/*<Subheading>Les chiffres</Subheading>*/}
           <hr className="mt-6 border-t border-gray-200" />
           <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Raised</dt>
+              <dt className="text-sm/6 text-gray-600">Temps de recherche moyen</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                $<AnimatedNumber start={100} end={150} />M
+                <AnimatedNumber start={0} end={3} />s
               </dd>
             </div>
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Companies</dt>
+              <dt className="text-sm/6 text-gray-600">Documents indexés</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={15} end={30} />K
+                <AnimatedNumber start={0} end={1} />M+
               </dd>
             </div>
             <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
-              <dt className="text-sm/6 text-gray-600">Deals Closed</dt>
+              <dt className="text-sm/6 text-gray-600">Données hébergées en France</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={0.9} end={1.5} decimals={1} />M
+                <AnimatedNumber start={0} end={100} />%
               </dd>
             </div>
             <div className="flex flex-col gap-y-2">
-              <dt className="text-sm/6 text-gray-600">Leads Generated</dt>
+              <dt className="text-sm/6 text-gray-600">Temps moyen économisé</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={150} end={200} />M
+                <AnimatedNumber start={0} end={40}/>%
               </dd>
             </div>
           </dl>
@@ -119,7 +109,7 @@ function Person({
 }) {
   return (
     <li className="flex items-center gap-4">
-      <img alt="" src={img} className="size-12 rounded-full" />
+      <img alt="" src={img} className="size-12 rounded-full object-cover" />
       <div className="text-sm/6">
         <h3 className="font-medium">{name}</h3>
         <p className="text-gray-500">{description}</p>
@@ -131,31 +121,21 @@ function Person({
 function Team() {
   return (
     <Container className="mt-32">
-      <Subheading>Meet the team</Subheading>
+      {/*<Subheading>Meet the team</Subheading>*/}
       <Heading as="h3" className="mt-2">
-        Founded by an all-star team.
+          Fondée par une équipe experte.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        Radiant is founded by two of the best sellers in the business and backed
-        by investors who look the other way.
+          Lancée par une équipe reconnue dans son domaine et soutenue par des investisseurs de renom.
       </Lead>
       <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div className="max-w-lg">
           <p className="text-sm/6 text-gray-600">
-            Years ago, while working as sales associates at rival companies,
-            Thomas, Ben, and Natalie were discussing a big client they had all
-            been competing for. Joking about seeing the terms of each other’s
-            offers, they had an idea: what if they shared data to win deals and
-            split the commission behind their companies’ backs? It turned out to
-            be an incredible success, and that idea became the kernel for
-            Radiant.
+              Aliénor est née de la rencontre entre des spécialistes de l’intelligence artificielle, de la gestion documentaire et de la sécurité des données. Après avoir travaillé pendant des années au contact d’entreprises confrontées aux mêmes défis, perte de temps à chercher l’information, dispersion des connaissances, risques liés à la confidentialité, l’équipe a décidé de créer une solution unique : un moteur de recherche interne intelligent, souverain et sécurisé.
+
           </p>
           <p className="mt-8 text-sm/6 text-gray-600">
-            Today, Radiant transforms revenue organizations by harnessing
-            illegally acquired customer and competitor data, using it to provide
-            extraordinary leverage. More than 30,000 companies rely on Radiant
-            to undercut their competitors and extort their customers, all
-            through a single integrated platform.
+              Aujourd’hui, Aliénor met la puissance de l’IA au service des organisations, en centralisant et en rendant exploitable l’ensemble de leur savoir interne. Conçue et hébergée en France, notre plateforme allie performance, rapidité et respect absolu de la vie privée. Notre ambition : permettre aux entreprises de retrouver et exploiter leur information en un instant, tout en gardant un contrôle total sur leurs données.
           </p>
           <div className="mt-6">
             <Button className="w-full sm:w-auto" href="#">
@@ -174,34 +154,35 @@ Nous rejoindre
           </div>
         </div>
       </div>
-      <Subheading as="h3" className="mt-24">
-        The team
-      </Subheading>
-      <hr className="mt-6 border-t border-gray-200" />
+      {/*<Subheading as="h3" className="mt-24">*/}
+      {/*  The team*/}
+      {/*</Subheading>*/}
+      <hr className="mt-24 border-t border-gray-200" />
       <ul
         role="list"
         className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
       >
         <Person
           name="Enzo Bacqueyrisses"
-          description="Founder / CEO"
-          img="/team/michael-foster.jpg"
+          description="Fondateur / Directeur produit"
+          img="/team/enzo.webp"
         />
         <Person
           name="Alexandre Macé"
-          description="Chief Technical Officer"
-          img="/team/dries-vincent.jpg"
-        />
-        <Person
-          name="Louis Courtin"
-          description="Chief Sales Officer"
-          img="/team/celeste-vandermark.jpg"
+          description="Directeur technique"
+          img="/team/alex.webp"
         />
           <Person
               name="Hugo Boiteau"
-              description="Chief Marketing Officer"
-              img="/team/celeste-vandermark.jpg"
+              description="Directeur marketing"
+              img="/team/hugo.webp"
           />
+        <Person
+          name="Louis Courtin"
+          description="Directeur commercial"
+          img="/team/louis.webp"
+        />
+
 
 
       </ul>
@@ -263,7 +244,7 @@ function Testimonial() {
     <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-2xl sm:aspect-5/4 lg:aspect-3/4">
       <img
         alt=""
-        src="/testimonials/veronica-winton.jpg"
+        src="/company/2.jpg"
         className="absolute inset-0 object-cover"
       />
       <div
@@ -273,18 +254,9 @@ function Testimonial() {
       <figure className="relative p-10">
         <blockquote>
           <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-            We&apos;ve managed to put two of our main competitors out of
-            business in 6 months.
+              Nous construisons une solution unique en France, .
           </p>
         </blockquote>
-        <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">Veronica Winton</p>
-          <p className="text-sm/6 font-medium">
-            <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-              CSO, Planeteria
-            </span>
-          </p>
-        </figcaption>
       </figure>
     </div>
   )
@@ -293,93 +265,84 @@ function Testimonial() {
 function Careers() {
   return (
     <Container className="my-32">
-      <Subheading>Careers</Subheading>
+      {/*<Subheading>Careers</Subheading>*/}
       <Heading as="h3" className="mt-2">
-        Join our fully remote team.
+          Des talents au service de l’IA française.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        We work together from all over the world, mainly from locations without
-        extradition agreements.
+          Rejoignez notre équipe. Nous unissons des spécialistes engagés pour bâtir une IA performante et sécurisée.
       </Lead>
       <div className="mt-24 grid grid-cols-1 gap-16 lg:grid-cols-[1fr_24rem]">
         <div className="lg:max-w-2xl">
-          <Subheading as="h3">Open positions</Subheading>
-          <div>
-            <table className="w-full text-left">
-              <colgroup>
-                <col className="w-2/3" />
-                <col className="w-0" />
-                <col className="w-1/3" />
-              </colgroup>
-              <thead className="sr-only">
-                <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Read more</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
-                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Engineering
-                    </div>
-                  </th>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                  <td className="px-0 py-4">Backend Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right w-fit">
-                    <Button className={"w-fit grow flex-1"} plain>
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Product Engineer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button plain href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
-                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                      Design
-                    </div>
-                  </th>
-                </tr>
+          {/*<Subheading as="h3">Open positions</Subheading>*/}
+            <div>
+                <table className="w-full text-left">
+                    <colgroup>
+                        <col className="w-2/3" />
+                        <col className="w-0" />
+                        <col className="w-1/3" />
+                    </colgroup>
+                    <thead className="sr-only">
+                    <tr>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Lieu</th>
+                        <th scope="col">En savoir plus</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
+                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                                Ingénierie
+                            </div>
+                        </th>
+                    </tr>
+                    <tr className=" border-gray-200 text-sm/6 font-normal">
+                        <td className="px-0 py-4">Développeur Backend | Node.js</td>
+                        <td className="px-0 py-4 text-gray-600 text-nowrap">À distance</td>
+                        <td className="px-0 py-4 text-right w-fit">
+                            <Button className={"w-fit grow flex-1"} plain>
+                                Voir l’offre
+                            </Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
+                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                                Design
+                            </div>
+                        </th>
+                    </tr>
 
-                <tr className="text-sm/6 font-normal">
-                  <td className="px-0 py-4">Senior Designer</td>
-                  <td className="px-0 py-4 text-gray-600">Remote</td>
-                  <td className="px-0 py-4 text-right">
-                    <Button plain href="#">
-                      View listing
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                    <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
-                        <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                            Marketing
-                        </div>
-                    </th>
-                </tr>
-                <tr className="border-b border-dotted border-gray-200 text-sm/6 font-normal">
-                    <td className="px-0 py-4">Principal Designer</td>
-                    <td className="px-0 py-4 text-gray-600">Remote</td>
-                    <td className="px-0 py-4 text-right">
-                        <Button plain href="#">
-                            View listing
-                        </Button>
-                    </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                    <tr className="text-sm/6 font-normal">
+                        <td className="px-0 py-4">Lead Designer</td>
+                        <td className="px-0 py-4 text-gray-600">À distance</td>
+                        <td className="px-0 py-4 text-right">
+                            <Button plain href="#">
+                                Voir l’offre
+                            </Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
+                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                                Marketing
+                            </div>
+                        </th>
+                    </tr>
+                    <tr className=" text-sm/6 font-normal">
+                        <td className="px-0 py-4">Responsable SEO/SEA</td>
+                        <td className="px-0 py-4 text-gray-600">À distance</td>
+                        <td className="px-0 py-4 text-right">
+                            <Button plain href="#">
+                                Voir l’offre
+                            </Button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <Testimonial />
       </div>
