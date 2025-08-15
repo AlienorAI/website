@@ -1,63 +1,50 @@
 'use client'
 
 import * as Headless from '@headlessui/react'
-import { ArrowLongRightIcon } from '@heroicons/react/20/solid'
-import { clsx } from 'clsx'
-import {
-  MotionValue,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  type HTMLMotionProps,
-} from 'framer-motion'
-import { useCallback, useLayoutEffect, useRef, useState } from 'react'
-import useMeasure, { type RectReadOnly } from 'react-use-measure'
-import { Container } from './container'
-import { Link } from './link'
-import { Heading, Subheading } from './text'
+import {ArrowLongRightIcon} from '@heroicons/react/20/solid'
+import {clsx} from 'clsx'
+import {type HTMLMotionProps, motion, MotionValue, useMotionValueEvent, useScroll, useSpring,} from 'framer-motion'
+import {useCallback, useLayoutEffect, useRef, useState} from 'react'
+import useMeasure, {type RectReadOnly} from 'react-use-measure'
+import {Container} from './container'
+import {Link} from './link'
+import {Heading} from './text'
 
 const testimonials = [
   {
-    img: '/testimonials/tina-yards.jpg',
-    name: 'Tina Yards',
-    title: 'VP of Sales, Protocol',
+    img: '/bonjour.webp',
+    name: 'Sécurité',
+    title: 'Hébergement souverain',
     quote:
-      'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
+      'Vos données restent sur le territoire français, protégées par la législation locale.',
   },
   {
-    img: '/testimonials/conor-neville.jpg',
-    name: 'Conor Neville',
-    title: 'Head of Customer Success, TaxPal',
+      img: '/bonjour.webp',
+    name: 'Sécurité',
+    title: 'Conformité RGPD',
     quote:
-      'Radiant made undercutting all of our competitors an absolute breeze.',
+      'Une gestion rigoureuse des données, conforme aux normes européennes.',
   },
   {
-    img: '/testimonials/amy-chase.jpg',
-    name: 'Amy Chase',
-    title: 'Head of GTM, Pocket',
+      img: '/bonjour.webp',
+    name: 'Sécurité',
+    title: 'Chiffrement de bout en bout',
     quote:
-      'We closed a deal in literally a few minutes because we knew their exact budget.',
+      'Sécurisation des échanges et des données stockées avec les standards les plus avancés.',
   },
   {
-    img: '/testimonials/veronica-winton.jpg',
-    name: 'Veronica Winton',
-    title: 'CSO, Planeteria',
+      img: '/bonjour.webp',
+    name: 'Sécurité',
+    title: 'Contrôle d’accès granulaire',
     quote:
-      'We’ve managed to put two of our main competitors out of business in 6 months.',
+      'Droits et permissions ajustables par utilisateur ou par équipe.',
   },
   {
-    img: '/testimonials/dillon-lenora.jpg',
-    name: 'Dillon Lenora',
-    title: 'VP of Sales, Detax',
-    quote: 'I was able to replace 80% of my team with RadiantAI bots.',
-  },
-  {
-    img: '/testimonials/harriet-arron.jpg',
-    name: 'Harriet Arron',
-    title: 'Account Manager, Commit',
+      img: '/bonjour.webp',
+    name: 'Sécurité',
+    title: 'Authentification multi-facteurs',
     quote:
-      'I’ve smashed all my targets without having to speak to a lead in months.',
+      'Protection renforcée contre les accès non autorisés.',
   },
 ]
 
@@ -116,37 +103,21 @@ function TestimonialCard({
       ref={ref}
       style={{ opacity }}
       {...props}
-      className="relative flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-3xl sm:aspect-3/4 sm:w-96"
+      className="relative flex  w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl  sm:w-96 h-fit"
     >
-      <img
-        alt=""
-        src={img}
-        className="absolute inset-x-0 top-0 aspect-square w-full object-cover"
-      />
+
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-3xl bg-linear-to-t from-black from-[calc(7/16*100%)] ring-1 ring-gray-950/10 ring-inset sm:from-25%"
+        className="absolute inset-0 rounded-2xl bg-gradient-to-b from-sky-700 to-sky-900"
       />
       <figure className="relative p-10">
-        <blockquote>
-          <p className="relative text-xl/7 text-white">
-            <span aria-hidden="true" className="absolute -translate-x-full">
-              “
-            </span>
-            {children}
-            <span aria-hidden="true" className="absolute">
-              ”
-            </span>
-          </p>
-        </blockquote>
-        <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">{name}</p>
-          <p className="text-sm/6 font-medium">
-            <span className="bg-linear-to-r from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] bg-clip-text text-transparent">
-              {title}
-            </span>
-          </p>
-        </figcaption>
+        <div className="mb-4">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white ring-1 ring-inset ring-white/20">
+            {name}
+          </span>
+        </div>
+        <h4 className="text-xl/7 font-semibold text-white">{title}</h4>
+        <p className="mt-3 text-sm/6 text-gray-200">{children}</p>
       </figure>
     </motion.div>
   )
@@ -226,14 +197,14 @@ export function Testimonials() {
         <div className="flex justify-between">
           <CallToAction />
           <div className="hidden sm:flex sm:gap-2">
-            {testimonials.map(({ name }, testimonialIndex) => (
+            {testimonials.map(({ title }, testimonialIndex) => (
               <Headless.Button
                 key={testimonialIndex}
                 onClick={() => scrollTo(testimonialIndex)}
                 data-active={
                   activeIndex === testimonialIndex ? true : undefined
                 }
-                aria-label={`Scroll to testimonial from ${name}`}
+                aria-label={`Aller à la fonctionnalité : ${title}`}
                 className={clsx(
                   'size-2.5 rounded-full border border-transparent bg-gray-300 transition',
                   'data-active:bg-gray-400 data-hover:bg-gray-400',

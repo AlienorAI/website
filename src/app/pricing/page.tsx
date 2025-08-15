@@ -144,7 +144,7 @@ function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
                   Le plus populaire
               </div>
           )}
-        <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
+        <div className="rounded-2xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
 
             <div className="text-2xl font-bold">
                 {tier.name}
@@ -369,13 +369,13 @@ function PlusIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function Testimonial() {
   return (
-    <div className="mx-2 my-24 rounded-4xl bg-blue-500 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
+    <div className="mx-2 my-24 rounded-2xl bg-blue-500 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
           <div className="-mt-96 lg:-mt-52">
-            <div className="-m-2 rounded-4xl bg-white/15 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="rounded-4xl p-2 shadow-md shadow-black/5">
-                <div className="overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
+            <div className="-m-2 rounded-2xl bg-white/15 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
+              <div className="rounded-2xl p-2 shadow-md shadow-black/5">
+                <div className="overflow-hidden rounded-2xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
                   <img
                     alt=""
                     src="/testimonials/tina-yards.jpg"

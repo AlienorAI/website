@@ -260,7 +260,7 @@ function Investors() {
 
 function Testimonial() {
   return (
-    <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-3xl sm:aspect-5/4 lg:aspect-3/4">
+    <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-2xl sm:aspect-5/4 lg:aspect-3/4">
       <img
         alt=""
         src="/testimonials/veronica-winton.jpg"
@@ -268,7 +268,7 @@ function Testimonial() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-3xl bg-linear-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
+        className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
       />
       <figure className="relative p-10">
         <blockquote>

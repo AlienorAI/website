@@ -44,9 +44,9 @@ export function BentoCard({
         )}
       </div>
       <div className="relative p-10">
-        <Subheading as="h3" dark={dark}>
-          {eyebrow}
-        </Subheading>
+        {/*<Subheading as="h3" dark={dark}>*/}
+        {/*  {eyebrow}*/}
+        {/*</Subheading>*/}
         <p className="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 group-data-dark:text-white">
           {title}
         </p>
