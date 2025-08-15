@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Aliénor vous aide à accéder rapidement à l’information interne de votre entreprise, en toute sécurité.",
 };
 
-export function HeroSection() {
+function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_200%)] bg-size-[4rem_4rem] dark:bg-black dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)]" />
@@ -64,7 +64,6 @@ function Hero() {
     <div className="relative">
       <Container className="relative">
         <Navbar />
-
         <HeroSection />
       </Container>
     </div>

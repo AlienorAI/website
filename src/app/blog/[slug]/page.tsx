@@ -1,35 +1,35 @@
-import { Button } from '@/components/button'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
-import { Link } from '@/components/link'
-import { Navbar } from '@/components/navbar'
-import { Heading, Subheading } from '@/components/text'
-import { image } from '@/sanity/image'
-import { getPost } from '@/sanity/queries'
-import { ChevronLeftIcon } from '@heroicons/react/16/solid'
-import dayjs from 'dayjs'
-import type { Metadata } from 'next'
-import { PortableText } from 'next-sanity'
-import { notFound } from 'next/navigation'
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { Footer } from "@/components/footer";
+import { GradientBackground } from "@/components/gradient";
+import { Link } from "@/components/link";
+import { Navbar } from "@/components/navbar";
+import { Heading, Subheading } from "@/components/text";
+import { image } from "@/sanity/image";
+import { getPost } from "@/sanity/queries";
+import { ChevronLeftIcon } from "@heroicons/react/16/solid";
+import dayjs from "dayjs";
+import type { Metadata } from "next";
+import { PortableText } from "next-sanity";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  let { data: post } = await getPost((await params).slug)
+  let { data: post } = await getPost((await params).slug);
 
-  return post ? { title: post.title, description: post.excerpt } : {}
+  return post ? { title: post.title, description: post.excerpt } : {};
 }
 
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  let { data: post } = await getPost((await params).slug)
-  if (!post) notFound()
+  let { data: post } = await getPost((await params).slug);
+  if (!post) notFound();
 
   return (
     <main className="overflow-hidden">
@@ -37,7 +37,7 @@ export default async function BlogPost({
       <Container>
         <Navbar />
         <Subheading className="mt-16">
-          {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
+          {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
         </Subheading>
         <Heading as="h1" className="mt-2">
           {post.title}
@@ -76,7 +76,7 @@ export default async function BlogPost({
             <div className="max-w-2xl xl:mx-auto">
               {post.mainImage && (
                 <img
-                  alt={post.mainImage.alt || ''}
+                  alt={post.mainImage.alt || ""}
                   src={image(post.mainImage).size(2016, 1344).url()}
                   className="mb-10 aspect-3/2 w-full rounded-2xl object-cover shadow-xl"
                 />
@@ -110,21 +110,21 @@ export default async function BlogPost({
                     types: {
                       image: ({ value }) => (
                         <img
-                          alt={value.alt || ''}
+                          alt={value.alt || ""}
                           src={image(value).width(2000).url()}
                           className="w-full rounded-2xl"
                         />
                       ),
                       separator: ({ value }) => {
                         switch (value.style) {
-                          case 'line':
+                          case "line":
                             return (
                               <hr className="my-8 border-t border-gray-200" />
-                            )
-                          case 'space':
-                            return <div className="my-8" />
+                            );
+                          case "space":
+                            return <div className="my-8" />;
                           default:
-                            return null
+                            return null;
                         }
                       },
                     },
@@ -146,14 +146,14 @@ export default async function BlogPost({
                           <li className="my-2 pl-2 has-[br]:mb-8">
                             {children}
                           </li>
-                        )
+                        );
                       },
                       number: ({ children }) => {
                         return (
                           <li className="my-2 pl-2 has-[br]:mb-8">
                             {children}
                           </li>
-                        )
+                        );
                       },
                     },
                     marks: {
@@ -179,14 +179,14 @@ export default async function BlogPost({
                           >
                             {children}
                           </Link>
-                        )
+                        );
                       },
                     },
                   }}
                 />
               )}
               <div className="mt-10">
-                <Button variant="outline" href="/blog">
+                <Button color={"white"} href="/blog">
                   <ChevronLeftIcon className="size-4" />
                   Back to blog
                 </Button>
@@ -197,5 +197,5 @@ export default async function BlogPost({
       </Container>
       <Footer />
     </main>
-  )
+  );
 }

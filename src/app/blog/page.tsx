@@ -136,7 +136,7 @@ async function Categories({ selected }: { selected?: string }) {
           ))}
         </MenuItems>
       </Menu>
-      <Button variant="outline" href="/blog/feed.xml" className="gap-1">
+      <Button color={"white"} href="/blog/feed.xml" className="gap-1">
         <RssIcon className="size-4" />
         RSS Feed
       </Button>
@@ -235,7 +235,7 @@ async function Pagination({
   return (
     <div className="mt-6 flex items-center justify-between gap-2">
       <Button
-        variant="outline"
+        color={"white"}
         href={previousPageUrl}
         disabled={!previousPageUrl}
       >
@@ -259,7 +259,7 @@ async function Pagination({
           </Link>
         ))}
       </div>
-      <Button variant="outline" href={nextPageUrl} disabled={!nextPageUrl}>
+      <Button color={"white"} href={nextPageUrl} disabled={!nextPageUrl}>
         Next
         <ChevronRightIcon className="size-4" />
       </Button>
