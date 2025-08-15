@@ -1,43 +1,43 @@
-import { Button } from '@/components/button'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
-import { Link } from '@/components/link'
-import { Navbar } from '@/components/navbar'
-import { Heading, Lead, Subheading } from '@/components/text'
-import { image } from '@/sanity/image'
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { Footer } from "@/components/footer";
+import { GradientBackground } from "@/components/gradient";
+import { Link } from "@/components/link";
+import { Navbar } from "@/components/navbar";
+import { Heading, Lead, Subheading } from "@/components/text";
+import { image } from "@/sanity/image";
 import {
   getCategories,
   getFeaturedPosts,
   getPosts,
   getPostsCount,
-} from '@/sanity/queries'
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+} from "@/sanity/queries";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
   CheckIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpDownIcon,
   RssIcon,
-} from '@heroicons/react/16/solid'
-import { clsx } from 'clsx'
-import dayjs from 'dayjs'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+} from "@heroicons/react/16/solid";
+import { clsx } from "clsx";
+import dayjs from "dayjs";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: "Blog",
   description:
-    'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
-}
+    "Restez informé des nouveautés produit, des actualités de l’entreprise et de conseils pour améliorer vos performances au quotidien.",
+};
 
-const postsPerPage = 5
+const postsPerPage = 5;
 
 async function FeaturedPosts() {
-  let { data: featuredPosts } = await getFeaturedPosts(3)
+  let { data: featuredPosts } = await getFeaturedPosts(3);
 
   if (featuredPosts.length === 0) {
-    return
+    return;
   }
 
   return (
@@ -52,14 +52,14 @@ async function FeaturedPosts() {
             >
               {post.mainImage && (
                 <img
-                  alt={post.mainImage.alt || ''}
+                  alt={post.mainImage.alt || ""}
                   src={image(post.mainImage).size(1170, 780).url()}
                   className="aspect-3/2 w-full rounded-2xl object-cover"
                 />
               )}
               <div className="flex flex-1 flex-col p-8">
                 <div className="text-sm/5 text-gray-700">
-                  {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
+                  {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
                 </div>
                 <div className="mt-2 text-base/7 font-medium">
                   <Link href={`/blog/${post.slug}`}>
@@ -90,14 +90,14 @@ async function FeaturedPosts() {
         </div>
       </Container>
     </div>
-  )
+  );
 }
 
 async function Categories({ selected }: { selected?: string }) {
-  let { data: categories } = await getCategories()
+  let { data: categories } = await getCategories();
 
   if (categories.length === 0) {
-    return
+    return;
   }
 
   return (
@@ -105,7 +105,7 @@ async function Categories({ selected }: { selected?: string }) {
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
           {categories.find(({ slug }) => slug === selected)?.title ||
-            'All categories'}
+            "All categories"}
           <ChevronUpDownIcon className="size-4 fill-gray-900" />
         </MenuButton>
         <MenuItems
@@ -141,7 +141,7 @@ async function Categories({ selected }: { selected?: string }) {
         RSS Feed
       </Button>
     </div>
-  )
+  );
 }
 
 async function Posts({ page, category }: { page: number; category?: string }) {
@@ -149,14 +149,14 @@ async function Posts({ page, category }: { page: number; category?: string }) {
     (page - 1) * postsPerPage,
     page * postsPerPage,
     category,
-  )
+  );
 
   if (posts.length === 0 && (page > 1 || category)) {
-    notFound()
+    notFound();
   }
 
   if (posts.length === 0) {
-    return <p className="mt-6 text-gray-500">Articles en cours de création.</p>
+    return <p className="mt-6 text-gray-500">Articles en cours de création.</p>;
   }
 
   return (
@@ -168,7 +168,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
         >
           <div>
             <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-              {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
+              {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
             </div>
             {post.author && (
               <div className="mt-2.5 flex items-center gap-3">
@@ -202,34 +202,34 @@ async function Posts({ page, category }: { page: number; category?: string }) {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 async function Pagination({
   page,
   category,
 }: {
-  page: number
-  category?: string
+  page: number;
+  category?: string;
 }) {
   function url(page: number) {
-    let params = new URLSearchParams()
+    let params = new URLSearchParams();
 
-    if (category) params.set('category', category)
-    if (page > 1) params.set('page', page.toString())
+    if (category) params.set("category", category);
+    if (page > 1) params.set("page", page.toString());
 
-    return params.size !== 0 ? `/blog?${params.toString()}` : '/blog'
+    return params.size !== 0 ? `/blog?${params.toString()}` : "/blog";
   }
 
-  let totalPosts = (await getPostsCount(category)).data
-  let hasPreviousPage = page - 1
-  let previousPageUrl = hasPreviousPage ? url(page - 1) : undefined
-  let hasNextPage = page * postsPerPage < totalPosts
-  let nextPageUrl = hasNextPage ? url(page + 1) : undefined
-  let pageCount = Math.ceil(totalPosts / postsPerPage)
+  let totalPosts = (await getPostsCount(category)).data;
+  let hasPreviousPage = page - 1;
+  let previousPageUrl = hasPreviousPage ? url(page - 1) : undefined;
+  let hasNextPage = page * postsPerPage < totalPosts;
+  let nextPageUrl = hasNextPage ? url(page + 1) : undefined;
+  let pageCount = Math.ceil(totalPosts / postsPerPage);
 
   if (pageCount < 2) {
-    return
+    return;
   }
 
   return (
@@ -249,10 +249,10 @@ async function Pagination({
             href={url(i + 1)}
             data-active={i + 1 === page ? true : undefined}
             className={clsx(
-              'size-7 rounded-lg text-center text-sm/7 font-medium',
-              'data-hover:bg-gray-100',
-              'data-active:shadow-sm data-active:ring-1 data-active:ring-black/10',
-              'data-active:data-hover:bg-gray-50',
+              "size-7 rounded-lg text-center text-sm/7 font-medium",
+              "data-hover:bg-gray-100",
+              "data-active:shadow-sm data-active:ring-1 data-active:ring-black/10",
+              "data-active:data-hover:bg-gray-50",
             )}
           >
             {i + 1}
@@ -264,24 +264,24 @@ async function Pagination({
         <ChevronRightIcon className="size-4" />
       </Button>
     </div>
-  )
+  );
 }
 
 export default async function Blog({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  let params = await searchParams
+  let params = await searchParams;
   let page =
-    'page' in params
-      ? typeof params.page === 'string' && parseInt(params.page) > 1
+    "page" in params
+      ? typeof params.page === "string" && parseInt(params.page) > 1
         ? parseInt(params.page)
         : notFound()
-      : 1
+      : 1;
 
   let category =
-    typeof params.category === 'string' ? params.category : undefined
+    typeof params.category === "string" ? params.category : undefined;
 
   return (
     <main className="overflow-hidden">
@@ -289,10 +289,11 @@ export default async function Blog({
       <Container>
         <Navbar />
         <Heading as="h1" className="mt-16">
-            L’actualité et les nouveautés d’Aliénor.
+          L’actualité et les nouveautés d’Aliénor.
         </Heading>
         <Lead className="mt-6 max-w-3xl">
-            Restez informé des évolutions du produit, des actualités de l’entreprise et des conseils pour gagner en efficacité au quotidien.
+          Restez informé des évolutions du produit, des actualités de
+          l’entreprise et des conseils pour gagner en efficacité au quotidien.
         </Lead>
       </Container>
       {page === 1 && !category && <FeaturedPosts />}
@@ -303,5 +304,5 @@ export default async function Blog({
       </Container>
       <Footer />
     </main>
-  )
+  );
 }

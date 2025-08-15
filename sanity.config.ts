@@ -7,7 +7,7 @@ import { structureTool } from 'sanity/structure'
 import { schema } from './src/sanity/schema'
 
 export default defineConfig({
-  name: 'Radiant',
+  name: 'Aliénor AI',
   basePath: '/studio',
   projectId: "627962ub",
   dataset: "production",

@@ -1,34 +1,48 @@
-import {AnimatedNumber} from '@/components/animated-number'
-import {Button} from '@/components/button'
-import {Container} from '@/components/container'
-import {Footer} from '@/components/footer'
-import {GradientBackground} from '@/components/gradient'
-import {Navbar} from '@/components/navbar'
-import {Heading, Lead, Subheading} from '@/components/text'
-import type {Metadata} from 'next'
-import {ArrowDownCircleIcon} from "@heroicons/react/16/solid";
+import { AnimatedNumber } from "@/components/animated-number";
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { Footer } from "@/components/footer";
+import { GradientBackground } from "@/components/gradient";
+import { Navbar } from "@/components/navbar";
+import { Heading, Lead, Subheading } from "@/components/text";
+import type { Metadata } from "next";
+import { ArrowDownCircleIcon } from "@heroicons/react/16/solid";
 
 export const metadata: Metadata = {
-  title: 'Company',
+  title: "Entreprise",
   description:
-    'We’re on a mission to transform revenue organizations by harnessing vast amounts of illegally acquired customer data.',
-}
+    "Nous avons pour mission de transformer la gestion des connaissances en entreprise grâce à une IA sécurisée et hébergée en France.",
+};
 
 function Header() {
   return (
     <Container className="mt-16">
       <Heading as="h1">La connaissance au service de la croissance.</Heading>
       <Lead className="mt-6 max-w-3xl">
-          Nous avons pour mission de transformer la performance des organisations en valorisant leur savoir interne, en priorisant la sécurité et la souveraineté.
+        Nous avons pour mission de transformer la performance des organisations
+        en valorisant leur savoir interne, en priorisant la sécurité et la
+        souveraineté.
       </Lead>
       <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
         <div className="max-w-lg">
           <h2 className="text-2xl font-medium tracking-tight">Notre mission</h2>
           <p className="mt-6 text-sm/6 text-gray-600">
-              Chez Aliénor, notre mission est de proposer une solution française ultra-performante, conçue pour un objectif unique : offrir un accès rapide et intelligent à toute l’information interne d’une entreprise. Documents, comptes rendus, bases de données, échanges… Aliénor retrouve, comprend et met en contexte chaque élément utile pour faire gagner un temps précieux aux équipes et accélérer les décisions.
+            Chez Aliénor, notre mission est de proposer une solution française
+            ultra-performante, conçue pour un objectif unique : offrir un accès
+            rapide et intelligent à toute l’information interne d’une
+            entreprise. Documents, comptes rendus, bases de données, échanges…
+            Aliénor retrouve, comprend et met en contexte chaque élément utile
+            pour faire gagner un temps précieux aux équipes et accélérer les
+            décisions.
           </p>
           <p className="mt-8 text-sm/6 text-gray-600">
-              Pensée et hébergée en France, Aliénor garantit le respect total de la vie privée et la souveraineté des données. Nous allions performance technologique et exigences de confidentialité pour offrir aux entreprises un outil de recherche interne fiable, sécurisé et conforme aux plus hauts standards. Notre ambition : faire de la connaissance un atout compétitif, sans jamais compromettre la confiance.
+            Pensée et hébergée en France, Aliénor garantit le respect total de
+            la vie privée et la souveraineté des données. Nous allions
+            performance technologique et exigences de confidentialité pour
+            offrir aux entreprises un outil de recherche interne fiable,
+            sécurisé et conforme aux plus hauts standards. Notre ambition :
+            faire de la connaissance un atout compétitif, sans jamais
+            compromettre la confiance.
           </p>
         </div>
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
@@ -68,7 +82,9 @@ function Header() {
           <hr className="mt-6 border-t border-gray-200" />
           <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
-              <dt className="text-sm/6 text-gray-600">Temps de recherche moyen</dt>
+              <dt className="text-sm/6 text-gray-600">
+                Temps de recherche moyen
+              </dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
                 <AnimatedNumber start={0} end={3} />s
               </dd>
@@ -76,11 +92,14 @@ function Header() {
             <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
               <dt className="text-sm/6 text-gray-600">Documents indexés</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={0} end={1} />M+
+                <AnimatedNumber start={0} end={1} />
+                M+
               </dd>
             </div>
             <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
-              <dt className="text-sm/6 text-gray-600">Données hébergées en France</dt>
+              <dt className="text-sm/6 text-gray-600">
+                Données hébergées en France
+              </dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
                 <AnimatedNumber start={0} end={100} />%
               </dd>
@@ -88,14 +107,14 @@ function Header() {
             <div className="flex flex-col gap-y-2">
               <dt className="text-sm/6 text-gray-600">Temps moyen économisé</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={0} end={60}/>%
+                <AnimatedNumber start={0} end={60} />%
               </dd>
             </div>
           </dl>
         </div>
       </section>
     </Container>
-  )
+  );
 }
 
 function Person({
@@ -103,9 +122,9 @@ function Person({
   description,
   img,
 }: {
-  name: string
-  description: string
-  img: string
+  name: string;
+  description: string;
+  img: string;
 }) {
   return (
     <li className="flex items-center gap-4">
@@ -115,7 +134,7 @@ function Person({
         <p className="text-gray-500">{description}</p>
       </div>
     </li>
-  )
+  );
 }
 
 function Team() {
@@ -123,24 +142,36 @@ function Team() {
     <Container className="mt-32">
       {/*<Subheading>Meet the team</Subheading>*/}
       <Heading as="h3" className="mt-2">
-          Fondée par une équipe experte.
+        Fondée par une équipe experte.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-          Lancée par une équipe reconnue dans son domaine et soutenue par des investisseurs de renom.
+        Lancée par une équipe reconnue dans son domaine et soutenue par des
+        investisseurs de renom.
       </Lead>
       <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div className="max-w-lg">
           <p className="text-sm/6 text-gray-600">
-              Aliénor est née de la rencontre entre des spécialistes de l’intelligence artificielle, de la gestion documentaire et de la sécurité des données. Après avoir travaillé pendant des années au contact d’entreprises confrontées aux mêmes défis, perte de temps à chercher l’information, dispersion des connaissances, risques liés à la confidentialité, l’équipe a décidé de créer une solution unique : un moteur de recherche interne intelligent, souverain et sécurisé.
-
+            Aliénor est née de la rencontre entre des spécialistes de
+            l’intelligence artificielle, de la gestion documentaire et de la
+            sécurité des données. Après avoir travaillé pendant des années au
+            contact d’entreprises confrontées aux mêmes défis, perte de temps à
+            chercher l’information, dispersion des connaissances, risques liés à
+            la confidentialité, l’équipe a décidé de créer une solution unique :
+            un moteur de recherche interne intelligent, souverain et sécurisé.
           </p>
           <p className="mt-8 text-sm/6 text-gray-600">
-              Aujourd’hui, Aliénor met la puissance de l’IA au service des organisations, en centralisant et en rendant exploitable l’ensemble de leur savoir interne. Conçue et hébergée en France, notre plateforme allie performance, rapidité et respect absolu de la vie privée. Notre ambition : permettre aux entreprises de retrouver et exploiter leur information en un instant, tout en gardant un contrôle total sur leurs données.
+            Aujourd’hui, Aliénor met la puissance de l’IA au service des
+            organisations, en centralisant et en rendant exploitable l’ensemble
+            de leur savoir interne. Conçue et hébergée en France, notre
+            plateforme allie performance, rapidité et respect absolu de la vie
+            privée. Notre ambition : permettre aux entreprises de retrouver et
+            exploiter leur information en un instant, tout en gardant un
+            contrôle total sur leurs données.
           </p>
           <div className="mt-6">
             <Button className="w-full sm:w-auto" href="#">
-                <ArrowDownCircleIcon/>
-Nous rejoindre
+              <ArrowDownCircleIcon />
+              Nous rejoindre
             </Button>
           </div>
         </div>
@@ -172,22 +203,19 @@ Nous rejoindre
           description="Directeur technique"
           img="/team/alex.webp"
         />
-          <Person
-              name="Hugo Boiteau"
-              description="Directeur marketing"
-              img="/team/hugo.webp"
-          />
+        <Person
+          name="Hugo Boiteau"
+          description="Directeur marketing"
+          img="/team/hugo.webp"
+        />
         <Person
           name="Louis Courtin"
           description="Directeur commercial"
           img="/team/louis.webp"
         />
-
-
-
       </ul>
     </Container>
-  )
+  );
 }
 
 function Investors() {
@@ -234,9 +262,8 @@ function Investors() {
           </p>
         </li>
       </ul>
-
     </Container>
-  )
+  );
 }
 
 function Testimonial() {
@@ -254,12 +281,12 @@ function Testimonial() {
       <figure className="relative p-10">
         <blockquote>
           <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-              Nous construisons une solution unique en France, .
+            Nous construisons une solution unique en France, .
           </p>
         </blockquote>
       </figure>
     </div>
-  )
+  );
 }
 
 function Careers() {
@@ -267,87 +294,89 @@ function Careers() {
     <Container className="my-32">
       {/*<Subheading>Careers</Subheading>*/}
       <Heading as="h3" className="mt-2">
-          Des talents au service de l’IA française.
+        Des talents au service de l’IA française.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-          Rejoignez notre équipe. Nous unissons des spécialistes engagés pour bâtir une IA performante et sécurisée.
+        Rejoignez notre équipe. Nous unissons des spécialistes engagés pour
+        bâtir une IA performante et sécurisée.
       </Lead>
       <div className="mt-24 grid grid-cols-1 gap-16 lg:grid-cols-[1fr_24rem]">
         <div className="lg:max-w-2xl">
           {/*<Subheading as="h3">Open positions</Subheading>*/}
-            <div>
-                <table className="w-full text-left">
-                    <colgroup>
-                        <col className="w-2/3" />
-                        <col className="w-0" />
-                        <col className="w-1/3" />
-                    </colgroup>
-                    <thead className="sr-only">
-                    <tr>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Lieu</th>
-                        <th scope="col">En savoir plus</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
-                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                                Ingénierie
-                            </div>
-                        </th>
-                    </tr>
-                    <tr className=" border-gray-200 text-sm/6 font-normal">
-                        <td className="px-0 py-4">Développeur Backend | Node.js</td>
-                        <td className="px-0 py-4 text-gray-600 text-nowrap">À distance</td>
-                        <td className="px-0 py-4 text-right w-fit">
-                            <Button className={"w-fit grow flex-1"} plain>
-                                Voir l’offre
-                            </Button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
-                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                                Design
-                            </div>
-                        </th>
-                    </tr>
+          <div>
+            <table className="w-full text-left">
+              <colgroup>
+                <col className="w-2/3" />
+                <col className="w-0" />
+                <col className="w-1/3" />
+              </colgroup>
+              <thead className="sr-only">
+                <tr>
+                  <th scope="col">Titre</th>
+                  <th scope="col">Lieu</th>
+                  <th scope="col">En savoir plus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="colgroup" colSpan={3} className="px-0 pt-10 pb-0">
+                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                      Ingénierie
+                    </div>
+                  </th>
+                </tr>
+                <tr className="border-gray-200 text-sm/6 font-normal">
+                  <td className="px-0 py-4">Développeur Backend | Node.js</td>
+                  <td className="px-0 py-4 text-nowrap text-gray-600">
+                    À distance
+                  </td>
+                  <td className="w-fit px-0 py-4 text-right">
+                    <Button className={"w-fit flex-1 grow"} plain>
+                      Voir l’offre
+                    </Button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
+                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                      Design
+                    </div>
+                  </th>
+                </tr>
 
-                    <tr className="text-sm/6 font-normal">
-                        <td className="px-0 py-4">Lead Designer</td>
-                        <td className="px-0 py-4 text-gray-600">À distance</td>
-                        <td className="px-0 py-4 text-right">
-                            <Button plain href="#">
-                                Voir l’offre
-                            </Button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
-                            <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
-                                Marketing
-                            </div>
-                        </th>
-                    </tr>
-                    <tr className=" text-sm/6 font-normal">
-                        <td className="px-0 py-4">Responsable SEO/SEA</td>
-                        <td className="px-0 py-4 text-gray-600">À distance</td>
-                        <td className="px-0 py-4 text-right">
-                            <Button plain href="#">
-                                Voir l’offre
-                            </Button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
+                <tr className="text-sm/6 font-normal">
+                  <td className="px-0 py-4">Lead Designer</td>
+                  <td className="px-0 py-4 text-gray-600">À distance</td>
+                  <td className="px-0 py-4 text-right">
+                    <Button plain href="#">
+                      Voir l’offre
+                    </Button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="colgroup" colSpan={3} className="px-0 pt-5 pb-0">
+                    <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                      Marketing
+                    </div>
+                  </th>
+                </tr>
+                <tr className="text-sm/6 font-normal">
+                  <td className="px-0 py-4">Responsable SEO/SEA</td>
+                  <td className="px-0 py-4 text-gray-600">À distance</td>
+                  <td className="px-0 py-4 text-right">
+                    <Button plain href="#">
+                      Voir l’offre
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <Testimonial />
       </div>
     </Container>
-  )
+  );
 }
 
 export default function Company() {
@@ -363,5 +392,5 @@ export default function Company() {
       <Careers />
       <Footer />
     </main>
-  )
+  );
 }

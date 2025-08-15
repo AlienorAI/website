@@ -1,36 +1,40 @@
-'use client'
-import Image from "next/image"
-import {Disclosure, DisclosureButton, DisclosurePanel,} from '@headlessui/react'
-import {Bars2Icon} from '@heroicons/react/24/solid'
-import {motion} from 'framer-motion'
-import {Link} from './link'
-import {PlusGrid, PlusGridRow} from './plus-grid'
-import {Button} from "./button"
-import {HomeIcon} from "@heroicons/react/16/solid";
+"use client";
+import Image from "next/image";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import { Bars2Icon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+import { Link } from "./link";
+import { PlusGrid, PlusGridRow } from "./plus-grid";
+import { Button } from "./button";
+import { HomeIcon } from "@heroicons/react/16/solid";
 
 const links = [
-  { href: '/pricing', label: 'Tarifs' },
-  { href: '/company', label: 'Notre mission' },
-  { href: '/blog', label: 'Blog' }
-]
+  { href: "/pricing", label: "Tarifs" },
+  { href: "/company", label: "Notre mission" },
+  { href: "/blog", label: "Blog" },
+];
 
 function DesktopNav() {
   return (
-    <nav className="relative hidden lg:flex gap-4  items-center">
+    <nav className="relative hidden items-center gap-4 lg:flex">
       {links.map(({ href, label }) => (
-<Button  className={"shrink-0 h-fit"} key={href}  href={href} plain>
-
-            {label}
-
-</Button>
-      ))}
-        <Button   className={"shrink-0 h-fit"}   href={"https://app.alienor.ai/login"} >
-<HomeIcon/>
-Se connecter
-
+        <Button className={"h-fit shrink-0"} key={href} href={href} plain>
+          {label}
         </Button>
+      ))}
+      <Button
+        className={"h-fit shrink-0"}
+        href={"https://app.alienor.ai/login"}
+      >
+        <HomeIcon />
+        Se connecter
+      </Button>
     </nav>
-  )
+  );
 }
 
 function MobileNavButton() {
@@ -41,7 +45,7 @@ function MobileNavButton() {
     >
       <Bars2Icon className="size-6" />
     </DisclosureButton>
-  )
+  );
 }
 
 function MobileNav() {
@@ -54,7 +58,7 @@ function MobileNav() {
             animate={{ opacity: 1, rotateX: 0 }}
             transition={{
               duration: 0.15,
-              ease: 'easeInOut',
+              ease: "easeInOut",
               rotateX: { duration: 0.3, delay: linkIndex * 0.1 },
             }}
             key={href}
@@ -70,7 +74,7 @@ function MobileNav() {
         <div className="absolute inset-x-0 top-2 border-t border-black/5" />
       </div>
     </DisclosurePanel>
-  )
+  );
 }
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
@@ -78,25 +82,23 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
     <Disclosure as="header" className="pt-12 sm:pt-16">
       <PlusGrid>
         <PlusGridRow className="relative flex justify-between">
-
-              <Link className={"  gap-1.5 bg-blue-50 dark:bg-sky-900 px-2 py-1.5 rounded-full flex justify-center items-center font-medium"} href="/" title="Home">
-
-              <Image
-                  className={` dark:outline-white/10' size-7 rounded-full outline -outline-offset-1 outline-black/10 `}
-                  priority
-                  src={"/logo.webp"}
-                  alt="Aliénor AI"
-                  width={200}
-                  height={200}
-              />
-              Aliénor AI
-              </Link>
-
-            {/*{banner && (*/}
-            {/*  <div className="relative hidden items-center py-3 lg:flex">*/}
-            {/*    {banner}*/}
-            {/*  </div>*/}
-            {/*)}*/}
+          <Link
+            className={
+              "flex items-center justify-center gap-1.5 rounded-full bg-blue-50 px-2 py-1.5 font-medium dark:bg-sky-900"
+            }
+            href="/"
+            title="Accueil"
+          >
+            <Image
+              className={`dark:outline-white/10' size-7 rounded-full outline -outline-offset-1 outline-black/10`}
+              priority
+              src={"/logo.webp"}
+              alt="Aliénor AI"
+              width={200}
+              height={200}
+            />
+            Aliénor AI
+          </Link>
 
           <DesktopNav />
           <MobileNavButton />
@@ -104,5 +106,5 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
       </PlusGrid>
       <MobileNav />
     </Disclosure>
-  )
+  );
 }
