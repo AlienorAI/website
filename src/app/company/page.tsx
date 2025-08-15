@@ -88,7 +88,7 @@ function Header() {
             <div className="flex flex-col gap-y-2">
               <dt className="text-sm/6 text-gray-600">Temps moyen économisé</dt>
               <dd className="order-first text-6xl font-medium tracking-tight">
-                <AnimatedNumber start={0} end={40}/>%
+                <AnimatedNumber start={0} end={60}/>%
               </dd>
             </div>
           </dl>

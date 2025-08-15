@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
-import { Mark } from './logo'
+import {clsx} from 'clsx'
+import Image from 'next/image'
 
 function Row({ children }: { children: React.ReactNode }) {
   return (
@@ -25,8 +25,8 @@ function Logo({
       className={clsx(
         className,
         'absolute top-2 grid grid-cols-[1rem_1fr] items-center gap-2 px-3 py-1 whitespace-nowrap',
-        'rounded-full bg-linear-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-white/10 ring-inset',
-        '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
+        'rounded-full bg-linear-to-t from-sky-800 from-50% to-sky-700 ring-1 ring-white/10 ring-inset',
+        '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x]  [animation-timing-function:linear]  running',
       )}
     >
       <img alt="" src={src} className="size-4" />
@@ -48,7 +48,9 @@ export function LogoTimeline() {
           }}
         />
         <div className="relative flex size-24 items-center justify-center rounded-xl bg-linear-to-t from-white/5 to-white/25 shadow-sm ring-1 ring-white/10 outline outline-offset-[-5px] outline-white/5 ring-inset">
-          <Mark className="h-9 fill-white" />
+
+            <Image src={"/logo.webp"} alt="Aliénor logo" className={"size-8"} width={200} height={200} />
+
         </div>
       </div>
       <div className="@container absolute inset-0 grid grid-cols-1 pt-8">

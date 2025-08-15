@@ -179,18 +179,18 @@ function BentoSection() {
 
 function DarkBentoSection() {
   return (
-    <div className="mx-2  rounded-2xl bg-blue-950 py-32 my-32">
+
 
       <Container>
-        <Heading as="h3" dark className="mt-2 max-w-3xl">Conçue pour s'intégrer à votre environnement professionnel
+        <Heading as="h3"  className="mt-2 max-w-3xl">Conçue pour s'intégrer à votre environnement professionnel
         </Heading>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard
             dark
             eyebrow="Networking"
-            title="Sell at the speed of light"
-            description="Our RadiantAI chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
+            title="Un Chatbot qui connait parfaitement votre entreprise"
+            description="Permet de retrouver rapidement les informations dont vous avez besoin, qu’elles soient dans un fichier, un compte rendu ou un outil métier."
             graphic={
               <div className="h-80 bg-[url(/screenshots/networking.png)] bg-size-[851px_344px] bg-no-repeat" />
             }
@@ -200,8 +200,8 @@ function DarkBentoSection() {
           <BentoCard
             dark
             eyebrow="Integrations"
-            title="Meet leads where they are"
-            description="With thousands of integrations, no one will be able to escape your cold outreach."
+            title="Connectée à vos outils"
+            description="Se connecte facilement à vos outils du quotidien : messagerie, drive, CRM, gestion de projets, etc."
             graphic={<LogoTimeline />}
             // `overflow-visible!` is needed to work around a Chrome bug that disables the mask on the graphic.
             className="z-10 overflow-visible! lg:col-span-2 lg:rounded-tr-2xl"
@@ -209,16 +209,16 @@ function DarkBentoSection() {
           <BentoCard
             dark
             eyebrow="Meetings"
-            title="Notre moteur d’IA sur-mesure"
-            description="Automatically insert intro calls into your leads' calendars without their consent."
+            title="Notre moteur IA sur-mesure"
+            description="Intelligence spécialement développée pour traiter et comprendre les données internes."
             graphic={<LinkedAvatars />}
             className="lg:col-span-2 lg:rounded-bl-2xl"
           />
           <BentoCard
             dark
             eyebrow="Engagement"
-            title="Become a thought leader"
-            description="RadiantAI automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
+            title="Des Agents IA prêts à l'emploi"
+            description="Des assistants IA prêts à automatiser vos tâches, RH, demandes internes, mise à jour de fichiers, notifications, en travaillant en arrière-plan, sans configuration complexe."
             graphic={
               <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-size-[851px_344px] bg-no-repeat" />
             }
@@ -227,7 +227,7 @@ function DarkBentoSection() {
           />
         </div>
       </Container>
-    </div>
+
   )
 }
 
@@ -241,9 +241,9 @@ export default function Home() {
         </Container>
         <div className="bg-linear-to-b from-white from-50% to-blue-50 py-32">
           {/*<FeatureSection />*/}
-          <BentoSection />
+          {/*<BentoSection />*/}
+        <DarkBentoSection />
         </div>
-        {/*<DarkBentoSection />*/}
       </main>
       <Testimonials />
       <Footer />

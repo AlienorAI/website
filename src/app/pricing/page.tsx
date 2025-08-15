@@ -30,11 +30,11 @@ const tiers = [
     priceMonthly: 149,
     href: '#',
     highlights: [
-      { description: 'Up to 3 team members' },
-      { description: 'Up to 5 deal progress boards' },
-      { description: 'Source leads from select platforms' },
-      { description: 'RadiantAI integrations', disabled: true },
-      { description: 'Competitor analysis', disabled: true },
+        { description: 'Jusqu’à 3 membres dans l’équipe' },
+        { description: 'Jusqu’à 10 documents actifs' },
+        { description: '1000 messages par mois' },
+        { description: 'Hébergement 100 % en France' },
+        { description: 'Aucune réutilisation des données' },
     ],
     features: [
       { section: 'Features', name: 'Accounts', value: 3 },
@@ -59,11 +59,11 @@ const tiers = [
     priceMonthly: 249,
     href: '#',
     highlights: [
-      { description: 'Up to 10 team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 50 verified platforms' },
-      { description: 'RadiantAI integrations' },
-      { description: '5 competitor analyses per month' },
+        { description: 'Membres illimités' },
+        { description: 'Documents illimités*' },
+        { description: 'Messages illimités*' },
+        { description: 'Hébergement 100 % en France' },
+        { description: 'Aucune réutilisation des données' },
     ],
     features: [
       { section: 'Features', name: 'Accounts', value: 10 },
@@ -87,11 +87,12 @@ const tiers = [
     priceMonthly: 349,
     href: '#',
     highlights: [
-      { description: 'Unlimited active team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 100 verified platforms' },
-      { description: 'RadiantAI integrations' },
-      { description: 'Unlimited competitor analyses' },
+        { description: 'Membres illimités' },
+        { description: 'Documents illimités*' },
+        { description: 'Messages illimités*' },
+        { description: 'Hébergement 100 % en France' },
+        { description: 'Aucune réutilisation des données' },
+        { description: 'Infrastructure dédiée' },
     ],
     features: [
       { section: 'Features', name: 'Accounts', value: 'Unlimited' },
@@ -169,7 +170,7 @@ function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
           </div>
           <div className="mt-8">
             <h3 className="text-sm/6 font-medium text-gray-950">
-              Start selling with:
+                Vous bénéficiez de :
             </h3>
             <ul className="mt-3 space-y-3">
               {tier.highlights.map((props, featureIndex) => (

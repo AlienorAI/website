@@ -4,7 +4,6 @@ import {Disclosure, DisclosureButton, DisclosurePanel,} from '@headlessui/react'
 import {Bars2Icon} from '@heroicons/react/24/solid'
 import {motion} from 'framer-motion'
 import {Link} from './link'
-import {Logo} from './logo'
 import {PlusGrid, PlusGridRow} from './plus-grid'
 import {Button} from "./button"
 import {HomeIcon} from "@heroicons/react/16/solid";
@@ -12,7 +11,7 @@ import {HomeIcon} from "@heroicons/react/16/solid";
 const links = [
   { href: '/pricing', label: 'Tarifs' },
   { href: '/company', label: 'Notre mission' },
-  { href: '/blog', label: 'Le blog' }
+  { href: '/blog', label: 'Blog' }
 ]
 
 function DesktopNav() {

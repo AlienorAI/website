@@ -288,7 +288,7 @@ export default async function Blog({
       <GradientBackground />
       <Container>
         <Navbar />
-        <Heading as="h1" className="mt-2">
+        <Heading as="h1" className="mt-16">
             L’actualité et les nouveautés d’Aliénor.
         </Heading>
         <Lead className="mt-6 max-w-3xl">
