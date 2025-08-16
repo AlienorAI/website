@@ -62,9 +62,9 @@ async function FeaturedPosts() {
               )}
               <div className="flex flex-1 flex-col p-8">
                 <div className="text-sm/5 text-gray-700">
-                  {dayjs(post.publishedAt)
-                    .format("dddd D MMMM YYYY")
-                    .replace(/^\w/, (c) => c.toUpperCase())}
+                  {/*{dayjs(post.publishedAt)*/}
+                  {/*  .format("dddd D MMMM YYYY")*/}
+                  {/*  .replace(/^\w/, (c) => c.toUpperCase())}*/}
                 </div>
                 <div className="mt-2 text-base/7 font-medium">
                   <Link href={`/blog/${post.slug}`}>
@@ -173,9 +173,9 @@ async function Posts({ page, category }: { page: number; category?: string }) {
         >
           <div>
             <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-              {dayjs(post.publishedAt)
-                .format("dddd D MMMM YYYY")
-                .replace(/^\w/, (c) => c.toUpperCase())}
+              {/*{dayjs(post.publishedAt)*/}
+              {/*  .format("dddd D MMMM YYYY")*/}
+              {/*  .replace(/^\w/, (c) => c.toUpperCase())}*/}
             </div>
             {post.author && (
               <div className="mt-2.5 flex items-center gap-3">
