@@ -8,8 +8,14 @@ import { LogoTimeline } from "@/components/logo-timeline";
 import { Navbar } from "@/components/navbar";
 import { Testimonials } from "@/components/testimonials";
 import { Heading } from "@/components/text";
-import { BoltIcon, CheckIcon, ListBulletIcon } from "@heroicons/react/16/solid";
+import {
+  BoltIcon,
+  CheckIcon,
+  ClockIcon,
+  ListBulletIcon,
+} from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
+import { Badge } from "@/components/badge";
 
 export const metadata: Metadata = {
   description:
@@ -109,7 +115,15 @@ function DarkBentoSection() {
         <BentoCard
           dark
           eyebrow="Engagement"
-          title="Des Agents IA prêts à l'emploi"
+          title={
+            <span className={"flex items-center gap-4"}>
+              <span>Des Agents IA prêts à l'emploi</span>
+              <span className="flex items-center gap-1 rounded-full border border-teal-100 bg-teal-50 px-2 text-xs/6 font-medium text-teal-700">
+                <ClockIcon className={"size-3"} />
+                Bientôt disponible
+              </span>
+            </span>
+          }
           description="Des assistants IA prêts à automatiser vos tâches, RH, demandes internes, mise à jour de fichiers, notifications, en travaillant en arrière-plan, sans configuration complexe."
           graphic={
             <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-size-[851px_344px] bg-no-repeat" />
