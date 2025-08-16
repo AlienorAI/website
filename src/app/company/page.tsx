@@ -337,7 +337,6 @@ Merci,
 
   return (
     <Container id={"careers"} className="my-32">
-      {/*<Subheading>Careers</Subheading>*/}
       <Heading as="h3" className="mt-2">
         Des talents au service de l’IA française.
       </Heading>

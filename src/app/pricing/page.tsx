@@ -452,7 +452,7 @@ function Testimonial() {
 function FrequentlyAskedQuestions() {
   return (
     <Container>
-      <section id="faqs" className="scroll-mt-8">
+      <section id="faq" className="scroll-mt-24">
         <Heading as="div" className="mt-2 text-center">
           Questions fréquentes
         </Heading>

@@ -76,7 +76,7 @@ function Sitemap() {
         <SitemapHeading>Support</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="#">Centre d’aide</SitemapLink>
-          <SitemapLink href="/pricing">FAQ</SitemapLink>
+          <SitemapLink href="/pricing#faq">FAQ</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
