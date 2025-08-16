@@ -5,7 +5,6 @@ import { unauthorized } from "next/navigation";
 export async function GET(request: Request) {
   const authHeader = request.headers.get("authorization");
 
-  console.log("authHeader", authHeader);
   if (
     process.env.NODE_ENV === "production" &&
     authHeader !== `Bearer ${process.env.CRON_SECRET}`
