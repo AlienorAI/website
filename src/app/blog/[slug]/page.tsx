@@ -9,6 +9,8 @@ import { image } from "@/sanity/image";
 import { getPost } from "@/sanity/queries";
 import { ChevronLeftIcon } from "@heroicons/react/16/solid";
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
+dayjs.locale("fr");
 import type { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
@@ -37,7 +39,9 @@ export default async function BlogPost({
       <Container>
         <Navbar />
         <Subheading className="mt-16">
-          {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
+          {dayjs(post.publishedAt)
+            .format("dddd D MMMM YYYY")
+            .replace(/^\w/, (c) => c.toUpperCase())}
         </Subheading>
         <Heading as="h1" className="mt-2">
           {post.title}
@@ -188,7 +192,7 @@ export default async function BlogPost({
               <div className="mt-10">
                 <Button color={"white"} href="/blog">
                   <ChevronLeftIcon className="size-4" />
-                  Back to blog
+                  Revenir au blog
                 </Button>
               </div>
             </div>

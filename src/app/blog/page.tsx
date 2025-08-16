@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { GradientBackground } from "@/components/gradient";
 import { Link } from "@/components/link";
 import { Navbar } from "@/components/navbar";
-import { Heading, Lead, Subheading } from "@/components/text";
+import { Heading, Lead } from "@/components/text";
 import { image } from "@/sanity/image";
 import {
   getCategories,
@@ -22,6 +22,9 @@ import {
 } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
+dayjs.locale("fr");
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -30,6 +33,8 @@ export const metadata: Metadata = {
   description:
     "Restez informé des nouveautés produit, des actualités de l’entreprise et de conseils pour améliorer vos performances au quotidien.",
 };
+
+export const revalidate = 10;
 
 const postsPerPage = 5;
 
@@ -43,7 +48,7 @@ async function FeaturedPosts() {
   return (
     <div className="mt-16 bg-linear-to-t from-gray-100 pb-14">
       <Container>
-        <h2 className="text-2xl font-medium tracking-tight">Featured</h2>
+        <h2 className="text-2xl font-medium tracking-tight">À la une</h2>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredPosts.map((post) => (
             <div
@@ -59,7 +64,9 @@ async function FeaturedPosts() {
               )}
               <div className="flex flex-1 flex-col p-8">
                 <div className="text-sm/5 text-gray-700">
-                  {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
+                  {dayjs(post.publishedAt)
+                    .format("dddd D MMMM YYYY")
+                    .replace(/^\w/, (c) => c.toUpperCase())}
                 </div>
                 <div className="mt-2 text-base/7 font-medium">
                   <Link href={`/blog/${post.slug}`}>
@@ -168,7 +175,9 @@ async function Posts({ page, category }: { page: number; category?: string }) {
         >
           <div>
             <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
-              {dayjs(post.publishedAt).format("dddd, MMMM D, YYYY")}
+              {dayjs(post.publishedAt)
+                .format("dddd D MMMM YYYY")
+                .replace(/^\w/, (c) => c.toUpperCase())}
             </div>
             {post.author && (
               <div className="mt-2.5 flex items-center gap-3">
