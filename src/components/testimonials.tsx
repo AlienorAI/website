@@ -42,7 +42,7 @@ const testimonials = [
   {
     icon: ScaleIcon,
     name: "Conformité",
-    title: "RGPD stricte",
+    title: "Respect du RGPD strict",
     quote:
       "Une gestion rigoureuse des données, conforme aux normes européennes.",
   },
@@ -56,7 +56,7 @@ const testimonials = [
   {
     icon: AdjustmentsHorizontalIcon,
     name: "Contrôle",
-    title: "Accès granulaire",
+    title: "Accès granulaire hiérarchisé",
     quote:
       "Droits et permissions ajustables par utilisateur ou par équipe, pour un contrôle précis.",
   },
@@ -232,7 +232,7 @@ function TestimonialMobileCard({
       ref={ref}
       style={{ opacity }}
       {...props}
-      className="relative flex h-fit w-96 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl"
+      className="relative flex h-fit w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:w-96"
     >
       <div
         aria-hidden="true"
