@@ -1,6 +1,7 @@
-import { defineCliConfig } from 'sanity/cli'
+import { defineCliConfig } from "sanity/cli";
 
-const projectId = "627962ub"
-const dataset = "production"
+const projectId = "627962ub";
+const dataset = "production";
+const studioHost = "alienor";
 
-export default defineCliConfig({ api: { projectId, dataset } })
+export default defineCliConfig({ api: { projectId, dataset }, studioHost });
