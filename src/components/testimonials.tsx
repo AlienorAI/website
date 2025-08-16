@@ -7,6 +7,8 @@ import {
   AdjustmentsHorizontalIcon,
   CheckBadgeIcon,
   EyeSlashIcon,
+  LinkIcon,
+  PlusCircleIcon,
 } from "@heroicons/react/16/solid";
 import {
   type HTMLMotionProps,
@@ -30,6 +32,7 @@ import {
 import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { clsx } from "clsx";
 import * as Headless from "@headlessui/react";
+import { Card } from "@/components/Card";
 
 const testimonials = [
   {
@@ -132,18 +135,26 @@ export function Testimonials() {
           </Heading>
         </div>
       </Container>
-      <div className="mx-auto mt-10 hidden w-full max-w-2xl gap-6 max-sm:px-6 sm:mt-16 md:grid md:grid-cols-3 lg:max-w-7xl">
-        {testimonials.map(({ name, title, quote, icon }, testimonialIndex) => (
-          <TestimonialCard
-            key={testimonialIndex}
-            name={name}
-            title={title}
-            icon={icon}
-          >
-            {quote}
-          </TestimonialCard>
-        ))}
-      </div>{" "}
+      <div className="mx-auto mt-10 hidden w-full max-w-2xl max-sm:px-6 sm:mt-16 md:block lg:max-w-7xl">
+        <ul
+          role="list"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {testimonials.map(({ title, quote, icon: Icon, name }) => (
+            <Card
+              className={"rounded-2xl p-6 transition hover:bg-zinc-50"}
+              as="li"
+              key={title}
+            >
+              <div className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-sm font-medium text-zinc-600 shadow-md ring-1 shadow-zinc-800/5 ring-white/20 ring-zinc-900/5 ring-inset group-hover:text-zinc-800 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                <Icon className={"size-3.5"} /> {name}
+              </div>
+              <h2 className="mt-6 text-base font-semibold text-zinc-800"></h2>
+              <Card.Description>{quote}</Card.Description>
+            </Card>
+          ))}
+        </ul>
+      </div>
       <div
         ref={scrollRef}
         className={clsx([
