@@ -7,6 +7,8 @@ import { Navbar } from "@/components/navbar";
 import { Heading, Lead, Subheading } from "@/components/text";
 import type { Metadata } from "next";
 import { ArrowDownCircleIcon } from "@heroicons/react/16/solid";
+import { Link } from "@/components/link";
+import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 
 export const metadata: Metadata = {
   title: "Entreprise",
@@ -44,7 +46,17 @@ function Header() {
             faire de la connaissance un atout compétitif, sans jamais
             compromettre la confiance.
           </p>
+          <div className="mt-6">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 text-sm/6 font-medium text-blue-500"
+            >
+              Voir les tarifs
+              <ArrowLongRightIcon className="size-5" />
+            </Link>
+          </div>
         </div>
+
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
           <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
             <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
@@ -169,7 +181,7 @@ function Team() {
             contrôle total sur leurs données.
           </p>
           <div className="mt-6">
-            <Button className="w-full sm:w-auto" href="#">
+            <Button className="w-full sm:w-auto" href="/company#careers">
               <ArrowDownCircleIcon />
               Nous rejoindre
             </Button>
@@ -281,7 +293,8 @@ function Testimonial() {
       <figure className="relative p-10">
         <blockquote>
           <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-           Une vision long terme pour l’IA française
+            Notre objectif est de développer une vision long terme pour l’IA
+            souveraine.
           </p>
         </blockquote>
       </figure>
@@ -291,7 +304,7 @@ function Testimonial() {
 
 function Careers() {
   return (
-    <Container className="my-32">
+    <Container id={"careers"} className="my-32">
       {/*<Subheading>Careers</Subheading>*/}
       <Heading as="h3" className="mt-2">
         Des talents au service de l’IA française.

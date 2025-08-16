@@ -132,7 +132,7 @@ function CallToAction() {
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
         Boostez la productivité de votre entreprise et gagnez du temps grâce à
-        Aliénor
+        Aliénor.
       </p>
       <div className="mt-2">
         <Link

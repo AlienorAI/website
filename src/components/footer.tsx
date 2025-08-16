@@ -69,7 +69,7 @@ function Sitemap() {
         <SitemapHeading>Entreprise</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="/company">Mission</SitemapLink>
-          <SitemapLink href="/company">Carrières</SitemapLink>
+          <SitemapLink href="/company#careers">Carrières</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
