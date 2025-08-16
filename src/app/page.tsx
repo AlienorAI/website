@@ -10,9 +10,9 @@ import { Testimonials } from "@/components/testimonials";
 import { Heading } from "@/components/text";
 import {
   BoltIcon,
+  CheckCircleIcon,
   CheckIcon,
   ClockIcon,
-  ListBulletIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
 import { UseCases } from "@/components/use-cases";
@@ -57,7 +57,7 @@ function HeroSection() {
           Voir en action
         </Button>
         <Button color={"white"} href="/pricing">
-          <ListBulletIcon />
+          <CheckCircleIcon />
           Voir les tarifs
         </Button>
       </div>
