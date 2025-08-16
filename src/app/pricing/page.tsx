@@ -14,6 +14,8 @@ import {
   EnvelopeIcon,
   MinusIcon,
   RocketLaunchIcon,
+  SparklesIcon,
+  UserGroupIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
 import FAQ from "@/components/faq";
@@ -43,6 +45,7 @@ const tiers = [
       { section: "Features", name: "Membres dans l’équipe", value: 3 },
       { section: "Features", name: "Documents actifs", value: 10 },
       { section: "Features", name: "Messages par mois", value: 1000 },
+      { section: "Features", name: "Agents IA autonomes", value: false },
       { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
       {
         section: "Sécurité",
@@ -75,6 +78,14 @@ const tiers = [
       { description: "Membres illimités" },
       { description: "Documents illimités*" },
       { description: "Messages illimités*" },
+      {
+        description: (
+          <span className={"flex items-center gap-1"}>
+            <span>Agents IA autonomes</span>
+            <UserGroupIcon className={"size-4 fill-teal-500"} />
+          </span>
+        ),
+      },
       { description: "Hébergement 100 % en France" },
       { description: "Aucune réutilisation des données" },
     ],
@@ -87,6 +98,7 @@ const tiers = [
       { section: "Features", name: "Documents actifs", value: "Illimités*" },
       { section: "Features", name: "Messages par mois", value: "Illimités*" },
       { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
+      { section: "Features", name: "Agents IA autonomes", value: true },
       {
         section: "Sécurité",
         name: "Aucune réutilisation des données",
@@ -117,6 +129,14 @@ const tiers = [
       { description: "Membres illimités" },
       { description: "Documents illimités*" },
       { description: "Messages illimités*" },
+      {
+        description: (
+          <span className={"flex items-center gap-1"}>
+            <span>Agents IA autonomes</span>
+            <UserGroupIcon className={"size-4 fill-teal-500"} />
+          </span>
+        ),
+      },
       { description: "Hébergement 100 % en France" },
       { description: "Aucune réutilisation des données" },
       { description: "Infrastructure dédiée" },
@@ -129,6 +149,7 @@ const tiers = [
       },
       { section: "Features", name: "Documents actifs", value: "Illimités*" },
       { section: "Features", name: "Messages par mois", value: "Illimités*" },
+      { section: "Features", name: "Agents IA autonomes", value: true },
       { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
       {
         section: "Sécurité",
