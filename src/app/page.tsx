@@ -15,7 +15,6 @@ import {
   ListBulletIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
-import { Badge } from "@/components/badge";
 
 export const metadata: Metadata = {
   description:

@@ -39,9 +39,9 @@ export default async function BlogPost({
       <Container>
         <Navbar />
         <Subheading className="mt-16">
-          {/*{dayjs(post.publishedAt)*/}
-          {/*  .format("dddd D MMMM YYYY")*/}
-          {/*  .replace(/^\w/, (c) => c.toUpperCase())}*/}
+          {dayjs(post.publishedAt)
+            .format("dddd D MMMM YYYY")
+            .replace(/^\w/, (c) => c.toUpperCase())}
         </Subheading>
         <Heading as="h1" className="mt-2">
           {post.title}
