@@ -169,7 +169,6 @@ export function Testimonials() {
     <div className="overflow-hidden py-32">
       <Container>
         <div ref={setReferenceWindowRef}>
-          {/*<Subheading>What everyone is saying</Subheading>*/}
           <Heading as="h3" className="max-w-3xl">
             Sécurité et souveraineté au cœur de chaque réponse
           </Heading>
