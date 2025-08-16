@@ -303,6 +303,38 @@ function Testimonial() {
 }
 
 function Careers() {
+  function ApplyButton({ jobTitle }: { jobTitle: string }) {
+    const subject = encodeURIComponent(
+      `Candidature – ${jobTitle} chez Aliénor`,
+    );
+    const body = encodeURIComponent(
+      `Bonjour,
+
+Je souhaite postuler au poste de ${jobTitle}.
+
+Nom :
+Ville :
+Profil / Stack :
+Lien GitHub / Portfolio :
+Lien Twitter / X :
+Lien Linkedin :
+CV en pièce jointe :
+
+Merci,
+`,
+    );
+
+    return (
+      <Button
+        href={`mailto:contact@alienor.ai?subject=${subject}&body=${body}`}
+        className="w-fit"
+        plain
+      >
+        Postuler
+      </Button>
+    );
+  }
+
   return (
     <Container id={"careers"} className="my-32">
       {/*<Subheading>Careers</Subheading>*/}
@@ -344,9 +376,7 @@ function Careers() {
                     À distance
                   </td>
                   <td className="w-fit px-0 py-4 text-right">
-                    <Button className={"w-fit flex-1 grow"} plain>
-                      Voir l’offre
-                    </Button>
+                    <ApplyButton jobTitle={"Développeur Backend | Node.js"} />
                   </td>
                 </tr>
                 <tr>
@@ -361,9 +391,7 @@ function Careers() {
                   <td className="px-0 py-4">Lead Designer</td>
                   <td className="px-0 py-4 text-gray-600">À distance</td>
                   <td className="px-0 py-4 text-right">
-                    <Button plain href="#">
-                      Voir l’offre
-                    </Button>
+                    <ApplyButton jobTitle={"Lead Designer"} />
                   </td>
                 </tr>
                 <tr>
@@ -377,9 +405,7 @@ function Careers() {
                   <td className="px-0 py-4">Responsable SEO/SEA</td>
                   <td className="px-0 py-4 text-gray-600">À distance</td>
                   <td className="px-0 py-4 text-right">
-                    <Button plain href="#">
-                      Voir l’offre
-                    </Button>
+                    <ApplyButton jobTitle={"Responsable SEO/SEA"} />
                   </td>
                 </tr>
               </tbody>
