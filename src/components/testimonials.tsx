@@ -141,17 +141,20 @@ export function Testimonials() {
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {testimonials.map(({ title, quote, icon: Icon, name }) => (
-            <Card
-              className={"rounded-2xl p-6 transition hover:bg-zinc-50"}
-              as="li"
+            <li
+              className={
+                "group relative flex flex-col items-start rounded-2xl p-6 transition hover:bg-zinc-50"
+              }
               key={title}
             >
               <div className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-sm font-medium text-zinc-600 shadow-md ring-1 shadow-zinc-800/5 ring-white/20 ring-zinc-900/5 ring-inset group-hover:text-zinc-800 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Icon className={"size-3.5"} /> {name}
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800"></h2>
-              <Card.Description>{quote}</Card.Description>
-            </Card>
+              <p className="relative z-10 mt-2 text-base text-zinc-800">
+                {quote}
+              </p>
+            </li>
           ))}
         </ul>
       </div>
