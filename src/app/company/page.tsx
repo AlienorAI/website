@@ -22,7 +22,7 @@ function Header() {
       <Heading as="h1">La connaissance au service de la croissance.</Heading>
       <Lead className="mt-6 max-w-3xl">
         Nous avons pour mission de transformer la performance des organisations
-        en valorisant leur savoir interne, en priorisant la sécurité et la
+        en valorisant leur savoir interne tout en priorisant la sécurité et la
         souveraineté.
       </Lead>
       <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
