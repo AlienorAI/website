@@ -1,14 +1,12 @@
 "use client";
 
 import {
-  GlobeEuropeAfricaIcon,
-  ScaleIcon,
-  LockClosedIcon,
   AdjustmentsHorizontalIcon,
   CheckBadgeIcon,
   EyeSlashIcon,
-  LinkIcon,
-  PlusCircleIcon,
+  GlobeEuropeAfricaIcon,
+  LockClosedIcon,
+  ScaleIcon,
 } from "@heroicons/react/16/solid";
 import {
   type HTMLMotionProps,
@@ -31,8 +29,6 @@ import {
 } from "react";
 import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { clsx } from "clsx";
-import * as Headless from "@headlessui/react";
-import { Card } from "@/components/Card";
 
 const testimonials = [
   {
