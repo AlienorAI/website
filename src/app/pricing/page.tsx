@@ -425,17 +425,17 @@ function Testimonial() {
 
               <div
                 className={
-                  "flex items-center justify-center gap-4 lg:justify-start"
+                  "flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
                 }
               >
-                <Button color={"white"} className={"w-fit"}>
+                <Button color={"white"} className={"w-full sm:w-fit"}>
                   <EnvelopeIcon />
                   Contactez nous
                 </Button>
                 <Button
                   href={"https://calendly.com/alienor-ai/demo"}
                   color={"white"}
-                  className={"w-fit"}
+                  className={"w-full sm:w-fit"}
                 >
                   <CalendarIcon />
                   Planifiez une démo

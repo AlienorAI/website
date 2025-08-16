@@ -28,7 +28,7 @@ const testimonials = [
   {
     img: "/bonjour.webp",
     name: "Sécurité",
-    title: "Conformité RGPD",
+    title: "Conformité RGPD stricte",
     quote:
       "Une gestion rigoureuse des données, conforme aux normes européennes.",
   },
@@ -43,13 +43,15 @@ const testimonials = [
     img: "/bonjour.webp",
     name: "Sécurité",
     title: "Contrôle d’accès granulaire",
-    quote: "Droits et permissions ajustables par utilisateur ou par équipe.",
+    quote:
+      "Droits et permissions ajustables par utilisateur ou par équipe, pour un contrôle précis.",
   },
   {
     img: "/bonjour.webp",
     name: "Sécurité",
     title: "Authentification multi-facteurs",
-    quote: "Protection renforcée contre les accès non autorisés.",
+    quote:
+      "Protection renforcée contre les accès non autorisés, garantissant une sécurité totale.",
   },
 ];
 
