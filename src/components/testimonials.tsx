@@ -1,8 +1,13 @@
 "use client";
 
-import * as Headless from "@headlessui/react";
-import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
-import { clsx } from "clsx";
+import {
+  GlobeEuropeAfricaIcon,
+  ScaleIcon,
+  LockClosedIcon,
+  AdjustmentsHorizontalIcon,
+  CheckBadgeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/16/solid";
 import {
   type HTMLMotionProps,
   motion,
@@ -11,62 +16,179 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
-import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { Container } from "./container";
-import { Link } from "./link";
 import { Heading } from "./text";
+import {
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  type SVGProps,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import useMeasure, { type RectReadOnly } from "react-use-measure";
+import { clsx } from "clsx";
+import * as Headless from "@headlessui/react";
 
 const testimonials = [
   {
-    img: "/bonjour.webp",
-    name: "Sécurité",
-    title: "Hébergement souverain",
+    icon: GlobeEuropeAfricaIcon,
+    name: "Souveraineté",
+    title: "Hébergement en France",
     quote:
       "Vos données restent sur le territoire français, protégées par la législation locale.",
   },
   {
-    img: "/bonjour.webp",
-    name: "Sécurité",
-    title: "Conformité RGPD stricte",
+    icon: ScaleIcon,
+    name: "Conformité",
+    title: "RGPD stricte",
     quote:
       "Une gestion rigoureuse des données, conforme aux normes européennes.",
   },
   {
-    img: "/bonjour.webp",
-    name: "Sécurité",
+    icon: LockClosedIcon,
+    name: "Confidentialité",
     title: "Chiffrement de bout en bout",
     quote:
       "Sécurisation des échanges et des données stockées avec les standards les plus avancés.",
   },
   {
-    img: "/bonjour.webp",
-    name: "Sécurité",
-    title: "Contrôle d’accès granulaire",
+    icon: AdjustmentsHorizontalIcon,
+    name: "Contrôle",
+    title: "Accès granulaire",
     quote:
       "Droits et permissions ajustables par utilisateur ou par équipe, pour un contrôle précis.",
   },
   {
-    img: "/bonjour.webp",
-    name: "Sécurité",
-    title: "Authentification multi-facteurs",
+    icon: CheckBadgeIcon,
+    name: "Fiabilité",
+    title: "Certifications reconnues",
     quote:
-      "Protection renforcée contre les accès non autorisés, garantissant une sécurité totale.",
+      "Aliénor respecte les standards : ISO/IEC 27001, ISO/IEC 27701, SOC 2 Type 2 et SecNumCloud.",
+  },
+  {
+    icon: EyeSlashIcon,
+    name: "Transparence",
+    title: "Politique zéro rétention",
+    quote:
+      "Aucune utilisation à des fins publicitaires ou d’entraînement externe.",
   },
 ];
 
 function TestimonialCard({
   name,
   title,
-  img,
+  icon: Icon,
+  children,
+}: {
+  name: string;
+  title: string;
+  icon: ForwardRefExoticComponent<
+    Omit<SVGProps<SVGSVGElement>, "ref"> & {
+      title?: string;
+      titleId?: string;
+    } & RefAttributes<SVGSVGElement>
+  >;
+  children: React.ReactNode;
+} & HTMLMotionProps<"div">) {
+  return (
+    <div className="col-span-1 flex h-fit flex-col justify-end rounded-2xl bg-gradient-to-b from-sky-700 to-sky-900">
+      <figure className="p-10">
+        <div className="mb-4">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white ring-1 ring-white/20 ring-inset">
+            <Icon className={"size-3"} /> {name}
+          </span>
+        </div>
+        <h4 className="text-xl/7 font-semibold text-white">{title}</h4>
+        <p className="mt-3 text-sm/6 text-gray-200">{children}</p>
+      </figure>
+    </div>
+  );
+}
+
+export function Testimonials() {
+  let scrollRef = useRef<HTMLDivElement | null>(null);
+  let { scrollX } = useScroll({ container: scrollRef });
+  let [setReferenceWindowRef, bounds] = useMeasure();
+  let [activeIndex, setActiveIndex] = useState(0);
+
+  useMotionValueEvent(scrollX, "change", (x) => {
+    setActiveIndex(Math.floor(x / scrollRef.current!.children[0].clientWidth));
+  });
+
+  function scrollTo(index: number) {
+    let gap = 32;
+    let width = (scrollRef.current!.children[0] as HTMLElement).offsetWidth;
+    scrollRef.current!.scrollTo({ left: (width + gap) * index });
+  }
+
+  return (
+    <div className="w-full overflow-hidden py-32">
+      <Container>
+        <div ref={setReferenceWindowRef}>
+          <Heading as="h3" className="max-w-3xl">
+            Sécurité et souveraineté au cœur de chaque réponse
+          </Heading>
+        </div>
+      </Container>
+      <div className="mx-auto mt-10 hidden w-full max-w-2xl gap-6 max-sm:px-6 sm:mt-16 md:grid md:grid-cols-3 lg:max-w-7xl">
+        {testimonials.map(({ name, title, quote, icon }, testimonialIndex) => (
+          <TestimonialCard
+            key={testimonialIndex}
+            name={name}
+            title={title}
+            icon={icon}
+          >
+            {quote}
+          </TestimonialCard>
+        ))}
+      </div>{" "}
+      <div
+        ref={scrollRef}
+        className={clsx([
+          "mt-16 flex gap-6 px-(--scroll-padding) md:hidden",
+          "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          "snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth",
+          "[--scroll-padding:max(--spacing(6),calc((100vw-(var(--container-2xl)))/2))] lg:[--scroll-padding:max(--spacing(8),calc((100vw-(var(--container-7xl)))/2))]",
+        ])}
+      >
+        {testimonials.map(({ icon, name, title, quote }, testimonialIndex) => (
+          <TestimonialMobileCard
+            icon={icon}
+            key={testimonialIndex}
+            name={name}
+            title={title}
+            bounds={bounds}
+            scrollX={scrollX}
+            onClick={() => scrollTo(testimonialIndex)}
+          >
+            {quote}
+          </TestimonialMobileCard>
+        ))}
+        <div className="w-2xl shrink-0 sm:w-216" />
+      </div>
+    </div>
+  );
+}
+
+function TestimonialMobileCard({
+  name,
+  title,
+  icon: Icon,
   children,
   bounds,
   scrollX,
   ...props
 }: {
-  img: string;
   name: string;
   title: string;
+  icon: ForwardRefExoticComponent<
+    Omit<SVGProps<SVGSVGElement>, "ref"> & {
+      title?: string;
+      titleId?: string;
+    } & RefAttributes<SVGSVGElement>
+  >;
   children: React.ReactNode;
   bounds: RectReadOnly;
   scrollX: MotionValue<number>;
@@ -110,7 +232,7 @@ function TestimonialCard({
       ref={ref}
       style={{ opacity }}
       {...props}
-      className="relative flex h-fit w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:w-96"
+      className="relative flex h-fit w-96 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl"
     >
       <div
         aria-hidden="true"
@@ -118,108 +240,13 @@ function TestimonialCard({
       />
       <figure className="relative p-10">
         <div className="mb-4">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white ring-1 ring-white/20 ring-inset">
-            {name}
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white ring-1 ring-white/20 ring-inset">
+            <Icon className={"size-3"} /> {name}
           </span>
         </div>
         <h4 className="text-xl/7 font-semibold text-white">{title}</h4>
         <p className="mt-3 text-sm/6 text-gray-200">{children}</p>
       </figure>
     </motion.div>
-  );
-}
-
-function CallToAction() {
-  return (
-    <div>
-      <p className="max-w-sm text-sm/6 text-gray-600">
-        Boostez la productivité de votre entreprise et gagnez du temps grâce à
-        Aliénor.
-      </p>
-      <div className="mt-2">
-        <Link
-          href="/company"
-          className="inline-flex items-center gap-2 text-sm/6 font-medium text-blue-500"
-        >
-          Notre mission
-          <ArrowLongRightIcon className="size-5" />
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-export function Testimonials() {
-  let scrollRef = useRef<HTMLDivElement | null>(null);
-  let { scrollX } = useScroll({ container: scrollRef });
-  let [setReferenceWindowRef, bounds] = useMeasure();
-  let [activeIndex, setActiveIndex] = useState(0);
-
-  useMotionValueEvent(scrollX, "change", (x) => {
-    setActiveIndex(Math.floor(x / scrollRef.current!.children[0].clientWidth));
-  });
-
-  function scrollTo(index: number) {
-    let gap = 32;
-    let width = (scrollRef.current!.children[0] as HTMLElement).offsetWidth;
-    scrollRef.current!.scrollTo({ left: (width + gap) * index });
-  }
-
-  return (
-    <div className="overflow-hidden py-32">
-      <Container>
-        <div ref={setReferenceWindowRef}>
-          <Heading as="h3" className="max-w-3xl">
-            Sécurité et souveraineté au cœur de chaque réponse
-          </Heading>
-        </div>
-      </Container>
-      <div
-        ref={scrollRef}
-        className={clsx([
-          "mt-16 flex gap-8 px-(--scroll-padding)",
-          "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
-          "snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth",
-          "[--scroll-padding:max(--spacing(6),calc((100vw-(var(--container-2xl)))/2))] lg:[--scroll-padding:max(--spacing(8),calc((100vw-(var(--container-7xl)))/2))]",
-        ])}
-      >
-        {testimonials.map(({ img, name, title, quote }, testimonialIndex) => (
-          <TestimonialCard
-            key={testimonialIndex}
-            name={name}
-            title={title}
-            img={img}
-            bounds={bounds}
-            scrollX={scrollX}
-            onClick={() => scrollTo(testimonialIndex)}
-          >
-            {quote}
-          </TestimonialCard>
-        ))}
-        <div className="w-2xl shrink-0 sm:w-216" />
-      </div>
-      <Container className="mt-16">
-        <div className="flex justify-between">
-          <CallToAction />
-          <div className="hidden sm:flex sm:gap-2">
-            {testimonials.map(({ title }, testimonialIndex) => (
-              <Headless.Button
-                key={testimonialIndex}
-                onClick={() => scrollTo(testimonialIndex)}
-                data-active={
-                  activeIndex === testimonialIndex ? true : undefined
-                }
-                aria-label={`Aller à la fonctionnalité : ${title}`}
-                className={clsx(
-                  "size-2.5 rounded-full border border-transparent bg-gray-300 transition",
-                  "data-active:bg-gray-400 data-hover:bg-gray-400",
-                  "forced-colors:data-active:bg-[Highlight] forced-colors:data-focus:outline-offset-4",
-                )}
-              />
-            ))}
-          </div>
-        </div>
-      </Container>
-    </div>
   );
 }

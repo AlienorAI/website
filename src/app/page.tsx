@@ -15,6 +15,7 @@ import {
   ListBulletIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
+import { UseCases } from "@/components/use-cases";
 
 export const metadata: Metadata = {
   description:
@@ -82,7 +83,7 @@ function DarkBentoSection() {
         Conçue pour s'intégrer à votre environnement professionnel
       </Heading>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
           dark
           eyebrow="Networking"
@@ -152,6 +153,7 @@ export default function Home() {
         </div>
       </main>
       <Testimonials />
+      <UseCases />
       <Footer />
     </div>
   );

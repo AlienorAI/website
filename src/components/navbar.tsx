@@ -20,7 +20,7 @@ const links = [
 
 function DesktopNav() {
   return (
-    <nav className="relative hidden items-center gap-4 lg:flex">
+    <nav className="relative hidden items-center gap-6 lg:flex">
       {links.map(({ href, label }) => (
         <Button className={"h-fit shrink-0"} key={href} href={href} plain>
           {label}
