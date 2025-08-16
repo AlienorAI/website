@@ -117,26 +117,25 @@ async function Categories({ selected }: { selected?: string }) {
           anchor="bottom start"
           className="min-w-40 rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
         >
-          <MenuItem>
-            <Link
-              href="/blog"
-              data-selected={selected === undefined ? true : undefined}
-              className="group grid grid-cols-[1rem_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
-            >
-              <CheckIcon className="hidden size-4 group-data-selected:block" />
-              <p className="col-start-2 text-sm/6">All categories</p>
-            </Link>
+          <MenuItem
+            as={Link}
+            href="/blog"
+            data-selected={selected === undefined ? true : undefined}
+            className="group grid grid-cols-[1rem_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
+          >
+            <CheckIcon className="hidden size-4 group-data-selected:block" />
+            <p className="col-start-2 text-sm/6">All categories</p>
           </MenuItem>
           {categories.map((category) => (
-            <MenuItem key={category.slug}>
-              <Link
-                href={`/blog?category=${category.slug}`}
-                data-selected={category.slug === selected ? true : undefined}
-                className="group grid grid-cols-[16px_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
-              >
-                <CheckIcon className="hidden size-4 group-data-selected:block" />
-                <p className="col-start-2 text-sm/6">{category.title}</p>
-              </Link>
+            <MenuItem
+              key={category.slug}
+              as={Link}
+              href={`/blog?category=${category.slug}`}
+              data-selected={category.slug === selected ? true : undefined}
+              className="group grid grid-cols-[16px_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
+            >
+              <CheckIcon className="hidden size-4 group-data-selected:block" />
+              <p className="col-start-2 text-sm/6">{category.title}</p>
             </MenuItem>
           ))}
         </MenuItems>

@@ -290,18 +290,16 @@ function PricingTable({
                     className="min-w-(--button-width) rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
                   >
                     {tiers.map((tier) => (
-                      <MenuItem key={tier.slug}>
-                        <Link
-                          scroll={false}
-                          href={`/pricing?tier=${tier.slug}`}
-                          data-selected={
-                            tier === selectedTier ? true : undefined
-                          }
-                          className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
-                        >
-                          {tier.name}
-                          <CheckIcon className="hidden size-4 group-data-selected:block" />
-                        </Link>
+                      <MenuItem
+                        key={tier.slug}
+                        as={Link}
+                        scroll={false}
+                        href={`/pricing?tier=${tier.slug}`}
+                        data-selected={tier === selectedTier ? true : undefined}
+                        className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
+                      >
+                        {tier.name}
+                        <CheckIcon className="hidden size-4 group-data-selected:block" />
                       </MenuItem>
                     ))}
                   </MenuItems>
