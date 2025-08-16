@@ -34,8 +34,6 @@ export const metadata: Metadata = {
     "Restez informé des nouveautés produit, des actualités de l’entreprise et de conseils pour améliorer vos performances au quotidien.",
 };
 
-export const revalidate = 10;
-
 const postsPerPage = 5;
 
 async function FeaturedPosts() {
