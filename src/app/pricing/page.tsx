@@ -388,7 +388,7 @@ function FeatureItem({
   description,
   disabled = false,
 }: {
-  description: string;
+  description: React.ReactNode;
   disabled?: boolean;
 }) {
   return (
