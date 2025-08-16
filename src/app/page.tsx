@@ -116,7 +116,11 @@ function DarkBentoSection() {
           dark
           eyebrow="Engagement"
           title={
-            <span className={"flex items-center gap-4"}>
+            <span
+              className={
+                "flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4"
+              }
+            >
               <span>Des Agents IA prêts à l'emploi</span>
               <span className="flex items-center gap-1 rounded-full border border-teal-100 bg-teal-50 px-2 text-xs/6 font-medium text-teal-700">
                 <ClockIcon className={"size-3"} />
