@@ -110,7 +110,7 @@ async function Categories({ selected }: { selected?: string }) {
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
           {categories.find(({ slug }) => slug === selected)?.title ||
-            "All categories"}
+            "Toutes les catégories"}
           <ChevronUpDownIcon className="size-4 fill-gray-900" />
         </MenuButton>
         <MenuItems
@@ -143,7 +143,7 @@ async function Categories({ selected }: { selected?: string }) {
       </Menu>
       <Button color={"white"} href="/blog/feed.xml" className="gap-1">
         <RssIcon className="size-4" />
-        RSS Feed
+        Flux RSS
       </Button>
     </div>
   );
