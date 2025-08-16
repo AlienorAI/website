@@ -81,10 +81,10 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
   return (
     <Disclosure as="header" className="pt-12 sm:pt-16">
       <PlusGrid>
-        <PlusGridRow className="relative flex justify-between">
+        <PlusGridRow className="relative flex items-center justify-between">
           <Link
             className={
-              "flex items-center justify-center gap-1.5 rounded-full bg-blue-50 px-2 py-1.5 font-medium dark:bg-sky-900"
+              "flex h-fit items-center justify-center gap-1.5 rounded-full bg-blue-50 px-2 py-1 font-medium sm:py-1.5 dark:bg-sky-900"
             }
             href="/"
             title="Accueil"
