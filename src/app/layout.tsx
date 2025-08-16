@@ -4,13 +4,6 @@ import "@/styles/tailwind.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s - Aliénor AI",
-    default: "Aliénor AI - L’IA qui connaît votre entreprise",
-  },
-};
-
 const geist = Geist({
   subsets: ["latin"],
   display: "swap",
@@ -22,6 +15,17 @@ const geistMono = Geist_Mono({
   display: "swap",
   variable: "--font-geist-mono",
 });
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s - Aliénor AI",
+    default: "Aliénor AI - L’IA qui connaît votre entreprise",
+  },
+  metadataBase: new URL("https://alienor.ai"),
+  alternates: {
+    canonical: "https://alienor.ai",
+  },
+};
 
 export default function RootLayout({
   children,
