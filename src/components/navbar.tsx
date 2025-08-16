@@ -13,8 +13,8 @@ import { Button } from "./button";
 import { HomeIcon } from "@heroicons/react/16/solid";
 
 const links = [
-  { href: "/pricing", label: "Tarifs" },
   { href: "/company", label: "Notre mission" },
+  { href: "/pricing", label: "Tarifs" },
   { href: "/blog", label: "Blog" },
 ];
 
