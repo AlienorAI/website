@@ -20,38 +20,38 @@ import { Heading, Subheading } from "./text";
 const testimonials = [
   {
     img: "/testimonials/amy-chase.jpg",
-    name: "Claire Dubois",
-    title: "Responsable commerciale",
+    name: "Préparer un rendez-vous client",
+    title: "Application Commerciale",
     quote:
-      "Je retrouve en un instant les informations clés d’une fiche technique avant mes rendez-vous client.",
+      "Retrouvez en un instant les informations clés d’une fiche technique ou d’un CRM avant vos échanges commerciaux.",
   },
   {
     img: "/testimonials/conor-neville.jpg",
-    name: "Thomas Leroy",
-    title: "Responsable RH",
+    name: "Accéder aux politiques internes",
+    title: "Application RH",
     quote:
-      "Je peux vérifier la cohérence des données internes en quelques secondes, sans avoir à chercher dans plusieurs outils.",
+      "Vérifiez la cohérence des données et répondez rapidement aux collaborateurs, sans chercher dans plusieurs outils.",
   },
   {
     img: "/testimonials/veronica-winton.jpg",
-    name: "Sophie Garnier",
-    title: "Directrice financière",
+    name: "Éviter les doublons et erreurs",
+    title: "Application Finance / Direction",
     quote:
-      "Aliénor centralise nos documents et évite les doublons. Les équipes prennent de meilleures décisions, plus rapidement.",
+      "Centralisez les documents sensibles et assurez-vous que les équipes utilisent toujours la bonne version.",
   },
   {
     img: "/testimonials/harriet-arron.jpg",
-    name: "Héloïse Caron",
-    title: "Chargé de support",
+    name: "Accélérer la résolution des tickets",
+    title: "Application Support",
     quote:
-      "Quand un collaborateur me pose une question, je trouve la réponse rapidement grâce à Aliénor. C’est un vrai gain de réactivité.",
+      "Trouvez immédiatement des réponses dans la base de connaissances et améliorez la réactivité de vos équipes.",
   },
   {
     img: "/testimonials/tina-yards.jpg",
-    name: "Élodie Martin",
-    title: "CTO",
+    name: "Gagner du temps sur les infos techniques",
+    title: "Application Technique / IT",
     quote:
-      "L’intégration d’Aliénor à nos outils internes a réduit le temps passé à chercher des informations techniques de plus de 50%.",
+      "Grâce à l’intégration aux outils internes, réduisez de plus de 50% le temps passé à rechercher des données techniques.",
   },
 ];
 
@@ -123,15 +123,7 @@ function TestimonialCard({
       />
       <figure className="relative p-10">
         <blockquote>
-          <p className="relative text-xl/7 text-white">
-            <span aria-hidden="true" className="absolute -translate-x-full">
-              “
-            </span>
-            {children}
-            <span aria-hidden="true" className="absolute">
-              ”
-            </span>
-          </p>
+          <p className="relative text-xl/7 text-white">{children}</p>
         </blockquote>
         <figcaption className="mt-6 border-t border-white/20 pt-6">
           <p className="text-sm/6 font-medium text-white">{name}</p>
