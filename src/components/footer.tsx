@@ -149,6 +149,37 @@ function SocialLinks() {
   );
 }
 
+function Certficatetions() {
+  return (
+    <>
+      <div className="size-10 sm:size-full">
+        <img
+          src={"/certifications/rgpd.webp"}
+          alt="RGPD logo"
+          width={45}
+          height={45}
+        />
+      </div>
+      <div className="size-10 sm:size-full">
+        <img
+          src={"/certifications/iso.webp"}
+          alt="ISO 27001 logo"
+          width={45}
+          height={45}
+        />
+      </div>
+      <div className="size-10 sm:size-full">
+        <img
+          src={"/certifications/snc.webp"}
+          alt="SecNumCloud logo"
+          width={45}
+          height={45}
+        />
+      </div>
+    </>
+  );
+}
+
 function Copyright() {
   return (
     <div className="text-sm/6 text-gray-950">
@@ -198,7 +229,7 @@ export function Footer() {
                 </div>
               </div>
             </PlusGridRow>
-            <PlusGridRow className="flex justify-between">
+            <PlusGridRow className="flex items-center justify-between">
               <div>
                 <PlusGridItem className="py-3">
                   <Copyright />
@@ -206,7 +237,8 @@ export function Footer() {
               </div>
               <div className="flex">
                 <PlusGridItem className="flex items-center gap-8 py-3">
-                  <SocialLinks />
+                  {/*<SocialLinks />*/}
+                  <Certficatetions />
                 </PlusGridItem>
               </div>
             </PlusGridRow>
