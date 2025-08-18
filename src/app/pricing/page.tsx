@@ -2,15 +2,14 @@ import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { Footer } from "@/components/footer";
 import { Gradient, GradientBackground } from "@/components/gradient";
-import { Link } from "@/components/link";
+import { TierSelectMobile } from "@/components/tier-select-mobile";
 import { LogoCloud } from "@/components/logo-cloud";
 import { Navbar } from "@/components/navbar";
 import { Heading, Lead } from "@/components/text";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+// removed unused headlessui import
 import {
   CalendarIcon,
   CheckIcon,
-  ChevronUpDownIcon,
   EnvelopeIcon,
   MinusIcon,
   RocketLaunchIcon,
@@ -279,35 +278,10 @@ function PricingTable({
           </tr>
           <tr className="sm:hidden">
             <td className="p-0">
-              <div className="relative inline-block">
-                <Menu>
-                  <MenuButton className="flex items-center justify-between gap-2 font-medium">
-                    {selectedTier.name}
-                    <ChevronUpDownIcon className="size-4 fill-gray-900" />
-                  </MenuButton>
-                  <MenuItems
-                    anchor="bottom start"
-                    className="min-w-(--button-width) rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
-                  >
-                    {tiers.map((tier) => (
-                      <MenuItem
-                        key={tier.slug}
-                        as={Link}
-                        scroll={false}
-                        href={`/pricing?tier=${tier.slug}`}
-                        data-selected={tier === selectedTier ? true : undefined}
-                        className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
-                      >
-                        {tier.name}
-                        <CheckIcon className="hidden size-4 group-data-selected:block" />
-                      </MenuItem>
-                    ))}
-                  </MenuItems>
-                </Menu>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                  <ChevronUpDownIcon className="size-4 fill-gray-900" />
-                </div>
-              </div>
+              <TierSelectMobile
+                options={tiers.map(({ name, slug }) => ({ name, slug }))}
+                selectedSlug={selectedTier.slug}
+              />
             </td>
           </tr>
         </thead>

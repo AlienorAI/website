@@ -4,18 +4,18 @@ import * as Headless from "@headlessui/react";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { clsx } from "clsx";
 import {
-  MotionValue,
+  type HTMLMotionProps,
   motion,
+  MotionValue,
   useMotionValueEvent,
   useScroll,
   useSpring,
-  type HTMLMotionProps,
 } from "framer-motion";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { Container } from "./container";
 import { Link } from "./link";
-import { Heading, Subheading } from "./text";
+import { Heading } from "./text";
 
 const testimonials = [
   {
