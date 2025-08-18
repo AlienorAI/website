@@ -90,7 +90,7 @@ function DarkBentoSection() {
           title="Un Chatbot qui connait parfaitement votre entreprise"
           description="Permet de retrouver rapidement les informations dont vous avez besoin, qu’elles soient dans un fichier, un compte rendu ou un outil métier."
           graphic={
-            <div className="h-80 bg-[url(/screenshots/networking.png)] bg-size-[851px_344px] bg-no-repeat" />
+            <div className="h-80 bg-[url(/screenshots/chat-bot.png)] bg-size-[851px_344px] bg-no-repeat" />
           }
           fade={["top"]}
           className="max-lg:rounded-t-2xl lg:col-span-4 lg:rounded-tl-2xl"
@@ -130,7 +130,7 @@ function DarkBentoSection() {
           }
           description="Des assistants IA prêts à automatiser vos tâches, RH, demandes internes, mise à jour de fichiers, notifications, en travaillant en arrière-plan, sans configuration complexe."
           graphic={
-            <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-size-[851px_344px] bg-no-repeat" />
+            <div className="h-80 bg-[url(/screenshots/agents.png)] bg-size-[851px_344px] bg-no-repeat" />
           }
           fade={["top"]}
           className="max-lg:rounded-b-2xl lg:col-span-4 lg:rounded-br-2xl"
