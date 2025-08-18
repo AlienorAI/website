@@ -62,7 +62,7 @@ function Header() {
             <div className="relative flex w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
               <img
                 alt=""
-                src={"/company/6.jpg"}
+                src={"/company/6.webp"}
                 className="absolute inset-x-0 top-0 aspect-square w-full object-cover"
               />
               <div
