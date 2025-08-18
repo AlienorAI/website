@@ -278,7 +278,6 @@ function Team() {
           </div>
         </div>
       </div>
-      <hr className="mt-24 border-t border-gray-200" />
       <ul
         role="list"
         className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
