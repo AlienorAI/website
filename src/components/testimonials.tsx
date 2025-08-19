@@ -64,7 +64,7 @@ const testimonials = [
     name: "Contrôle",
     title: "Maîtrise par votre entreprise",
     quote:
-      "Vous gardez la main sur vos données et définissez les règles d’accès selon vos besoins internes.",
+      "Vous décidez quelles données sont partagées et quelles intégrations sont autorisées, tout reste sous votre contrôle.",
   },
   {
     icon: CheckBadgeIcon,
