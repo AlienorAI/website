@@ -32,7 +32,7 @@ const tiers = [
     description:
       "Idéal pour les entrepreneurs qui souhaitent intégrer l'IA à leur quotidien professionnel.",
     priceMonthly: 149,
-    href: "#",
+    href: "/pricing#book",
     highlights: [
       { description: "Jusqu’à 3 membres dans l’équipe" },
       { description: "Jusqu’à 10 documents actifs" },
@@ -72,7 +72,7 @@ const tiers = [
     description:
       "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
     priceMonthly: 249,
-    href: "#",
+    href: "/pricing#book",
     highlights: [
       { description: "Membres illimités" },
       { description: "Documents illimités*" },
@@ -123,7 +123,7 @@ const tiers = [
     description:
       "Spécialement développé pour les secteurs sensibles avec une infrastructure dédiée.",
     priceMonthly: 349,
-    href: "#",
+    href: "/pricing#book",
     highlights: [
       { description: "Membres illimités" },
       { description: "Documents illimités*" },

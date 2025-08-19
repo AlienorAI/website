@@ -190,7 +190,7 @@ function Copyright() {
 
 export function Footer() {
   return (
-    <footer>
+    <footer id={"book"}>
       <Gradient className="relative z-0">
         <div className="absolute inset-2 -z-10 rounded-2xl bg-white/80" />
         <Container>
