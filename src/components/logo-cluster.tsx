@@ -23,9 +23,9 @@ function Circle({
           width: [`${size}px`, `${size + 10}px`, `${size}px`],
           height: [`${size}px`, `${size + 10}px`, `${size}px`],
           transition: {
-            duration: 1.5,
+            duration: 1,
             repeat: Infinity,
-            repeatDelay: 1.25,
+            repeatDelay: 2,
             ease: "easeInOut",
             delay,
           },
@@ -88,9 +88,9 @@ function Logo({
           y: [0, hover.y, 0],
           rotate: [0, hover.rotate, 0],
           transition: {
-            duration: 1.5,
+            duration: 1,
             repeat: Infinity,
-            repeatDelay: 1.25,
+            repeatDelay: 2,
             ease: "easeInOut",
             delay: hover.delay,
           },
