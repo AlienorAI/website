@@ -242,8 +242,8 @@ function Team() {
         Fondée par une équipe experte.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        Lancée par une équipe reconnue dans son domaine et soutenue par des
-        investisseurs de renom.
+        Lancée par une équipe expérimentée et soutenue par l’écosystème French
+        Tech.
       </Lead>
       <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div className="max-w-lg">
