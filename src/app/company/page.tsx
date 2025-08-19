@@ -58,7 +58,7 @@ function Header() {
         </div>
 
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
-          <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-6">
+          <div className="xs:-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-6">
             <div className="relative flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
               <img
                 alt=""
@@ -88,7 +88,7 @@ function Header() {
                 </figcaption>
               </figure>
             </div>
-            <div className="relative -mt-8 flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">
+            <div className="xs:flex relative -mt-8 hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">
               <img
                 alt=""
                 src={"/company/1.jpg"}
@@ -116,7 +116,7 @@ function Header() {
                 </figcaption>
               </figure>
             </div>
-            <div className="relative flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
+            <div className="xs:flex relative hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
               <img
                 alt=""
                 src={"/company/5.jpg"}
@@ -143,7 +143,7 @@ function Header() {
                 </figcaption>
               </figure>
             </div>
-            <div className="relative -mt-8 flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">
+            <div className="xs:flex relative -mt-8 hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">
               <img
                 alt=""
                 src={"/company/3.jpg"}
