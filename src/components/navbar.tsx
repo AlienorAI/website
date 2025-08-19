@@ -11,7 +11,7 @@ import { Link } from "./link";
 import { PlusGrid, PlusGridRow } from "./plus-grid";
 import { Button } from "./button";
 import { HomeIcon } from "@heroicons/react/16/solid";
-
+import logo from "@/../public/logo.webp";
 const links = [
   { href: "/company", label: "Notre mission" },
   { href: "/pricing", label: "Tarifs" },
@@ -92,7 +92,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
             <Image
               className={`dark:outline-white/10' size-7 rounded-full outline -outline-offset-1 outline-black/10`}
               priority
-              src={"/logo.webp"}
+              src={logo}
               alt="Aliénor AI"
               width={200}
               height={200}
