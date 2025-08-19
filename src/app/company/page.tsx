@@ -311,24 +311,12 @@ function Team() {
 
 function Testimonial() {
   return (
-    <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-2xl sm:aspect-5/4 lg:aspect-3/4">
+    <div className="hidden justify-center self-center lg:flex xl:h-120">
       <img
-        alt=""
-        src="/company/2.jpg"
-        className="absolute inset-0 object-cover"
+        alt="Aliénor AI stack"
+        src="/company/stack.webp"
+        className={"rounded-2xl"}
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-10% to-75% ring-1 ring-gray-950/10 ring-inset lg:from-25%"
-      />
-      <figure className="relative p-10">
-        <blockquote>
-          <p className="relative text-xl/7 text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”']">
-            Notre objectif est de développer une vision long terme pour l’IA
-            souveraine.
-          </p>
-        </blockquote>
-      </figure>
     </div>
   );
 }
