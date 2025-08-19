@@ -99,7 +99,7 @@ function Logo({
       alt=""
       src={src}
       style={{ left, top } as React.CSSProperties}
-      className="absolute size-16 rounded-full bg-white p-1.5 shadow-sm ring-1 ring-black/5"
+      className="absolute size-16 rounded-full bg-white p-2 shadow-sm ring-1 ring-black/5"
     />
   );
 }
