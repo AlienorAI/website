@@ -34,77 +34,46 @@ const testimonials = [
   {
     icon: GlobeEuropeAfricaIcon,
     name: "Souveraineté",
-    title: "Hébergement en France",
+    title: "Hébergement 100% français",
     quote:
-      "Vos données restent sur le territoire français, protégées par la législation locale.",
+      "Aliénor est déployé sur des serveurs situés à Paris. Vos données ne quittent jamais le territoire français.",
   },
   {
     icon: ScaleIcon,
     name: "Conformité",
-    title: "Respect du RGPD strict",
+    title: "Cadre européen exigeant",
     quote:
-      "Une gestion rigoureuse des données, conforme aux normes européennes.",
+      "Aliénor s’appuie sur les normes de sécurité les plus strictes (ISO, SOC, SecNumCloud) et applique le RGPD au-delà des obligations légales.",
   },
   {
     icon: LockClosedIcon,
     name: "Confidentialité",
-    title: "Chiffrement de bout en bout",
+    title: "Protection renforcée",
     quote:
-      "Sécurisation des échanges et des données stockées avec les standards les plus avancés.",
-  },
-  {
-    icon: AdjustmentsHorizontalIcon,
-    name: "Contrôle",
-    title: "Accès granulaire hiérarchisé",
-    quote:
-      "Droits et permissions ajustables par utilisateur ou par équipe, pour un contrôle précis.",
-  },
-  {
-    icon: CheckBadgeIcon,
-    name: "Fiabilité",
-    title: "Certifications reconnues",
-    quote:
-      "Aliénor respecte les standards : ISO/IEC 27001, ISO/IEC 27701, SOC 2 Type 2 et SecNumCloud.",
+      "Vos données sont protégées à chaque étape, qu’elles circulent ou qu’elles soient stockées, grâce aux meilleures pratiques de sécurité.",
   },
   {
     icon: EyeSlashIcon,
     name: "Transparence",
-    title: "Politique zéro rétention",
+    title: "Aucune exploitation cachée",
     quote:
-      "Aucune utilisation à des fins publicitaires ou d’entraînement externe.",
+      "Nous n’utilisons jamais vos données pour entraîner des modèles externes ni à des fins commerciales.",
+  },
+  {
+    icon: AdjustmentsHorizontalIcon,
+    name: "Contrôle",
+    title: "Maîtrise par votre entreprise",
+    quote:
+      "Vous gardez la main sur vos données et définissez les règles d’accès selon vos besoins internes.",
+  },
+  {
+    icon: CheckBadgeIcon,
+    name: "Fiabilité",
+    title: "Disponibilité continue",
+    quote:
+      "Notre infrastructure est conçue pour rester disponible et résiliente, même en cas d’incident majeur.",
   },
 ];
-
-function TestimonialCard({
-  name,
-  title,
-  icon: Icon,
-  children,
-}: {
-  name: string;
-  title: string;
-  icon: ForwardRefExoticComponent<
-    Omit<SVGProps<SVGSVGElement>, "ref"> & {
-      title?: string;
-      titleId?: string;
-    } & RefAttributes<SVGSVGElement>
-  >;
-  children: React.ReactNode;
-} & HTMLMotionProps<"div">) {
-  return (
-    <div className="col-span-1 flex h-fit flex-col justify-end rounded-2xl bg-gradient-to-b from-sky-700 to-sky-900">
-      <figure className="p-10">
-        <div className="mb-4">
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white ring-1 ring-white/20 ring-inset">
-            <Icon className={"size-3"} /> {name}
-          </span>
-        </div>
-        <h4 className="text-xl/7 font-semibold text-white">{title}</h4>
-        <p className="mt-3 text-sm/6 text-gray-200">{children}</p>
-      </figure>
-    </div>
-  );
-}
 
 export function Testimonials() {
   let scrollRef = useRef<HTMLDivElement | null>(null);

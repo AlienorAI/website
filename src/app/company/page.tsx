@@ -57,7 +57,7 @@ function Header() {
           </div>
         </div>
 
-        <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+        <div className="hidden pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
           <div className="xs:-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-6">
             <div className="relative flex aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
               <img
@@ -116,62 +116,62 @@ function Header() {
                 </figcaption>
               </figure>
             </div>
-            <div className="xs:flex relative hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">
-              <img
-                alt=""
-                src={"/company/5.jpg"}
-                className="absolute inset-x-0 top-0 aspect-square w-full object-cover"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-[calc(7/16*100%)] ring-1 ring-gray-950/10 ring-inset sm:from-25%"
-              />
-              <figure className="relative p-10">
-                <blockquote>
-                  <p className="relative text-xl/7 text-white">
-                    “Nos équipes collaborent mieux : tout le savoir interne est
-                    accessible en quelques secondes.”
-                  </p>
-                </blockquote>
-                <figcaption className="mt-6 border-t border-white/20 pt-6">
-                  <p className="text-sm/6 font-medium text-white">
-                    Sophie Martin
-                  </p>
-                  <p className="text-sm/6 font-medium">
-                    <span className="text-blue-500">Responsable RH</span>
-                  </p>
-                </figcaption>
-              </figure>
-            </div>
-            <div className="xs:flex relative -mt-8 hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">
-              <img
-                alt=""
-                src={"/company/3.jpg"}
-                className="absolute inset-x-0 top-0 aspect-square w-full object-cover"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-[calc(7/16*100%)] ring-1 ring-gray-950/10 ring-inset sm:from-25%"
-              />
-              <figure className="relative p-10">
-                <blockquote>
-                  <p className="relative text-xl/7 text-white">
-                    “Un assistant intelligent qui comprend vraiment nos
-                    documents internes : un vrai gain de productivité.”
-                  </p>
-                </blockquote>
-                <figcaption className="mt-6 border-t border-white/20 pt-6">
-                  <p className="text-sm/6 font-medium text-white">
-                    Julien Bernard
-                  </p>
-                  <p className="text-sm/6 font-medium">
-                    <span className="text-blue-500">
-                      Responsable Commercial
-                    </span>
-                  </p>
-                </figcaption>
-              </figure>
-            </div>
+            {/*    <div className="xs:flex relative hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4">*/}
+            {/*      <img*/}
+            {/*        alt=""*/}
+            {/*        src={"/company/5.jpg"}*/}
+            {/*        className="absolute inset-x-0 top-0 aspect-square w-full object-cover"*/}
+            {/*      />*/}
+            {/*      <div*/}
+            {/*        aria-hidden="true"*/}
+            {/*        className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-[calc(7/16*100%)] ring-1 ring-gray-950/10 ring-inset sm:from-25%"*/}
+            {/*      />*/}
+            {/*      <figure className="relative p-10">*/}
+            {/*        <blockquote>*/}
+            {/*          <p className="relative text-xl/7 text-white">*/}
+            {/*            “Nos équipes collaborent mieux : tout le savoir interne est*/}
+            {/*            accessible en quelques secondes.”*/}
+            {/*          </p>*/}
+            {/*        </blockquote>*/}
+            {/*        <figcaption className="mt-6 border-t border-white/20 pt-6">*/}
+            {/*          <p className="text-sm/6 font-medium text-white">*/}
+            {/*            Sophie Martin*/}
+            {/*          </p>*/}
+            {/*          <p className="text-sm/6 font-medium">*/}
+            {/*            <span className="text-blue-500">Responsable RH</span>*/}
+            {/*          </p>*/}
+            {/*        </figcaption>*/}
+            {/*      </figure>*/}
+            {/*    </div>*/}
+            {/*    <div className="xs:flex relative -mt-8 hidden aspect-9/16 w-72 shrink-0 snap-start scroll-ml-(--scroll-padding) flex-col justify-end overflow-hidden rounded-2xl sm:aspect-3/4 lg:-mt-32">*/}
+            {/*      <img*/}
+            {/*        alt=""*/}
+            {/*        src={"/company/3.jpg"}*/}
+            {/*        className="absolute inset-x-0 top-0 aspect-square w-full object-cover"*/}
+            {/*      />*/}
+            {/*      <div*/}
+            {/*        aria-hidden="true"*/}
+            {/*        className="absolute inset-0 rounded-2xl bg-linear-to-t from-black from-[calc(7/16*100%)] ring-1 ring-gray-950/10 ring-inset sm:from-25%"*/}
+            {/*      />*/}
+            {/*      <figure className="relative p-10">*/}
+            {/*        <blockquote>*/}
+            {/*          <p className="relative text-xl/7 text-white">*/}
+            {/*            “Un assistant intelligent qui comprend vraiment nos*/}
+            {/*            documents internes : un vrai gain de productivité.”*/}
+            {/*          </p>*/}
+            {/*        </blockquote>*/}
+            {/*        <figcaption className="mt-6 border-t border-white/20 pt-6">*/}
+            {/*          <p className="text-sm/6 font-medium text-white">*/}
+            {/*            Julien Bernard*/}
+            {/*          </p>*/}
+            {/*          <p className="text-sm/6 font-medium">*/}
+            {/*            <span className="text-blue-500">*/}
+            {/*              Responsable Commercial*/}
+            {/*            </span>*/}
+            {/*          </p>*/}
+            {/*        </figcaption>*/}
+            {/*      </figure>*/}
+            {/*    </div>*/}
           </div>
         </div>
         <div className="max-lg:mt-16 lg:col-span-1">

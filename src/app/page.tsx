@@ -108,7 +108,7 @@ function DarkBentoSection() {
           dark
           eyebrow="Meetings"
           title="Notre moteur sur-mesure"
-          description="Intelligence spécialement développée pour traiter et comprendre les données internes."
+          description="Intelligence artificielle spécialement développée pour traiter et comprendre les données internes."
           graphic={<LinkedAvatars />}
           className="lg:col-span-2 lg:rounded-bl-2xl"
         />
