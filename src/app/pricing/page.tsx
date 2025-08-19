@@ -13,7 +13,7 @@ import {
   EnvelopeIcon,
   MinusIcon,
   RocketLaunchIcon,
-  UserGroupIcon
+  UserGroupIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
 import FAQ from "@/components/faq";
