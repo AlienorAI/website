@@ -165,7 +165,9 @@ function Header() {
                     Julien Bernard
                   </p>
                   <p className="text-sm/6 font-medium">
-                    <span className="text-blue-500">CEO</span>
+                    <span className="text-blue-500">
+                      Responsable Commercial
+                    </span>
                   </p>
                 </figcaption>
               </figure>
