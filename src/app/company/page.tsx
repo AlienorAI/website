@@ -9,6 +9,8 @@ import type { Metadata } from "next";
 import { ArrowDownCircleIcon } from "@heroicons/react/16/solid";
 import { Link } from "@/components/link";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
+import { BentoCard } from "@/components/bento-card";
+import { LogoCluster } from "@/components/logo-cluster";
 
 export const metadata: Metadata = {
   title: "Entreprise",
@@ -311,13 +313,12 @@ function Team() {
 
 function Testimonial() {
   return (
-    <div className="hidden justify-center self-center lg:flex xl:h-120">
-      <img
-        alt="Aliénor AI stack"
-        src="/company/stack.webp"
-        className={"rounded-2xl"}
-      />
-    </div>
+    <BentoCard
+      eyebrow="Source"
+      title="Stack technique"
+      description="Une stack moderne, un projet en évolution, et des talents pour l’accompagner."
+      graphic={<LogoCluster />}
+    />
   );
 }
 
