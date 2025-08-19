@@ -316,7 +316,7 @@ function Testimonial() {
     <BentoCard
       eyebrow="Source"
       title="Stack technique"
-      description="Une stack moderne, un projet en évolution, et des talents pour l’accompagner."
+      description="Des technologies modernes, un projet en évolution, et des talents pour l’accompagner."
       graphic={<LogoCluster />}
     />
   );
