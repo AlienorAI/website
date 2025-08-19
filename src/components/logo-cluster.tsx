@@ -16,13 +16,14 @@ function Circle({
 }) {
   return (
     <motion.div
+      animate="active"
       variants={{
         idle: { width: `${size}px`, height: `${size}px` },
         active: {
           width: [`${size}px`, `${size + 10}px`, `${size}px`],
           height: [`${size}px`, `${size + 10}px`, `${size}px`],
           transition: {
-            duration: 0.75,
+            duration: 1.5,
             repeat: Infinity,
             repeatDelay: 1.25,
             ease: "easeInOut",
@@ -79,6 +80,7 @@ function Logo({
 }) {
   return (
     <motion.img
+      animate="active"
       variants={{
         idle: { x: 0, y: 0, rotate: 0 },
         active: {
@@ -86,7 +88,7 @@ function Logo({
           y: [0, hover.y, 0],
           rotate: [0, hover.rotate, 0],
           transition: {
-            duration: 0.75,
+            duration: 1.5,
             repeat: Infinity,
             repeatDelay: 1.25,
             ease: "easeInOut",
