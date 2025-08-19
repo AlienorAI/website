@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     template: "%s - Aliénor AI",
     default: "Aliénor AI - L’IA qui connaît votre entreprise",
   },
+  description:
+    "L'assistant IA intégré au cœur de votre entreprise, qui comprend vos documents, vos outils et vos équipes, pour répondre à chaque question, en toute sécurité.",
   metadataBase: new URL("https://alienor.ai"),
   alternates: {
     canonical: "https://alienor.ai",
