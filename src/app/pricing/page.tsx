@@ -6,15 +6,14 @@ import { TierSelectMobile } from "@/components/tier-select-mobile";
 import { LogoCloud } from "@/components/logo-cloud";
 import { Navbar } from "@/components/navbar";
 import { Heading, Lead } from "@/components/text";
-// removed unused headlessui import
+
 import {
   CalendarIcon,
   CheckIcon,
   EnvelopeIcon,
   MinusIcon,
   RocketLaunchIcon,
-  SparklesIcon,
-  UserGroupIcon,
+  UserGroupIcon
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
 import FAQ from "@/components/faq";
