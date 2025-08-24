@@ -420,7 +420,11 @@ function Testimonial() {
                   "flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
                 }
               >
-                <Button color={"white"} className={"w-full sm:w-fit"}>
+                <Button
+                  href={`mailto:contact@alienor.ai`}
+                  color={"white"}
+                  className={"w-full sm:w-fit"}
+                >
                   <EnvelopeIcon />
                   Contactez nous
                 </Button>
