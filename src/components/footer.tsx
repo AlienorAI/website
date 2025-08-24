@@ -6,6 +6,7 @@ import { Link } from "./link";
 import { CalendarIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import Feedback from "@/components/feedback";
+import { TermsModal, PrivacyModal } from "@/components/legal-modals";
 
 function CallToAction() {
   return (
@@ -84,8 +85,8 @@ function Sitemap() {
       <div>
         <SitemapHeading>Mentions légales</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Conditions d’utilisation</SitemapLink>
-          <SitemapLink href="#">Politique de confidentialité</SitemapLink>
+          <TermsModal />
+          <PrivacyModal />
         </SitemapLinks>
       </div>
     </>

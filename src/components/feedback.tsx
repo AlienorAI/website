@@ -78,7 +78,7 @@ export function FeedBackModal({
       </DialogBody>
       <DialogActions>
         <Button plain onClick={() => onClose(false)}>
-          Annuler
+          Fermer
         </Button>
         <Button tabIndex={0} onClick={() => onClose(false)}>
           <PaperAirplaneIcon />
