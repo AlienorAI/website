@@ -5,6 +5,7 @@ import { Gradient } from "./gradient";
 import { Link } from "./link";
 import { CalendarIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
+import Feedback from "@/components/feedback";
 
 function CallToAction() {
   return (
@@ -75,7 +76,8 @@ function Sitemap() {
       <div>
         <SitemapHeading>Support</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Centre d’aide</SitemapLink>
+          {/*<SitemapLink href="#">Centre d’aide</SitemapLink>*/}
+          <Feedback />
           <SitemapLink href="/pricing#faq">FAQ</SitemapLink>
         </SitemapLinks>
       </div>
