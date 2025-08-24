@@ -174,6 +174,10 @@ function Header() {
         Trois formules conçues pour répondre à vos besoins de sécurité et de
         performance. Commencez votre essai gratuit dès aujourd'hui.
       </Lead>
+      <p className="mt-4 text-sm/6 text-gray-950/60">
+        Prêt à l'emploi <span className={"text-primary"}>•</span> Mise en place
+        en 24h <span className={"text-primary"}>•</span> ROI immédiat
+      </p>
     </Container>
   );
 }

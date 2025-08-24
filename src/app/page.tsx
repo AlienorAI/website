@@ -8,6 +8,7 @@ import { LogoTimeline } from "@/components/logo-timeline";
 import { Navbar } from "@/components/navbar";
 import { Testimonials } from "@/components/testimonials";
 import { Heading } from "@/components/text";
+import { Badge } from "@/components/badge";
 import {
   BoltIcon,
   CheckCircleIcon,
@@ -37,7 +38,7 @@ function HeroSection() {
           <span className="font-medium">une IA souveraine et sécurisée.</span>
         </p>
       </div>
-      <div className="text-muted-foreground mt-5 flex flex-col items-center justify-center gap-2 text-sm sm:flex-row sm:gap-4">
+      <div className="text-muted-foreground mx-auto mt-5 flex max-w-2xl flex-col flex-wrap items-center justify-center gap-2 text-sm sm:flex-row sm:gap-4">
         <div className="flex items-center gap-1">
           <CheckIcon className="text-primary size-4" />
           <span>Sécurité avancée</span>
@@ -50,7 +51,13 @@ function HeroSection() {
           <CheckIcon className="text-primary size-4" />
           <span>Qualification SecNumCloud</span>
         </div>
+        <div className="flex items-center justify-center gap-2 sm:gap-4">
+          <Badge color="blue">Prêt à l'emploi</Badge>
+          <Badge color="green">Mise en place en 24h</Badge>
+          <Badge color="sky">ROI immédiat</Badge>
+        </div>
       </div>
+
       <div className="mt-12 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
         <Button href={"https://calendly.com/alienor-ai/demo"}>
           <BoltIcon />
