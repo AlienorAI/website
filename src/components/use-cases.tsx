@@ -19,39 +19,39 @@ import { Heading } from "./text";
 
 const testimonials = [
   {
-    img: "/testimonials/amy-chase.jpg",
+    img: "/testimonials/commercial.webp",
     name: "Préparer un rendez-vous client",
     title: "Application Commerciale",
     quote:
       "Retrouvez en un instant les informations clés d’une fiche technique ou d’un CRM avant vos échanges commerciaux.",
   },
   {
-    img: "/testimonials/conor-neville.jpg",
+    img: "/testimonials/rh.webp",
     name: "Accéder aux politiques internes",
     title: "Application RH",
     quote:
       "Vérifiez la cohérence des données et répondez rapidement aux collaborateurs, sans chercher dans plusieurs outils.",
   },
   {
-    img: "/testimonials/veronica-winton.jpg",
+    img: "/testimonials/amy-chase.jpg",
     name: "Éviter les doublons et erreurs",
     title: "Application Finance / Direction",
     quote:
       "Centralisez les documents sensibles et assurez-vous que les équipes utilisent toujours la bonne version.",
   },
   {
-    img: "/testimonials/harriet-arron.jpg",
+    img: "/testimonials/support.webp",
     name: "Accélérer la résolution des tickets",
     title: "Application Support",
     quote:
       "Trouvez immédiatement des réponses dans la base de connaissances et améliorez la réactivité de vos équipes.",
   },
   {
-    img: "/testimonials/tina-yards.jpg",
+    img: "/testimonials/it.webp",
     name: "Gagner du temps sur les infos techniques",
     title: "Application Technique / IT",
     quote:
-      "Grâce à l’intégration aux outils internes, réduisez de plus de 50% le temps passé à rechercher des données techniques.",
+      "Grâce à l’intégration aux outils internes, réduisez le temps passé à rechercher des données techniques.",
   },
 ];
 
