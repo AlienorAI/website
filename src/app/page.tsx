@@ -34,8 +34,14 @@ function HeroSection() {
         </h1>
         <p className="text-muted-foreground dark:text-muted-foreground mx-auto max-w-2xl text-lg font-light md:text-2xl">
           Centralisez et accédez à toutes vos données internes
-          <br /> avec{" "}
-          <span className="font-medium">une IA souveraine et sécurisée.</span>
+          <br className={"xs:block hidden"} /> avec{" "}
+          <span className="xs:font-medium">
+            une IA <br className={"xs:hidden block"} />
+            <span className={"max-xs:font-medium"}>
+              souveraine et sécurisée
+            </span>
+            .
+          </span>
         </p>
       </div>
       <div className="text-muted-foreground mx-auto mt-5 flex max-w-2xl flex-col flex-wrap items-center justify-center gap-2 text-sm sm:flex-row sm:gap-4">
