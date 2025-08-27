@@ -23,35 +23,35 @@ const testimonials = [
     name: "Préparer un rendez-vous client",
     title: "Application Commerciale",
     quote:
-      "Retrouvez en un instant les informations clés d’une fiche technique ou d’un CRM avant vos échanges commerciaux.",
+      "Demandez à l’IA les points clés d’une fiche technique ou d’un CRM, et arrivez préparé en quelques secondes. ",
   },
   {
     img: "/testimonials/rh.webp",
     name: "Accéder aux politiques internes",
     title: "Application RH",
     quote:
-      "Vérifiez la cohérence des données et répondez rapidement aux collaborateurs, sans chercher dans plusieurs outils.",
+      "Retrouvez instantanément la bonne politique RH et répondez aux questions des collaborateurs sans perdre de temps.",
   },
   {
     img: "/testimonials/amy-chase.jpg",
     name: "Éviter les doublons et erreurs",
     title: "Application Finance / Direction",
     quote:
-      "Centralisez les documents sensibles et assurez-vous que les équipes utilisent toujours la bonne version.",
+      "Accédez à la dernière version d’un document financier : les réponses sont vérifiées et sourcées pour éviter les erreurs.",
   },
   {
     img: "/testimonials/support.webp",
     name: "Accélérer la résolution des tickets",
     title: "Application Support",
     quote:
-      "Trouvez immédiatement des réponses dans la base de connaissances et améliorez la réactivité de vos équipes.",
+      "Gagnez du temps : l’IA retrouve la bonne réponse dans la base de connaissances et vous aide à résoudre les tickets plus vite.",
   },
   {
     img: "/testimonials/it.webp",
     name: "Gagner du temps sur les infos techniques",
     title: "Application Technique / IT",
     quote:
-      "Grâce à l’intégration aux outils internes, réduisez le temps passé à rechercher des données techniques.",
+      "Accédez en un clic aux directives IT et procédures internes, sans passer des heures dans la documentation.",
   },
 ];
 
