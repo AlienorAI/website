@@ -51,7 +51,7 @@ function HeroSection() {
           <CheckIcon className="text-primary size-4" />
           <span>Qualification SecNumCloud</span>
         </div>
-        <div className="flex items-center justify-center gap-2 sm:gap-4">
+        <div className="xs:flex hidden items-center justify-center gap-2 sm:gap-4">
           <Badge color="blue">Prêt à l'emploi</Badge>
           <Badge color="green">Mise en place en 24h</Badge>
           <Badge color="sky">ROI immédiat</Badge>
