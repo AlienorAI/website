@@ -399,7 +399,7 @@ function Testimonial() {
                 <div className="overflow-hidden rounded-2xl shadow-2xl outline-1 -outline-offset-1 outline-black/10">
                   <img
                     alt=""
-                    src="/company/4.jpg"
+                    src="/company/sav.webp"
                     className="aspect-3/4 w-full object-cover"
                   />
                 </div>
