@@ -61,11 +61,7 @@ export async function captureServer(
     });
 
     // Ensure delivery on short-lived executions (e.g. serverless)
-    if (typeof (ph as any).flushAsync === "function") {
-      await (ph as any).flushAsync();
-    } else {
-      await new Promise<void>((resolve) => ph.flush(resolve));
-    }
+    await ph.flush();
   } catch {
     // noop
   }
@@ -79,11 +75,7 @@ export async function flushServer(): Promise<void> {
     const ph = getPostHogServer();
     if (!ph) return;
 
-    if (typeof (ph as any).flushAsync === "function") {
-      await (ph as any).flushAsync();
-    } else {
-      await new Promise<void>((resolve) => ph.flush(resolve));
-    }
+    await ph.flush();
   } catch {
     // noop
   }
