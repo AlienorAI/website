@@ -22,13 +22,22 @@ function DesktopNav() {
   return (
     <nav className="relative hidden items-center gap-6 lg:flex">
       {links.map(({ href, label }) => (
-        <Button className={"h-fit shrink-0"} key={href} href={href} plain>
+        <Button
+          className={"h-fit shrink-0"}
+          key={href}
+          href={href}
+          plain
+          phEvent="nav_link_click"
+          phProps={{ location: "navbar_desktop", href }}
+        >
           {label}
         </Button>
       ))}
       <Button
         className={"h-fit shrink-0"}
         href={"https://app.alienor.ai/login"}
+        phEvent="login_click"
+        phProps={{ location: "navbar_desktop" }}
       >
         <HomeIcon />
         Se connecter
@@ -63,7 +72,12 @@ function MobileNav() {
             }}
             key={href}
           >
-            <Link href={href} className="text-base font-medium text-gray-950">
+            <Link
+              href={href}
+              className="text-base font-medium text-gray-950"
+              phEvent="nav_link_click"
+              phProps={{ location: "navbar_mobile", href }}
+            >
               {label}
             </Link>
           </motion.div>

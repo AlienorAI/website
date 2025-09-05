@@ -50,3 +50,55 @@ To learn more about the technologies used in this site template, see the followi
 - [Next.js](https://nextjs.org/docs) - the official Next.js documentation
 - [Headless UI](https://headlessui.dev) - the official Headless UI documentation
 - [Sanity](https://www.sanity.io) - the Sanity website
+
+## Analytics (PostHog)
+
+This project is instrumented with PostHog for marketing analytics, exception tracking, and optional server-side event capture.
+
+- Client initialization
+  - Initialized via Next.js App Router client instrumentation hook in src/instrumentation-client.ts.
+  - Uses a proxy at /ingest to avoid ad-blocker issues and automatically routes to the EU cluster.
+  - Default config enables exception capture and development debugging.
+
+- Environment variables
+  - NEXT_PUBLIC_POSTHOG_KEY (required)
+  - NEXT_PUBLIC_POSTHOG_HOST (optional, defaults to EU cluster when using the /ingest proxy)
+
+- Proxy rewrites
+  - next.config.mjs configures:
+    - /ingest/static/:path* -&gt; https://eu-assets.i.posthog.com/static/:path*
+    - /ingest/:path* -&gt; https://eu.i.posthog.com/:path*
+  - skipTrailingSlashRedirect is enabled to support PostHog API trailing slashes.
+
+- Client helpers
+  - src/lib/analytics.ts provides:
+    - phCapture(event, props?) to capture custom events
+    - phTrackClick(event, baseProps?) helper for click handlers (adds label and href automatically)
+    - phIdentify(distinctId, props?) and phSetProps(props) for identity profile management
+
+- Component instrumentation
+  - Link and Button accept optional analytics props:
+    - phEvent: string (event name)
+    - phProps: Record&lt;string, any&gt; (custom properties)
+  - Example:
+    - &lt;Button href="/pricing" phEvent="cta_click" phProps={{ location: "home_hero", action: "view_pricing" }} /&gt;
+    - &lt;Link href="/blog" phEvent="nav_link_click" phProps={{ location: "navbar_desktop", href: "/blog" }} /&gt;
+
+- Server-side capture
+  - src/lib/analytics-server.ts exports captureServer(event, properties, distinctId?) for API routes and server functions.
+  - Example: src/app/api/revalidate-blog/route.ts captures success and unauthorized attempts.
+
+- Pre-tagged events
+  - cta_click (home hero demo button, home hero pricing button, footer demo button)
+  - nav_link_click (navbar desktop/mobile links)
+  - login_click (navbar login)
+  - social_click (footer X/LinkedIn)
+  - blog_revalidate, blog_revalidate_denied (server-side revalidate endpoint)
+
+- Privacy and compliance
+  - Exception capture is enabled; do not include PII in event properties.
+  - Session recording is not enabled by default. Enable from the PostHog UI (recommended) with privacy masking, or add client config if required.
+
+- Debugging
+  - Debug is enabled in development via posthog.init debug flag.
+  - Verify pageviews and events in the PostHog Live Events feed.

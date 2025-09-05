@@ -29,6 +29,8 @@ function CallToAction() {
         <Button
           className="w-full sm:w-auto"
           href={"https://calendly.com/alienor-ai/demo"}
+phEvent="cta_click"
+          phProps={{ location: "footer_cta", action: "plan_demo", source: "calendly" }}
         >
           <CalendarIcon />
           Planifier une démo
@@ -129,6 +131,8 @@ function SocialLinks() {
         target="_blank"
         aria-label="Visit us on X"
         className="text-gray-950 data-hover:text-gray-950/75"
+        phEvent="social_click"
+        phProps={{ location: "footer_social", network: "x" }}
       >
         <SocialIconX className="size-4" />
       </Link>
@@ -137,6 +141,8 @@ function SocialLinks() {
         target="_blank"
         aria-label="Visit us on LinkedIn"
         className="text-gray-950 data-hover:text-gray-950/75"
+        phEvent="social_click"
+        phProps={{ location: "footer_social", network: "linkedin" }}
       >
         <SocialIconLinkedIn className="size-4" />
       </Link>

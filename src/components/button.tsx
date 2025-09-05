@@ -2,6 +2,7 @@ import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
 import { Link } from './link'
+import { phTrackClick, type AnalyticsProps } from '@/lib/analytics'
 
 const styles = {
   base: [
@@ -167,10 +168,10 @@ type ButtonProps = (
 ) & { className?: string; children: React.ReactNode } & (
     | Omit<Headless.ButtonProps, 'as' | 'className'>
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>
-  )
+  ) & AnalyticsProps
 
 export const Button = forwardRef(function Button(
-  { color, outline, plain, className, children, ...props }: ButtonProps,
+  { color, outline, plain, className, children, phEvent, phProps, ...props }: ButtonProps,
   ref: React.ForwardedRef<HTMLElement>
 ) {
   let classes = clsx(
@@ -179,12 +180,38 @@ export const Button = forwardRef(function Button(
     outline ? styles.outline : plain ? styles.plain : clsx(styles.solid, styles.colors[color ?? 'blue'])
   )
 
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    try {
+      (props as any).onClick?.(e)
+    } catch {
+      // noop
+    }
+    if (phEvent) {
+      try {
+        phTrackClick(phEvent, phProps)(e)
+      } catch {
+        // noop
+      }
+    }
+  }
+
   return 'href' in props ? (
-    <Link {...props} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+    <Link
+      {...(props as any)}
+      className={classes}
+      ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+      phEvent={phEvent}
+      phProps={phProps}
+    >
       <TouchTarget>{children}</TouchTarget>
     </Link>
   ) : (
-    <Headless.Button {...props} className={clsx(classes, 'cursor-default')} ref={ref}>
+    <Headless.Button
+      {...props}
+      onClick={handleClick}
+      className={clsx(classes, 'cursor-default')}
+      ref={ref}
+    >
       <TouchTarget>{children}</TouchTarget>
     </Headless.Button>
   )

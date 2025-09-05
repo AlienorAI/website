@@ -65,11 +65,20 @@ function HeroSection() {
       </div>
 
       <div className="mt-12 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
-        <Button href={"https://calendly.com/alienor-ai/demo"}>
+        <Button
+          href={"https://calendly.com/alienor-ai/demo"}
+          phEvent="cta_click"
+          phProps={{ location: "home_hero", action: "view_demo", source: "calendly" }}
+        >
           <BoltIcon />
           Voir en action
         </Button>
-        <Button color={"white"} href="/pricing">
+        <Button
+          color={"white"}
+          href="/pricing"
+          phEvent="cta_click"
+          phProps={{ location: "home_hero", action: "view_pricing" }}
+        >
           <CheckCircleIcon />
           Voir les tarifs
         </Button>
