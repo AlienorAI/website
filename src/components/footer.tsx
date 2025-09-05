@@ -123,17 +123,9 @@ function SocialIconLinkedIn(props: React.ComponentPropsWithoutRef<"svg">) {
 
 function SocialLinks() {
   return (
-    <>
+    <div className={"flex items-center gap-6"}>
       <Link
-        href="https://facebook.com"
-        target="_blank"
-        aria-label="Visit us on Facebook"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconFacebook className="size-4" />
-      </Link>
-      <Link
-        href="https://x.com"
+        href="https://x.com/alienorai"
         target="_blank"
         aria-label="Visit us on X"
         className="text-gray-950 data-hover:text-gray-950/75"
@@ -141,14 +133,14 @@ function SocialLinks() {
         <SocialIconX className="size-4" />
       </Link>
       <Link
-        href="https://linkedin.com"
+        href="http://linkedin.com/company/alienor-ai"
         target="_blank"
         aria-label="Visit us on LinkedIn"
         className="text-gray-950 data-hover:text-gray-950/75"
       >
         <SocialIconLinkedIn className="size-4" />
       </Link>
-    </>
+    </div>
   );
 }
 
@@ -226,7 +218,11 @@ export function Footer() {
                     comprend vos documents, vos outils et vos équipes, pour
                     répondre à chaque question, en toute sécurité.
                   </p>
+                  <div className={"mt-6 flex w-fit items-center gap-6"}>
+                    <Certficatetions />
+                  </div>
                 </div>
+
                 <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
                   <Sitemap />
                 </div>
@@ -234,14 +230,13 @@ export function Footer() {
             </PlusGridRow>
             <PlusGridRow className="flex items-center justify-between">
               <div>
-                <PlusGridItem className="py-3">
+                <PlusGridItem className="flex flex-col gap-6 py-3">
                   <Copyright />
                 </PlusGridItem>
               </div>
               <div className="flex">
                 <PlusGridItem className="flex items-center gap-6 py-3">
-                  {/*<SocialLinks />*/}
-                  <Certficatetions />
+                  <SocialLinks />
                 </PlusGridItem>
               </div>
             </PlusGridRow>
