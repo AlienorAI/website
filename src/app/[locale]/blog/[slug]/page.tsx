@@ -20,23 +20,21 @@ import type { Locale } from "@/i18n/config";
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string; locale: Locale };
-}): Promise<Metadata> {
-  let { data: post } = await getPost(params.slug);
+}: PageProps<"/[locale]/blog/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  let { data: post } = await getPost(slug as string);
 
   return post ? { title: post.title, description: post.excerpt } : {};
 }
 
 export default async function BlogPost({
   params,
-}: {
-  params: { slug: string; locale: Locale };
-}) {
-  const dictionary = await getDictionary(params.locale);
-  dayjs.locale(params.locale === "fr" ? "fr" : params.locale === "ja" ? "ja" : "en");
+}: PageProps<"/[locale]/blog/[slug]">) {
+  const { slug, locale } = await params;
+  const dictionary = await getDictionary(locale as Locale);
+  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
 
-  let { data: post } = await getPost(params.slug);
+  let { data: post } = await getPost(slug as string);
   if (!post) notFound();
 
   return (
@@ -70,7 +68,7 @@ export default async function BlogPost({
             )}
             {Array.isArray(post.categories) && (
               <div className="flex flex-wrap gap-2">
-                {post.categories.map((category) => (
+                {post.categories.map((category: { slug: string; title: string }) => (
                   <Link
                     key={category.slug}
                     href={`/blog?category=${category.slug}`}

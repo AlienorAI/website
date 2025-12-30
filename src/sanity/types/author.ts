@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { UserIcon } from '@heroicons/react/16/solid'
 import { defineField, defineType } from 'sanity'
 

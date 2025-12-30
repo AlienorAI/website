@@ -14,6 +14,7 @@ import { HomeIcon } from "@heroicons/react/16/solid";
 import logo from "@/../public/logo.webp";
 import { LocaleSwitcher } from "./locale-switcher";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { Suspense } from "react";
 
 type NavbarCopy = Dictionary["navbar"];
 type LocaleSwitcherCopy = Dictionary["localeSwitcher"];
@@ -41,11 +42,13 @@ function DesktopNav({
           {label}
         </Button>
       ))}
-      <LocaleSwitcher
-        className="border-gray-300/80 dark:border-gray-700/60"
-        ariaLabel={localeSwitcher.label}
-        labels={localeSwitcher.languages}
-      />
+      <Suspense fallback={null}>
+        <LocaleSwitcher
+          className="border-gray-300/80 dark:border-gray-700/60"
+          ariaLabel={localeSwitcher.label}
+          labels={localeSwitcher.languages}
+        />
+      </Suspense>
       <Button
         className={"h-fit shrink-0"}
         href={"https://app.alienor.ai/login"}
@@ -103,11 +106,13 @@ function MobileNav({
         ))}
       </div>
       <div className="py-2">
-        <LocaleSwitcher
-          className="w-fit border-gray-200 dark:border-gray-800"
-          ariaLabel={localeSwitcher.label}
-          labels={localeSwitcher.languages}
-        />
+        <Suspense fallback={null}>
+          <LocaleSwitcher
+            className="w-fit border-gray-200 dark:border-gray-800"
+            ariaLabel={localeSwitcher.label}
+            labels={localeSwitcher.languages}
+          />
+        </Suspense>
       </div>
       <div className="absolute left-1/2 w-screen -translate-x-1/2">
         <div className="absolute inset-x-0 top-0 border-t border-black/5" />

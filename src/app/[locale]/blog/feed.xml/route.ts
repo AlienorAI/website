@@ -38,12 +38,22 @@ export async function GET(req: Request) {
 
   let { data: posts } = await getPostsForFeed();
 
-  posts.forEach((post) => {
-    try {
-      assert(typeof post.title === "string");
-      assert(typeof post.slug === "string");
-      assert(typeof post.excerpt === "string");
-      assert(typeof post.publishedAt === "string");
+  posts.forEach(
+    (
+      post: {
+        title?: string;
+        slug?: string;
+        excerpt?: string;
+        publishedAt?: string;
+        mainImage?: unknown;
+        author?: { name?: string };
+      },
+    ) => {
+      try {
+        assert(typeof post.title === "string");
+        assert(typeof post.slug === "string");
+        assert(typeof post.excerpt === "string");
+        assert(typeof post.publishedAt === "string");
     } catch (error) {
       console.log("Post is missing required fields for RSS feed:", post, error);
       return;
@@ -62,10 +72,11 @@ export async function GET(req: Request) {
             .replaceAll("&", "&amp;")
         : undefined,
       author: post.author?.name ? [{ name: post.author.name }] : [],
-      contributor: post.author?.name ? [{ name: post.author.name }] : [],
-      date: new Date(post.publishedAt),
-    });
-  });
+        contributor: post.author?.name ? [{ name: post.author.name }] : [],
+        date: new Date(post.publishedAt),
+      });
+    },
+  );
 
   return new Response(feed.rss2(), {
     status: 200,

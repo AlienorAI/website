@@ -31,13 +31,21 @@ import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 
 type BlogCopy = Awaited<ReturnType<typeof getDictionary>>["blog"];
+type BlogPostSummary = {
+  slug: string;
+  title: string;
+  excerpt?: string;
+  publishedAt: string;
+  mainImage?: any;
+  author?: { name?: string; image?: any } | null;
+};
+type BlogCategory = { slug: string; title: string };
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: Locale };
-}): Promise<Metadata> {
-  const dictionary = await getDictionary(params.locale);
+}: PageProps<"/[locale]/blog">): Promise<Metadata> {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale as Locale);
   return {
     title: dictionary.blog.metadata.title,
     description: dictionary.blog.metadata.description,
@@ -50,8 +58,9 @@ async function FeaturedPosts({
   copy: BlogCopy;
 }) {
   let { data: featuredPosts } = await getFeaturedPosts(3);
+  const typedFeaturedPosts = featuredPosts as BlogPostSummary[];
 
-  if (featuredPosts.length === 0) {
+  if (typedFeaturedPosts.length === 0) {
     return;
   }
 
@@ -62,7 +71,7 @@ async function FeaturedPosts({
           {copy.featuredTitle}
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {featuredPosts.map((post) => (
+          {typedFeaturedPosts.map((post) => (
             <div
               key={post.slug}
               className="relative flex flex-col rounded-2xl bg-white p-2 shadow-md ring-1 shadow-black/5 ring-black/5"
@@ -120,8 +129,9 @@ async function Categories({
   copy: BlogCopy;
 }) {
   let { data: categories } = await getCategories();
+  const typedCategories = categories as BlogCategory[];
 
-  if (categories.length === 0) {
+  if (typedCategories.length === 0) {
     return;
   }
 
@@ -129,7 +139,7 @@ async function Categories({
     <div className="flex flex-wrap items-center justify-between gap-2">
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
-          {categories.find(({ slug }) => slug === selected)?.title ||
+          {typedCategories.find(({ slug }) => slug === selected)?.title ||
             copy.categories.all}
           <ChevronUpDownIcon className="size-4 fill-gray-900" />
         </MenuButton>
@@ -146,7 +156,7 @@ async function Categories({
             <CheckIcon className="hidden size-4 group-data-selected:block" />
             <p className="col-start-2 text-sm/6">{copy.categories.all}</p>
           </MenuItem>
-          {categories.map((category) => (
+          {typedCategories.map((category) => (
             <MenuItem
               key={category.slug}
               as={Link}
@@ -182,18 +192,19 @@ async function Posts({
     page * 5,
     category,
   );
+  const typedPosts = posts as BlogPostSummary[];
 
-  if (posts.length === 0 && (page > 1 || category)) {
+  if (typedPosts.length === 0 && (page > 1 || category)) {
     notFound();
   }
 
-  if (posts.length === 0) {
+  if (typedPosts.length === 0) {
     return <p className="mt-6 text-gray-500">{copy.empty}</p>;
   }
 
   return (
     <div className="mt-6">
-      {posts.map((post) => (
+      {typedPosts.map((post) => (
         <div
           key={post.slug}
           className="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3"
@@ -306,22 +317,22 @@ async function Pagination({
 export default async function Blog({
   params,
   searchParams,
-}: {
-  params: { locale: Locale };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  const dictionary = await getDictionary(params.locale);
-  dayjs.locale(params.locale === "fr" ? "fr" : params.locale === "ja" ? "ja" : "en");
+}: PageProps<"/[locale]/blog">) {
+  const { locale } = await params;
+  const resolvedSearchParams =
+    (await searchParams) ?? ({} as { [key: string]: string | string[] | undefined });
+  const dictionary = await getDictionary(locale as Locale);
+  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
 
-  let pageParam = searchParams?.page;
+  let pageParam = resolvedSearchParams.page;
   let page =
     pageParam && typeof pageParam === "string" && parseInt(pageParam) > 1
       ? parseInt(pageParam)
       : 1;
 
   let category =
-    typeof searchParams?.category === "string"
-      ? searchParams.category
+    typeof resolvedSearchParams.category === "string"
+      ? resolvedSearchParams.category
       : undefined;
 
   return (

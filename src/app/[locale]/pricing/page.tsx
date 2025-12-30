@@ -23,10 +23,9 @@ type PricingCopy = Awaited<ReturnType<typeof getDictionary>>["pricing"];
 
 export async function generateMetadata({
   params,
-}: {
-  params: { locale: Locale };
-}): Promise<Metadata> {
-  const dictionary = await getDictionary(params.locale);
+}: PageProps<"/[locale]/pricing">): Promise<Metadata> {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale as Locale);
   return {
     title: dictionary.pricing.metadata.title,
     description: dictionary.pricing.metadata.description,
@@ -368,15 +367,15 @@ function FrequentlyAskedQuestions({ copy }: { copy: PricingCopy["faq"] }) {
 export default async function Pricing({
   params,
   searchParams,
-}: {
-  params: { locale: Locale };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  const dictionary = await getDictionary(params.locale);
+}: PageProps<"/[locale]/pricing">) {
+  const { locale } = await params;
+  const resolvedSearchParams =
+    (await searchParams) ?? ({} as { [key: string]: string | string[] | undefined });
+  const dictionary = await getDictionary(locale as Locale);
   const tiers = dictionary.pricing.tiers;
   const tierParam =
-    searchParams && typeof searchParams.tier === "string"
-      ? searchParams.tier
+    resolvedSearchParams && typeof resolvedSearchParams.tier === "string"
+      ? resolvedSearchParams.tier
       : undefined;
   const selectedTier =
     tiers.find(({ slug }) => slug === tierParam) ?? tiers[0];

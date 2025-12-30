@@ -23,11 +23,9 @@ import type React from "react";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}): Promise<Metadata> {
+}: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(locale as Locale);
   return {
     description: dictionary.metadata.description,
   };
@@ -190,11 +188,9 @@ function DarkBentoSection({
 
 export default async function Home({
   params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+}: PageProps<"/[locale]">) {
   const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(locale as Locale);
 
   return (
     <div className="overflow-hidden">

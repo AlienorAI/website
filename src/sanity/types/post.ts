@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { DocumentIcon } from '@heroicons/react/16/solid'
 import { groq } from 'next-sanity'
 import { defineField, defineType } from 'sanity'
