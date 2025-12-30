@@ -1,6 +1,8 @@
 import { SanityLive } from "@/sanity/live";
 import { revalidateSyncTags } from "@/sanity/revalidateSyncTags";
 import "@/styles/tailwind.css";
+import { i18n, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -17,30 +19,45 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s - Aliénor AI",
-    default: "Aliénor AI - L’IA qui connaît votre entreprise",
-  },
-  description:
-    "L'assistant IA intégré au cœur de votre entreprise, qui comprend vos documents, vos outils et vos équipes, pour répondre à chaque question, en toute sécurité.",
-  metadataBase: new URL("https://alienor.ai"),
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+  return {
+    title: {
+      template: dictionary.metadata.titleTemplate,
+      default: dictionary.metadata.defaultTitle,
+    },
+    description: dictionary.metadata.description,
+    metadataBase: new URL("https://alienor.ai"),
+  };
+}
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: Locale }>;
 }>) {
+  const { locale } = await params;
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <meta name="apple-mobile-web-app-title" content="Aliénor AI" />
         <link
           rel="alternate"
           type="application/rss+xml"
           title="The Radiant Blog"
-          href="/blog/feed.xml"
+          href={`/${locale}/blog/feed.xml`}
         />
       </head>
       <body

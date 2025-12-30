@@ -25,65 +25,28 @@ import {
   useCallback,
   useLayoutEffect,
   useRef,
-  useState,
 } from "react";
 import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { clsx } from "clsx";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-const testimonials = [
-  {
-    icon: GlobeEuropeAfricaIcon,
-    name: "Souveraineté",
-    title: "Hébergement 100% français",
-    quote:
-      "Aliénor est déployé sur des serveurs situés à Paris. Vos données ne quittent jamais le territoire français.",
-  },
-  {
-    icon: ScaleIcon,
-    name: "Conformité",
-    title: "Cadre européen exigeant",
-    quote:
-      "Aliénor s’appuie sur les normes de sécurité les plus strictes (ISO, SOC, SecNumCloud) et applique le RGPD au-delà des obligations légales.",
-  },
-  {
-    icon: LockClosedIcon,
-    name: "Confidentialité",
-    title: "Protection renforcée",
-    quote:
-      "Vos données sont protégées à chaque étape, qu’elles circulent ou qu’elles soient stockées, grâce aux meilleures pratiques de sécurité.",
-  },
-  {
-    icon: EyeSlashIcon,
-    name: "Transparence",
-    title: "Aucune exploitation cachée",
-    quote:
-      "Nous n’utilisons jamais vos données pour entraîner des modèles externes ni à des fins commerciales.",
-  },
-  {
-    icon: AdjustmentsHorizontalIcon,
-    name: "Contrôle",
-    title: "Maîtrise par votre entreprise",
-    quote:
-      "Vous décidez quelles données sont partagées et quelles intégrations sont autorisées, tout reste sous votre contrôle.",
-  },
-  {
-    icon: CheckBadgeIcon,
-    name: "Fiabilité",
-    title: "Disponibilité continue",
-    quote:
-      "Notre infrastructure est conçue pour rester disponible et résiliente, même en cas d’incident majeur.",
-  },
-];
+const iconMap = {
+  globe: GlobeEuropeAfricaIcon,
+  scale: ScaleIcon,
+  lock: LockClosedIcon,
+  eye: EyeSlashIcon,
+  adjustments: AdjustmentsHorizontalIcon,
+  check: CheckBadgeIcon,
+} as const;
 
-export function Testimonials() {
+export function Testimonials({ copy }: { copy: Dictionary["testimonials"] }) {
   let scrollRef = useRef<HTMLDivElement | null>(null);
   let { scrollX } = useScroll({ container: scrollRef });
   let [setReferenceWindowRef, bounds] = useMeasure();
-  let [activeIndex, setActiveIndex] = useState(0);
-
-  useMotionValueEvent(scrollX, "change", (x) => {
-    setActiveIndex(Math.floor(x / scrollRef.current!.children[0].clientWidth));
-  });
+  const testimonials = copy.items.map((item) => ({
+    ...item,
+    icon: iconMap[item.icon],
+  }));
 
   function scrollTo(index: number) {
     let gap = 32;
@@ -96,7 +59,7 @@ export function Testimonials() {
       <Container>
         <div ref={setReferenceWindowRef}>
           <Heading as="h3" className="max-w-3xl">
-            Sécurité et souveraineté au cœur de chaque réponse
+            {copy.heading}
           </Heading>
         </div>
       </Container>

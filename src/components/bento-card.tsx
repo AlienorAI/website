@@ -43,6 +43,9 @@ export function BentoCard({
         )}
       </div>
       <div className="relative p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-blue-500 group-data-dark:text-blue-200">
+          {eyebrow}
+        </p>
         <p className="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 group-data-dark:text-white">
           {title}
         </p>

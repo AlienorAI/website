@@ -10,17 +10,21 @@ import { getPost } from "@/sanity/queries";
 import { ChevronLeftIcon } from "@heroicons/react/16/solid";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
-dayjs.locale("fr");
+import "dayjs/locale/en";
+import "dayjs/locale/ja";
 import type { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
+import { getDictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: Locale }>;
 }): Promise<Metadata> {
-  let { data: post } = await getPost((await params).slug);
+  const { slug } = await params;
+  let { data: post } = await getPost(slug);
 
   return post ? { title: post.title, description: post.excerpt } : {};
 }
@@ -28,16 +32,20 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: Locale }>;
 }) {
-  let { data: post } = await getPost((await params).slug);
+  const { slug, locale } = await params;
+  const dictionary = await getDictionary(locale);
+  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
+
+  let { data: post } = await getPost(slug);
   if (!post) notFound();
 
   return (
     <main className="overflow-hidden">
       <GradientBackground />
       <Container>
-        <Navbar />
+        <Navbar nav={dictionary.navbar} localeSwitcher={dictionary.localeSwitcher} />
         <Subheading className="mt-16">
           {dayjs(post.publishedAt)
             .format("dddd D MMMM YYYY")
@@ -192,14 +200,20 @@ export default async function BlogPost({
               <div className="mt-10">
                 <Button color={"white"} href="/blog">
                   <ChevronLeftIcon className="size-4" />
-                  Revenir au blog
+                  {dictionary.blogPost.back}
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </Container>
-      <Footer />
+      <Footer
+        copy={dictionary.footer}
+        legal={dictionary.legal}
+        feedback={dictionary.feedback}
+        brand={dictionary.navbar.brand}
+        homeLabel={dictionary.navbar.home}
+      />
     </main>
   );
 }

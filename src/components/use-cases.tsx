@@ -16,44 +16,7 @@ import useMeasure, { type RectReadOnly } from "react-use-measure";
 import { Container } from "./container";
 import { Link } from "./link";
 import { Heading } from "./text";
-
-const testimonials = [
-  {
-    img: "/testimonials/commercial.webp",
-    name: "Préparer un rendez-vous client",
-    title: "Application Commerciale",
-    quote:
-      "Demandez à l’IA les points clés d’une fiche technique ou d’un CRM, et arrivez préparé en quelques secondes. ",
-  },
-  {
-    img: "/testimonials/rh.webp",
-    name: "Accéder aux politiques internes",
-    title: "Application RH",
-    quote:
-      "Retrouvez instantanément la bonne politique RH et répondez aux questions des collaborateurs sans perdre de temps.",
-  },
-  {
-    img: "/testimonials/amy-chase.jpg",
-    name: "Éviter les doublons et erreurs",
-    title: "Application Finance / Direction",
-    quote:
-      "Accédez à la dernière version d’un document financier : les réponses sont vérifiées et sourcées pour éviter les erreurs.",
-  },
-  {
-    img: "/testimonials/support.webp",
-    name: "Accélérer la résolution des tickets",
-    title: "Application Support",
-    quote:
-      "Gagnez du temps : l’IA retrouve la bonne réponse dans la base de connaissances et vous aide à résoudre les tickets plus vite.",
-  },
-  {
-    img: "/testimonials/it.webp",
-    name: "Gagner du temps sur les infos techniques",
-    title: "Application Technique / IT",
-    quote:
-      "Accédez en un clic aux directives IT et procédures internes, sans passer des heures dans la documentation.",
-  },
-];
+import type { Dictionary } from "@/i18n/dictionaries";
 
 function TestimonialCard({
   name,
@@ -136,19 +99,22 @@ function TestimonialCard({
   );
 }
 
-function CallToAction() {
+function CallToAction({
+  copy,
+}: {
+  copy: Dictionary["useCases"]["callout"];
+}) {
   return (
     <div>
       <p className="max-w-sm text-sm/6 text-gray-600">
-        Libérez du temps et augmentez la productivité de votre entreprise grâce
-        à Aliénor.
+        {copy.text}
       </p>
       <div className="mt-2">
         <Link
-          href="/company"
+          href={copy.href}
           className="inline-flex items-center gap-2 text-sm/6 font-medium text-blue-500"
         >
-          Notre mission
+          {copy.ctaLabel}
           <ArrowLongRightIcon className="size-5" />
         </Link>
       </div>
@@ -156,7 +122,7 @@ function CallToAction() {
   );
 }
 
-export function UseCases() {
+export function UseCases({ copy }: { copy: Dictionary["useCases"] }) {
   let scrollRef = useRef<HTMLDivElement | null>(null);
   let { scrollX } = useScroll({ container: scrollRef });
   let [setReferenceWindowRef, bounds] = useMeasure();
@@ -177,7 +143,7 @@ export function UseCases() {
       <Container>
         <div ref={setReferenceWindowRef}>
           <Heading as="h3" className="mt-2 max-w-3xl">
-            Découvrez comment Aliénor vous aide au quotidien
+            {copy.heading}
           </Heading>
         </div>
       </Container>
@@ -190,7 +156,7 @@ export function UseCases() {
           "[--scroll-padding:max(--spacing(6),calc((100vw-(var(--container-2xl)))/2))] lg:[--scroll-padding:max(--spacing(8),calc((100vw-(var(--container-7xl)))/2))]",
         ])}
       >
-        {testimonials.map(({ img, name, title, quote }, testimonialIndex) => (
+        {copy.items.map(({ img, name, title, quote }, testimonialIndex) => (
           <TestimonialCard
             key={testimonialIndex}
             name={name}
@@ -207,16 +173,16 @@ export function UseCases() {
       </div>
       <Container className="mt-16">
         <div className="flex justify-between">
-          <CallToAction />
+          <CallToAction copy={copy.callout} />
           <div className="hidden sm:flex sm:gap-2">
-            {testimonials.map(({ name }, testimonialIndex) => (
+            {copy.items.map(({ name }, testimonialIndex) => (
               <Headless.Button
                 key={testimonialIndex}
                 onClick={() => scrollTo(testimonialIndex)}
                 data-active={
                   activeIndex === testimonialIndex ? true : undefined
                 }
-                aria-label={`Scroll to testimonial from ${name}`}
+                aria-label={name}
                 className={clsx(
                   "size-2.5 rounded-full border border-transparent bg-gray-300 transition",
                   "data-active:bg-gray-400 data-hover:bg-gray-400",

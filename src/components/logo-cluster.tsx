@@ -2,7 +2,6 @@
 
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { Mark } from "./logo";
 import Image from "next/image";
 
 function Circle({

@@ -15,49 +15,34 @@ import { Textarea } from "@/components/textarea";
 import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
 import React, { useState } from "react";
 import * as Headless from "@headlessui/react";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 export function FeedBackModal({
   open,
   onClose,
+  copy,
 }: {
   open: boolean;
   onClose: (open: boolean) => void;
+  copy: Dictionary["feedback"];
 }) {
-  const helpTopics = [
-    "Tarification",
-    "Produit",
-    "Fonctionnalités",
-    "Facturation",
-    "Compte et sécurité",
-    "Intégrations",
-    "Données et confidentialité",
-    "Autre",
-  ];
   return (
     <Dialog size={"xl"} open={open} onClose={onClose}>
-      <DialogTitle>Centre d’aide</DialogTitle>
-      <DialogDescription>
-        Vous avez une question sur le produit ? Choisissez une catégorie,
-        indiquez un sujet et décrivez votre demande. Notre équipe vous répondra
-        rapidement.
-      </DialogDescription>
+      <DialogTitle>{copy.title}</DialogTitle>
+      <DialogDescription>{copy.description}</DialogDescription>
       <DialogBody>
         <FieldGroup>
           <Field>
-            <Label>Sujet de votre question</Label>
-            <Input
-              name="subject"
-              placeholder="Titre de votre question"
-              autoFocus
-            />
+            <Label>{copy.subjectLabel}</Label>
+            <Input name="subject" placeholder={copy.subjectPlaceholder} autoFocus />
           </Field>
           <Field>
-            <Label>Catégorie</Label>
+            <Label>{copy.categoryLabel}</Label>
             <Combobox
               name="type"
-              options={helpTopics}
+              options={copy.categories}
               displayValue={(type) => type as string}
-              placeholder="Sélectionnez une catégorie"
+              placeholder={copy.categoryPlaceholder}
             >
               {(type) => (
                 <ComboboxOption value={type}>
@@ -67,29 +52,29 @@ export function FeedBackModal({
             </Combobox>
           </Field>
           <Field>
-            <Label>Votre question</Label>
+            <Label>{copy.questionLabel}</Label>
             <Textarea
               rows={4}
               name="feedback"
-              placeholder="Décrivez votre question en détail (contexte, étapes, captures, suggestions, etc.)"
+              placeholder={copy.questionPlaceholder}
             />
           </Field>
         </FieldGroup>
       </DialogBody>
       <DialogActions>
         <Button plain onClick={() => onClose(false)}>
-          Fermer
+          {copy.close}
         </Button>
         <Button tabIndex={0} onClick={() => onClose(false)}>
           <PaperAirplaneIcon />
-          Envoyer la demande
+          {copy.submit}
         </Button>
       </DialogActions>
     </Dialog>
   );
 }
 
-export default function Feedback() {
+export default function Feedback({ copy }: { copy: Dictionary["feedback"] }) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -99,11 +84,11 @@ export default function Feedback() {
           onClick={() => setOpen(true)}
           className="cursor-pointer font-medium text-gray-950 transition-colors hover:text-gray-950/75 data-hover:text-gray-950/75"
         >
-          Centre d’aide
+          {copy.trigger}
         </Headless.Button>
       </li>
 
-      <FeedBackModal open={open} onClose={setOpen} />
+      <FeedBackModal open={open} onClose={setOpen} copy={copy} />
     </>
   );
 }

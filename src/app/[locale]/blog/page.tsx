@@ -23,20 +23,33 @@ import {
 import { clsx } from "clsx";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
-dayjs.locale("fr");
-
+import "dayjs/locale/en";
+import "dayjs/locale/ja";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getDictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Restez informé des nouveautés produit, des actualités de l’entreprise et de conseils pour améliorer vos performances au quotidien.",
-};
+type BlogCopy = Awaited<ReturnType<typeof getDictionary>>["blog"];
 
-const postsPerPage = 5;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+  return {
+    title: dictionary.blog.metadata.title,
+    description: dictionary.blog.metadata.description,
+  };
+}
 
-async function FeaturedPosts() {
+async function FeaturedPosts({
+  copy,
+}: {
+  copy: BlogCopy;
+}) {
   let { data: featuredPosts } = await getFeaturedPosts(3);
 
   if (featuredPosts.length === 0) {
@@ -46,7 +59,9 @@ async function FeaturedPosts() {
   return (
     <div className="mt-16 bg-linear-to-t from-gray-100 pb-14">
       <Container>
-        <h2 className="text-2xl font-medium tracking-tight">À la une</h2>
+        <h2 className="text-2xl font-medium tracking-tight">
+          {copy.featuredTitle}
+        </h2>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredPosts.map((post) => (
             <div
@@ -98,7 +113,13 @@ async function FeaturedPosts() {
   );
 }
 
-async function Categories({ selected }: { selected?: string }) {
+async function Categories({
+  selected,
+  copy,
+}: {
+  selected?: string;
+  copy: BlogCopy;
+}) {
   let { data: categories } = await getCategories();
 
   if (categories.length === 0) {
@@ -110,7 +131,7 @@ async function Categories({ selected }: { selected?: string }) {
       <Menu>
         <MenuButton className="flex items-center justify-between gap-2 font-medium">
           {categories.find(({ slug }) => slug === selected)?.title ||
-            "Toutes les catégories"}
+            copy.categories.all}
           <ChevronUpDownIcon className="size-4 fill-gray-900" />
         </MenuButton>
         <MenuItems
@@ -124,7 +145,7 @@ async function Categories({ selected }: { selected?: string }) {
             className="group grid grid-cols-[1rem_1fr] items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-950/5"
           >
             <CheckIcon className="hidden size-4 group-data-selected:block" />
-            <p className="col-start-2 text-sm/6">All categories</p>
+            <p className="col-start-2 text-sm/6">{copy.categories.all}</p>
           </MenuItem>
           {categories.map((category) => (
             <MenuItem
@@ -142,16 +163,24 @@ async function Categories({ selected }: { selected?: string }) {
       </Menu>
       <Button color={"white"} href="/blog/feed.xml" className="gap-1">
         <RssIcon className="size-4" />
-        Flux RSS
+        {copy.rss}
       </Button>
     </div>
   );
 }
 
-async function Posts({ page, category }: { page: number; category?: string }) {
+async function Posts({
+  page,
+  category,
+  copy,
+}: {
+  page: number;
+  category?: string;
+  copy: BlogCopy;
+}) {
   let { data: posts } = await getPosts(
-    (page - 1) * postsPerPage,
-    page * postsPerPage,
+    (page - 1) * 5,
+    page * 5,
     category,
   );
 
@@ -160,7 +189,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
   }
 
   if (posts.length === 0) {
-    return <p className="mt-6 text-gray-500">Articles en cours de création.</p>;
+    return <p className="mt-6 text-gray-500">{copy.empty}</p>;
   }
 
   return (
@@ -200,7 +229,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
                 className="flex items-center gap-1 text-sm/5 font-medium"
               >
                 <span className="absolute inset-0" />
-                Read more
+                {copy.readMore}
                 <ChevronRightIcon className="size-4 fill-gray-400" />
               </Link>
             </div>
@@ -214,9 +243,11 @@ async function Posts({ page, category }: { page: number; category?: string }) {
 async function Pagination({
   page,
   category,
+  copy,
 }: {
   page: number;
   category?: string;
+  copy: BlogCopy;
 }) {
   function url(page: number) {
     let params = new URLSearchParams();
@@ -230,9 +261,9 @@ async function Pagination({
   let totalPosts = (await getPostsCount(category)).data;
   let hasPreviousPage = page - 1;
   let previousPageUrl = hasPreviousPage ? url(page - 1) : undefined;
-  let hasNextPage = page * postsPerPage < totalPosts;
+  let hasNextPage = page * 5 < totalPosts;
   let nextPageUrl = hasNextPage ? url(page + 1) : undefined;
-  let pageCount = Math.ceil(totalPosts / postsPerPage);
+  let pageCount = Math.ceil(totalPosts / 5);
 
   if (pageCount < 2) {
     return;
@@ -246,7 +277,7 @@ async function Pagination({
         disabled={!previousPageUrl}
       >
         <ChevronLeftIcon className="size-4" />
-        Previous
+        {copy.previous}
       </Button>
       <div className="flex gap-2 max-sm:hidden">
         {Array.from({ length: pageCount }, (_, i) => (
@@ -266,7 +297,7 @@ async function Pagination({
         ))}
       </div>
       <Button color={"white"} href={nextPageUrl} disabled={!nextPageUrl}>
-        Next
+        {copy.next}
         <ChevronRightIcon className="size-4" />
       </Button>
     </div>
@@ -274,41 +305,50 @@ async function Pagination({
 }
 
 export default async function Blog({
+  params,
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: Promise<{ locale: Locale }>;
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  let params = await searchParams;
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
+
+  let pageParam = searchParams?.page;
   let page =
-    "page" in params
-      ? typeof params.page === "string" && parseInt(params.page) > 1
-        ? parseInt(params.page)
-        : notFound()
+    pageParam && typeof pageParam === "string" && parseInt(pageParam) > 1
+      ? parseInt(pageParam)
       : 1;
 
   let category =
-    typeof params.category === "string" ? params.category : undefined;
+    typeof searchParams?.category === "string"
+      ? searchParams.category
+      : undefined;
 
   return (
     <main className="overflow-hidden">
       <GradientBackground />
       <Container>
-        <Navbar />
+        <Navbar nav={dictionary.navbar} localeSwitcher={dictionary.localeSwitcher} />
         <Heading as="h1" className="mt-16">
-          L’actualité et les nouveautés d’Aliénor.
+          {dictionary.blog.heroTitle}
         </Heading>
-        <Lead className="mt-6 max-w-3xl">
-          Restez informé des évolutions du produit, des actualités de
-          l’entreprise et des conseils pour gagner en efficacité au quotidien.
-        </Lead>
+        <Lead className="mt-6 max-w-3xl">{dictionary.blog.heroLead}</Lead>
       </Container>
-      {page === 1 && !category && <FeaturedPosts />}
+      {page === 1 && !category && <FeaturedPosts copy={dictionary.blog} />}
       <Container className="mt-16 pb-24">
-        <Categories selected={category} />
-        <Posts page={page} category={category} />
-        <Pagination page={page} category={category} />
+        <Categories selected={category} copy={dictionary.blog} />
+        <Posts page={page} category={category} copy={dictionary.blog} />
+        <Pagination page={page} category={category} copy={dictionary.blog} />
       </Container>
-      <Footer />
+      <Footer
+        copy={dictionary.footer}
+        legal={dictionary.legal}
+        feedback={dictionary.feedback}
+        brand={dictionary.navbar.brand}
+        homeLabel={dictionary.navbar.home}
+      />
     </main>
   );
 }

@@ -7,23 +7,21 @@ import { CalendarIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import Feedback from "@/components/feedback";
 import { TermsModal, PrivacyModal } from "@/components/legal-modals";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-function CallToAction() {
+function CallToAction({ cta }: { cta: Dictionary["footer"]["cta"] }) {
   return (
     <div className="relative pt-20 pb-16 text-center sm:py-24">
       <hgroup>
         <p className="mt-6 text-3xl font-bold tracking-tight text-gray-950 sm:text-5xl">
-          Boostez la productivité de vos équipes
+          {cta.title}
         </p>
       </hgroup>
       <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl">
-        Un expert interne virtuel, disponible 24&#x2F;7, pour répondre
-        instantanément aux questions support, RH, sales ou produit, sans
-        mobiliser vos équipes.
+        {cta.lead}
       </p>
       <p className="mx-auto mt-6 max-w-xl text-sm/6 text-gray-500">
-        Accès de démonstration sur demande, testez avec vos propres sources. Vos
-        données restent confidentielles et sont supprimées à la fin de l’essai.
+        {cta.helper}
       </p>
       <div className="mt-6">
         <Button
@@ -33,7 +31,7 @@ phEvent="cta_click"
           phProps={{ location: "footer_cta", action: "plan_demo", source: "calendly" }}
         >
           <CalendarIcon />
-          Planifier une démo
+          {cta.button}
         </Button>
       </div>
     </div>
@@ -59,39 +57,47 @@ function SitemapLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
   );
 }
 
-function Sitemap() {
+function Sitemap({
+  copy,
+  legal,
+  feedback,
+}: {
+  copy: Dictionary["footer"]["sitemap"];
+  legal: Dictionary["legal"];
+  feedback: Dictionary["feedback"];
+}) {
   return (
     <>
       <div>
-        <SitemapHeading>Produit</SitemapHeading>
+        <SitemapHeading>{copy.product}</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="/pricing">Tarifs</SitemapLink>
-          <SitemapLink href="/blog">Blog</SitemapLink>
+          <SitemapLink href="/pricing">{copy.pricing}</SitemapLink>
+          <SitemapLink href="/blog">{copy.blog}</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Entreprise</SitemapHeading>
+        <SitemapHeading>{copy.company}</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="/company">Mission</SitemapLink>
-          {/*<SitemapLink  href="/company#careers">Carrières</SitemapLink>*/}
+          <SitemapLink href="/company">{copy.mission}</SitemapLink>
+          {/*<SitemapLink  href="/company#careers">{copy.careers}</SitemapLink>*/}
           <li className={"font-medium cursor-wait text-gray-600 "}>
-            Carrières
+            {copy.careersDisabledLabel}
           </li>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Support</SitemapHeading>
+        <SitemapHeading>{copy.support}</SitemapHeading>
         <SitemapLinks>
-          {/*<SitemapLink href="#">Centre d’aide</SitemapLink>*/}
-          <Feedback />
-          <SitemapLink href="/pricing#faq">FAQ</SitemapLink>
+          {/*<SitemapLink href="#">{copy.helpCenter}</SitemapLink>*/}
+          <Feedback copy={feedback} />
+          <SitemapLink href="/pricing#faq">{copy.faq}</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Mentions légales</SitemapHeading>
+        <SitemapHeading>{copy.legal}</SitemapHeading>
         <SitemapLinks>
-          <TermsModal />
-          <PrivacyModal />
+          <TermsModal copy={legal.terms} />
+          <PrivacyModal copy={legal.privacy} />
         </SitemapLinks>
       </div>
     </>
@@ -102,18 +108,6 @@ function SocialIconX(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg viewBox="0 0 16 16" fill="currentColor" {...props}>
       <path d="M12.6 0h2.454l-5.36 6.778L16 16h-4.937l-3.867-5.594L2.771 16H.316l5.733-7.25L0 0h5.063l3.495 5.114L12.6 0zm-.86 14.376h1.36L4.323 1.539H2.865l8.875 12.837z" />
-    </svg>
-  );
-}
-
-function SocialIconFacebook(props: React.ComponentPropsWithoutRef<"svg">) {
-  return (
-    <svg viewBox="0 0 16 16" fill="currentColor" {...props}>
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16 8.05C16 3.603 12.418 0 8 0S0 3.604 0 8.05c0 4.016 2.926 7.346 6.75 7.95v-5.624H4.718V8.05H6.75V6.276c0-2.017 1.194-3.131 3.022-3.131.875 0 1.79.157 1.79.157v1.98h-1.008c-.994 0-1.304.62-1.304 1.257v1.51h2.219l-.355 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.95z"
-      />
     </svg>
   );
 }
@@ -192,13 +186,25 @@ function Copyright() {
   );
 }
 
-export function Footer() {
+export function Footer({
+  copy,
+  legal,
+  feedback,
+  brand,
+  homeLabel,
+}: {
+  copy: Dictionary["footer"];
+  legal: Dictionary["legal"];
+  feedback: Dictionary["feedback"];
+  brand: string;
+  homeLabel: string;
+}) {
   return (
     <footer id={"book"}>
       <Gradient className="relative z-0">
         <div className="absolute inset-2 -z-10 rounded-2xl bg-white/80" />
         <Container>
-          <CallToAction />
+          <CallToAction cta={copy.cta} />
           <PlusGrid className="pb-16">
             <PlusGridRow>
               <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
@@ -209,23 +215,21 @@ export function Footer() {
                         "flex w-fit items-center justify-center gap-1.5 rounded-full py-1.5 font-medium"
                       }
                       href="/"
-                      title="Home"
+                      title={homeLabel}
                     >
                       <Image
                         className={`dark:outline-white/10' size-7 rounded-full outline -outline-offset-1 outline-black/10`}
                         priority
                         src={"/logo.webp"}
-                        alt="Aliénor AI"
+                        alt={brand}
                         width={200}
                         height={200}
                       />
-                      Aliénor AI
+                      {brand}
                     </Link>
                   </PlusGridItem>
                   <p className="text-muted-foreground text-sm">
-                    L'assistant IA intégré au cœur de votre entreprise, qui
-                    comprend vos documents, vos outils et vos équipes, pour
-                    répondre à chaque question, en toute sécurité.
+                    {copy.description}
                   </p>
                   <div className={"mt-6 flex w-fit items-center gap-6"}>
                     <Certficatetions />
@@ -233,7 +237,11 @@ export function Footer() {
                 </div>
 
                 <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
-                  <Sitemap />
+                  <Sitemap
+                    copy={copy.sitemap}
+                    legal={legal}
+                    feedback={feedback}
+                  />
                 </div>
               </div>
             </PlusGridRow>

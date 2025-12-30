@@ -6,190 +6,71 @@ import { TierSelectMobile } from "@/components/tier-select-mobile";
 import { LogoCloud } from "@/components/logo-cloud";
 import { Navbar } from "@/components/navbar";
 import { Heading, Lead } from "@/components/text";
-
 import {
   CalendarIcon,
   CheckIcon,
   EnvelopeIcon,
   MinusIcon,
   RocketLaunchIcon,
-  UserGroupIcon,
 } from "@heroicons/react/16/solid";
 import type { Metadata } from "next";
 import FAQ from "@/components/faq";
+import { getDictionary, type PricingTier } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
+import type React from "react";
 
-export const metadata: Metadata = {
-  title: "Tarifs",
-  description:
-    "Des entreprises de toutes tailles utilisent Aliénor pour accéder plus rapidement à leurs informations internes. Choisissez l’offre qui vous convient et commencez dès aujourd’hui.",
-};
+type PricingCopy = Awaited<ReturnType<typeof getDictionary>>["pricing"];
 
-const tiers = [
-  {
-    name: "Aliénor" as const,
-    slug: "alienor",
-    description:
-      "Idéal pour les entrepreneurs qui souhaitent intégrer l'IA à leur quotidien professionnel.",
-    priceMonthly: 149,
-    href: "/pricing#book",
-    highlights: [
-      { description: "Jusqu’à 3 membres dans l’équipe" },
-      { description: "Jusqu’à 10 documents actifs" },
-      { description: "1000 messages par mois" },
-      { description: "Hébergement 100 % en France" },
-      { description: "Aucune réutilisation des données" },
-    ],
-    features: [
-      { section: "Features", name: "Membres dans l’équipe", value: 3 },
-      { section: "Features", name: "Documents actifs", value: 10 },
-      { section: "Features", name: "Messages par mois", value: 1000 },
-      { section: "Features", name: "Agents IA autonomes", value: false },
-      { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
-      {
-        section: "Sécurité",
-        name: "Aucune réutilisation des données",
-        value: true,
-      },
-      {
-        section: "Sécurité",
-        name: "IA déployée sur serveur dédié",
-        value: false,
-      },
-      { section: "Support", name: "Support par email", value: true },
-      { section: "Support", name: "Support téléphonique ", value: false },
-      {
-        section: "Support",
-        name: "Gestionnaire de compte dédié",
-        value: false,
-      },
-    ],
-  },
-  {
-    name: "Aliénor Pro" as const,
-    slug: "pro",
-    popular: true,
-    description:
-      "Conçu pour les entreprises qui recherchent performance et sécurité sans compromis.",
-    priceMonthly: 249,
-    href: "/pricing#book",
-    highlights: [
-      { description: "Membres illimités" },
-      { description: "Documents illimités*" },
-      { description: "Messages illimités*" },
-      {
-        description: (
-          <span className={"flex items-center gap-1"}>
-            <span>Agents IA autonomes</span>
-            <UserGroupIcon className={"size-4 fill-teal-500"} />
-          </span>
-        ),
-      },
-      { description: "Hébergement 100 % en France" },
-      { description: "Aucune réutilisation des données" },
-    ],
-    features: [
-      {
-        section: "Features",
-        name: "Membres dans l’équipe",
-        value: "Illimités",
-      },
-      { section: "Features", name: "Documents actifs", value: "Illimités*" },
-      { section: "Features", name: "Messages par mois", value: "Illimités*" },
-      { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
-      { section: "Features", name: "Agents IA autonomes", value: true },
-      {
-        section: "Sécurité",
-        name: "Aucune réutilisation des données",
-        value: true,
-      },
-      {
-        section: "Sécurité",
-        name: "IA déployée sur serveur dédié",
-        value: false,
-      },
-      { section: "Support", name: "Support par email", value: true },
-      { section: "Support", name: "Support téléphonique ", value: true },
-      {
-        section: "Support",
-        name: "Gestionnaire de compte dédié",
-        value: false,
-      },
-    ],
-  },
-  {
-    name: "Aliénor Business" as const,
-    slug: "business",
-    description:
-      "Spécialement développé pour les secteurs sensibles avec une infrastructure dédiée.",
-    priceMonthly: 349,
-    href: "/pricing#book",
-    highlights: [
-      { description: "Membres illimités" },
-      { description: "Documents illimités*" },
-      { description: "Messages illimités*" },
-      {
-        description: (
-          <span className={"flex items-center gap-1"}>
-            <span>Agents IA autonomes</span>
-            <UserGroupIcon className={"size-4 fill-teal-500"} />
-          </span>
-        ),
-      },
-      { description: "Hébergement 100 % en France" },
-      { description: "Aucune réutilisation des données" },
-      { description: "Infrastructure dédiée" },
-    ],
-    features: [
-      {
-        section: "Features",
-        name: "Membres dans l’équipe",
-        value: "Illimités",
-      },
-      { section: "Features", name: "Documents actifs", value: "Illimités*" },
-      { section: "Features", name: "Messages par mois", value: "Illimités*" },
-      { section: "Features", name: "Agents IA autonomes", value: true },
-      { section: "Sécurité", name: "Hébergement 100 % en France", value: true },
-      {
-        section: "Sécurité",
-        name: "Aucune réutilisation des données",
-        value: true,
-      },
-      {
-        section: "Sécurité",
-        name: "IA déployée sur serveur dédié",
-        value: true,
-      },
-      { section: "Support", name: "Support par email", value: true },
-      { section: "Support", name: "Support téléphonique ", value: true },
-      { section: "Support", name: "Gestionnaire de compte dédié", value: true },
-    ],
-  },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+  return {
+    title: dictionary.pricing.metadata.title,
+    description: dictionary.pricing.metadata.description,
+  };
+}
 
-function Header() {
+function Header({ copy }: { copy: PricingCopy["header"] }) {
   return (
     <Container className="mt-16">
-      <Heading as="h1">Une tarification qui s’adapte à vos besoins.</Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Trois formules conçues pour répondre à vos besoins de sécurité et de
-        performance. Commencez votre essai gratuit dès aujourd'hui.
-      </Lead>
-      <p className="mt-4 text-sm/6 text-gray-950/60">
-        Prêt à l'emploi <span className={"text-primary"}>•</span> Mise en place
-        en 24h <span className={"text-primary"}>•</span> ROI immédiat
-      </p>
+      <Heading as="h1">{copy.title}</Heading>
+      <Lead className="mt-6 max-w-3xl">{copy.lead}</Lead>
+      <p className="mt-4 text-sm/6 text-gray-950/60">{copy.ribbon}</p>
     </Container>
   );
 }
 
-function PricingCards() {
+function PricingCards({
+  tiers,
+  ctaLabel,
+  benefitsTitle,
+  priceSuffix,
+  popularBadge,
+}: {
+  tiers: PricingTier[];
+  ctaLabel: string;
+  benefitsTitle: string;
+  priceSuffix: string;
+  popularBadge: string;
+}) {
   return (
     <div className="relative py-24">
       <Gradient className="absolute inset-x-2 top-48 bottom-0 rounded-2xl ring-1 ring-black/5 ring-inset" />
       <Container className="relative">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {tiers.map((tier, tierIndex) => (
-            <PricingCard key={tierIndex} tier={tier} />
+            <PricingCard
+              key={tierIndex}
+              tier={tier}
+              ctaLabel={ctaLabel}
+              benefitsTitle={benefitsTitle}
+              priceSuffix={priceSuffix}
+              popularBadge={popularBadge}
+            />
           ))}
         </div>
         <LogoCloud className="mt-24" />
@@ -198,13 +79,25 @@ function PricingCards() {
   );
 }
 
-function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
+function PricingCard({
+  tier,
+  ctaLabel,
+  benefitsTitle,
+  priceSuffix,
+  popularBadge,
+}: {
+  tier: PricingTier;
+  ctaLabel: string;
+  benefitsTitle: string;
+  priceSuffix: string;
+  popularBadge: string;
+}) {
   return (
     <div className="-m-2 grid grid-cols-1 rounded-2xl max-lg:mx-auto max-lg:w-full max-lg:max-w-md">
       <div className="relative grid grid-cols-1 rounded-2xl">
         {tier.popular && (
           <div className="bg-primary text-primary-foreground absolute top-0 right-0 rounded-tr-lg rounded-bl-lg px-3 py-1 text-xs font-medium">
-            Le plus populaire
+            {popularBadge}
           </div>
         )}
         <div className="rounded-2xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
@@ -214,20 +107,20 @@ function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
               {tier.priceMonthly}€
             </div>
             <div className="text-sm/5 text-gray-950/75">
-              <p>/mois</p>
+              <p>{priceSuffix}</p>
             </div>
           </div>
           <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
 
           <div className="mt-8">
-            <Button href={tier.href}>
+            <Button href={tier.href ?? "#book"}>
               <RocketLaunchIcon />
-              Essayer la solution
+              {ctaLabel}
             </Button>
           </div>
           <div className="mt-8">
             <h3 className="text-sm/6 font-medium text-gray-950">
-              Vous bénéficiez de :
+              {benefitsTitle}
             </h3>
             <ul className="mt-3 space-y-3">
               {tier.highlights.map((props, featureIndex) => (
@@ -243,13 +136,17 @@ function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
 
 function PricingTable({
   selectedTier,
+  tiers,
+  copy,
 }: {
-  selectedTier: (typeof tiers)[number];
+  selectedTier: PricingTier;
+  tiers: PricingTier[];
+  copy: PricingCopy["table"];
 }) {
   return (
     <Container className="py-24">
       <table className="w-full text-left">
-        <caption className="sr-only">Pricing plan comparison</caption>
+        <caption className="sr-only">{copy.caption}</caption>
         <colgroup>
           <col className="w-3/5 sm:w-2/5" />
           <col
@@ -333,14 +230,14 @@ function PricingTable({
                             <>
                               <CheckIcon className="size-4 fill-green-600" />
                               <span className="sr-only">
-                                Included in {tier.name}
+                                {copy.included} {tier.name}
                               </span>
                             </>
                           ) : value === false || value === undefined ? (
                             <>
                               <MinusIcon className="size-4 fill-gray-400" />
                               <span className="sr-only">
-                                Not included in {tier.name}
+                                {copy.notIncluded} {tier.name}
                               </span>
                             </>
                           ) : (
@@ -374,7 +271,6 @@ function FeatureItem({
       <span className="inline-flex h-6 items-center">
         <PlusIcon className="size-3.75 shrink-0 fill-gray-950/25" />
       </span>
-      {disabled && <span className="sr-only">Not included:</span>}
       {description}
     </li>
   );
@@ -388,7 +284,15 @@ function PlusIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   );
 }
 
-function Testimonial() {
+function TestimonialSection({
+  copy,
+  contactHref,
+  demoHref,
+}: {
+  copy: PricingCopy["testimonial"];
+  contactHref: string;
+  demoHref: string;
+}) {
   return (
     <div className="mx-2 my-24 rounded-2xl bg-blue-500 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
       <Container>
@@ -410,12 +314,10 @@ function Testimonial() {
             <figure className="mx-auto flex max-w-xl flex-col gap-10 max-lg:text-center">
               <blockquote>
                 <p className="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full lg:text-4xl">
-                  Un doute ? Une question ?
+                  {copy.title}
                 </p>
                 <p className="mt-2 max-w-3xl text-2xl font-medium text-gray-100">
-                  Notre équipe est disponible pour répondre à toutes vos
-                  interrogations sur nos offres, nos tarifs et notre
-                  fonctionnement.
+                  {copy.description}
                 </p>
               </blockquote>
 
@@ -425,20 +327,20 @@ function Testimonial() {
                 }
               >
                 <Button
-                  href={`mailto:contact@alienor.ai`}
+                  href={contactHref}
                   color={"white"}
                   className={"w-full sm:w-fit"}
                 >
                   <EnvelopeIcon />
-                  Contactez nous
+                  {copy.contact}
                 </Button>
                 <Button
-                  href={"https://calendly.com/alienor-ai/demo"}
+                  href={demoHref}
                   color={"white"}
                   className={"w-full sm:w-fit"}
                 >
                   <CalendarIcon />
-                  Planifiez une démo
+                  {copy.demo}
                 </Button>
               </div>
             </figure>
@@ -449,15 +351,15 @@ function Testimonial() {
   );
 }
 
-function FrequentlyAskedQuestions() {
+function FrequentlyAskedQuestions({ copy }: { copy: PricingCopy["faq"] }) {
   return (
     <Container>
       <section id="faq" className="scroll-mt-24">
         <Heading as="div" className="mt-2 text-center">
-          Questions fréquentes
+          {copy.title}
         </Heading>
         <div className="mx-auto mt-16 mb-32 max-w-3xl space-y-12">
-          <FAQ />
+          <FAQ items={copy.items} />
         </div>
       </section>
     </Container>
@@ -465,28 +367,54 @@ function FrequentlyAskedQuestions() {
 }
 
 export default async function Pricing({
+  params,
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: Promise<{ locale: Locale }>;
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  let params = await searchParams;
-  let tier =
-    typeof params.tier === "string"
-      ? tiers.find(({ slug }) => slug === params.tier)!
-      : tiers[0];
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+  const tiers = dictionary.pricing.tiers;
+  const tierParam =
+    searchParams && typeof searchParams.tier === "string"
+      ? searchParams.tier
+      : undefined;
+  const selectedTier =
+    tiers.find(({ slug }) => slug === tierParam) ?? tiers[0];
 
   return (
     <main className="overflow-hidden">
       <GradientBackground />
       <Container>
-        <Navbar />
+        <Navbar nav={dictionary.navbar} localeSwitcher={dictionary.localeSwitcher} />
       </Container>
-      <Header />
-      <PricingCards />
-      <PricingTable selectedTier={tier} />
-      <Testimonial />
-      <FrequentlyAskedQuestions />
-      <Footer />
+      <Header copy={dictionary.pricing.header} />
+      <PricingCards
+        tiers={tiers}
+        ctaLabel={dictionary.pricing.actions.cta}
+        benefitsTitle={dictionary.pricing.actions.benefitsTitle}
+        priceSuffix={dictionary.pricing.priceSuffix}
+        popularBadge={dictionary.pricing.popularBadge}
+      />
+      <PricingTable
+        selectedTier={selectedTier}
+        tiers={tiers}
+        copy={dictionary.pricing.table}
+      />
+      <TestimonialSection
+        copy={dictionary.pricing.testimonial}
+        contactHref="mailto:contact@alienor.ai"
+        demoHref="https://calendly.com/alienor-ai/demo"
+      />
+      <FrequentlyAskedQuestions copy={dictionary.pricing.faq} />
+      <Footer
+        copy={dictionary.footer}
+        legal={dictionary.legal}
+        feedback={dictionary.feedback}
+        brand={dictionary.navbar.brand}
+        homeLabel={dictionary.navbar.home}
+      />
     </main>
   );
 }

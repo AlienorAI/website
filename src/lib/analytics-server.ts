@@ -4,7 +4,6 @@ type Props = Record<string, any>;
 
 // Keep a single instance across hot reloads in dev
 declare global {
-  // eslint-disable-next-line no-var
   var __posthogServer: PostHog | undefined;
 }
 

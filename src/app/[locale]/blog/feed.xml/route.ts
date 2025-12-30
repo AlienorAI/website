@@ -2,25 +2,37 @@ import { image } from "@/sanity/image";
 import { getPostsForFeed } from "@/sanity/queries";
 import { Feed } from "feed";
 import assert from "node:assert";
+import { getDictionary } from "@/i18n/dictionaries";
+import { i18n, type Locale } from "@/i18n/config";
+
+function extractLocale(pathname: string): Locale {
+  let [, maybeLocale] = pathname.split("/");
+  return i18n.locales.includes(maybeLocale as Locale)
+    ? (maybeLocale as Locale)
+    : i18n.defaultLocale;
+}
 
 export async function GET(req: Request) {
-  let siteUrl = new URL(req.url).origin;
+  let url = new URL(req.url);
+  let siteUrl = url.origin;
+  let locale = extractLocale(url.pathname);
+  let dictionary = await getDictionary(locale);
+  let localePath = `/${locale}`;
 
   let feed = new Feed({
-    title: "Le blog d’Aliénor",
-    description:
-      "Découvrez les nouveautés produit, les actualités de l’entreprise et des réflexions autour de l’IA souveraine et de la gestion des connaissances.",
+    title: dictionary.blog.metadata.title,
+    description: dictionary.blog.metadata.description,
     author: {
-      name: "Enzo Bacqueyrisses",
+      name: dictionary.navbar.brand,
       email: "contact@alienor.ai",
     },
-    id: siteUrl,
-    link: siteUrl,
+    id: `${siteUrl}${localePath}`,
+    link: `${siteUrl}${localePath}`,
     image: `${siteUrl}/favicon.ico`,
     favicon: `${siteUrl}/favicon.ico`,
-    copyright: `Tous droits réservés ${new Date().getFullYear()}`,
+    copyright: `${new Date().getFullYear()} ${dictionary.navbar.brand}`,
     feedLinks: {
-      rss2: `${siteUrl}/feed.xml`,
+      rss2: `${siteUrl}${localePath}/blog/feed.xml`,
     },
   });
 
@@ -40,7 +52,7 @@ export async function GET(req: Request) {
     feed.addItem({
       title: post.title,
       id: post.slug,
-      link: `${siteUrl}/blog/${post.slug}`,
+      link: `${siteUrl}${localePath}/blog/${post.slug}`,
       content: post.excerpt,
       image: post.mainImage
         ? image(post.mainImage)
