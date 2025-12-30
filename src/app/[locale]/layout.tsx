@@ -1,20 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
 import { i18n, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import "@/styles/tailwind.css";
-
-const geistSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-  display: "swap",
-});
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
@@ -39,13 +25,6 @@ export default async function RootLayout({
   children,
   params,
 }: LayoutProps<"/[locale]">) {
-  const { locale } = await params;
-
-  return (
-    <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
+  await params; // ensures params are awaited per Next.js requirement
+  return children;
 }
