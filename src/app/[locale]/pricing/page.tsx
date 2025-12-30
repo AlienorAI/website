@@ -24,10 +24,9 @@ type PricingCopy = Awaited<ReturnType<typeof getDictionary>>["pricing"];
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(params.locale);
   return {
     title: dictionary.pricing.metadata.title,
     description: dictionary.pricing.metadata.description,
@@ -370,11 +369,10 @@ export default async function Pricing({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(params.locale);
   const tiers = dictionary.pricing.tiers;
   const tierParam =
     searchParams && typeof searchParams.tier === "string"

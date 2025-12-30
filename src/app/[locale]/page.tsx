@@ -60,19 +60,21 @@ function HeroSection({
         {hero.bullets.map((bullet, index) => (
           <div
             key={bullet}
-            className={index === 2 ? "hidden items-center gap-1 sm:flex" : "flex items-center gap-1"}
+            className={
+              index === 2 ? "hidden items-center gap-1 sm:flex" : "flex items-center gap-1"
+            }
           >
             <CheckIcon className="text-primary size-4" />
             <span>{bullet}</span>
           </div>
         ))}
         <div className="xs:flex hidden items-center justify-center gap-2 sm:gap-4">
-        {hero.badges.map((badge, i) => (
-          <Badge key={badge} color={badgeColors[i] ?? "blue"}>
-            {badge}
-          </Badge>
-        ))}
-      </div>
+          {hero.badges.map((badge, i) => (
+            <Badge key={badge} color={badgeColors[i] ?? "blue"}>
+              {badge}
+            </Badge>
+          ))}
+        </div>
       </div>
 
       <div className="mt-12 flex flex-col justify-center gap-x-6 gap-y-4 sm:flex-row">
@@ -146,7 +148,6 @@ function DarkBentoSection({
           title={copy.bentoCards[1].title}
           description={copy.bentoCards[1].description}
           graphic={<LogoTimeline />}
-          // `overflow-visible!` is needed to work around a Chrome bug that disables the mask on the graphic.
           className="z-10 overflow-visible! lg:col-span-2 lg:rounded-tr-2xl"
         />
         <BentoCard

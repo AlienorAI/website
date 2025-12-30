@@ -15,10 +15,9 @@ type CompanyCopy = Awaited<ReturnType<typeof getDictionary>>["company"]["header"
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(params.locale);
   return {
     title: dictionary.company.metadata.title,
     description: dictionary.company.metadata.description,
@@ -119,10 +118,9 @@ function Header({ copy }: { copy: CompanyCopy }) {
 export default async function Company({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }) {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(params.locale);
 
   return (
     <main className="overflow-hidden">

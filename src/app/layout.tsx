@@ -1,6 +1,6 @@
+import "@/styles/tailwind.css";
 import { SanityLive } from "@/sanity/live";
 import { revalidateSyncTags } from "@/sanity/revalidateSyncTags";
-import "@/styles/tailwind.css";
 import { i18n, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Metadata } from "next";
@@ -19,12 +19,16 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
+export function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = i18n.locales.includes(params.locale) ? params.locale : i18n.defaultLocale;
   const dictionary = await getDictionary(locale);
   return {
     title: {
@@ -36,21 +40,17 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ locale }));
-}
-
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }>) {
-  const { locale } = await params;
+  const locale = i18n.locales.includes(params.locale) ? params.locale : i18n.defaultLocale;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta name="apple-mobile-web-app-title" content="Aliénor AI" />
         <link

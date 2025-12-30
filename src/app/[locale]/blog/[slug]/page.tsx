@@ -21,10 +21,9 @@ import type { Locale } from "@/i18n/config";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string; locale: Locale }>;
+  params: { slug: string; locale: Locale };
 }): Promise<Metadata> {
-  const { slug } = await params;
-  let { data: post } = await getPost(slug);
+  let { data: post } = await getPost(params.slug);
 
   return post ? { title: post.title, description: post.excerpt } : {};
 }
@@ -32,13 +31,12 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string; locale: Locale }>;
+  params: { slug: string; locale: Locale };
 }) {
-  const { slug, locale } = await params;
-  const dictionary = await getDictionary(locale);
-  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
+  const dictionary = await getDictionary(params.locale);
+  dayjs.locale(params.locale === "fr" ? "fr" : params.locale === "ja" ? "ja" : "en");
 
-  let { data: post } = await getPost(slug);
+  let { data: post } = await getPost(params.slug);
   if (!post) notFound();
 
   return (

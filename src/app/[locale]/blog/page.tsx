@@ -35,10 +35,9 @@ type BlogCopy = Awaited<ReturnType<typeof getDictionary>>["blog"];
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(params.locale);
   return {
     title: dictionary.blog.metadata.title,
     description: dictionary.blog.metadata.description,
@@ -308,12 +307,11 @@ export default async function Blog({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const { locale } = await params;
-  const dictionary = await getDictionary(locale);
-  dayjs.locale(locale === "fr" ? "fr" : locale === "ja" ? "ja" : "en");
+  const dictionary = await getDictionary(params.locale);
+  dayjs.locale(params.locale === "fr" ? "fr" : params.locale === "ja" ? "ja" : "en");
 
   let pageParam = searchParams?.page;
   let page =
