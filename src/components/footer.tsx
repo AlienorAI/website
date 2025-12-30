@@ -73,7 +73,10 @@ function Sitemap() {
         <SitemapHeading>Entreprise</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="/company">Mission</SitemapLink>
-          <SitemapLink href="/company#careers">Carrières</SitemapLink>
+          {/*<SitemapLink  href="/company#careers">Carrières</SitemapLink>*/}
+          <li className={"font-medium cursor-wait text-gray-600 "}>
+            Carrières
+          </li>
         </SitemapLinks>
       </div>
       <div>

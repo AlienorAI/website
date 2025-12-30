@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 function Header() {
   return (
-    <Container className="mt-16">
+    <Container className="mt-16 mb-32">
       <Heading as="h1">La connaissance au service de la croissance.</Heading>
       <Lead className="mt-6 max-w-3xl">
         Nous avons pour mission de transformer la performance des organisations
@@ -444,9 +444,9 @@ export default function Company() {
         <Navbar />
       </Container>
       <Header />
-      <Team />
+      {/*<Team />*/}
       {/*<Investors />*/}
-      <Careers />
+      {/*<Careers />*/}
       <Footer />
     </main>
   );
