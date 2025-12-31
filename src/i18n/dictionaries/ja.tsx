@@ -65,7 +65,7 @@ export const dictionary: Dictionary = {
           </span>
         </>
       ),
-      bullets: ["高度なセキュリティ", "フランス国内100%ホスティング", "SecNumCloud認証"],
+      bullets: ["高度なセキュリティ", "日本国内100%ホスティング", "SecNumCloud認証"],
       badges: ["すぐに使える", "24時間で導入", "即効ROI"],
       primaryCta: "デモを見る",
       secondaryCta: "料金を見る",
@@ -105,8 +105,8 @@ export const dictionary: Dictionary = {
       {
         icon: "globe",
         name: "主権性",
-        title: "フランス国内100%のホスティング",
-        quote: "サーバーはパリに設置。データが国外に出ることはありません。",
+        title: "日本国内100%のホスティング",
+        quote: "サーバーは東京に設置。データが国外に出ることはありません。",
       },
       {
         icon: "scale",
@@ -208,7 +208,7 @@ export const dictionary: Dictionary = {
           { description: "チーム3名まで" },
           { description: "アクティブ文書10件まで" },
           { description: "月1,000メッセージ" },
-          { description: "フランス国内100%ホスティング" },
+          { description: "日本国内100%ホスティング" },
           { description: "データの再利用なし" },
         ],
         features: [
@@ -216,7 +216,7 @@ export const dictionary: Dictionary = {
           { section: "Features", name: "アクティブ文書", value: 10 },
           { section: "Features", name: "月間メッセージ数", value: 1000 },
           { section: "Features", name: "自律型AIエージェント", value: false },
-          { section: "Security", name: "フランス国内100%ホスティング", value: true },
+          { section: "Security", name: "日本国内100%ホスティング", value: true },
           { section: "Security", name: "データの再利用なし", value: true },
           {
             section: "Security",
@@ -240,14 +240,14 @@ export const dictionary: Dictionary = {
           { description: "文書無制限*" },
           { description: "メッセージ無制限*" },
           { description: "自律型AIエージェント" },
-          { description: "フランス国内100%ホスティング" },
+          { description: "日本国内100%ホスティング" },
           { description: "データの再利用なし" },
         ],
         features: [
           { section: "Features", name: "チームメンバー", value: "無制限" },
           { section: "Features", name: "アクティブ文書", value: "無制限*" },
           { section: "Features", name: "月間メッセージ数", value: "無制限*" },
-          { section: "Security", name: "フランス国内100%ホスティング", value: true },
+          { section: "Security", name: "日本国内100%ホスティング", value: true },
           { section: "Features", name: "自律型AIエージェント", value: true },
           { section: "Security", name: "データの再利用なし", value: true },
           {
@@ -271,7 +271,7 @@ export const dictionary: Dictionary = {
           { description: "文書無制限*" },
           { description: "メッセージ無制限*" },
           { description: "自律型AIエージェント" },
-          { description: "フランス国内100%ホスティング" },
+          { description: "日本国内100%ホスティング" },
           { description: "データの再利用なし" },
           { description: "専用インフラ" },
         ],
@@ -280,7 +280,7 @@ export const dictionary: Dictionary = {
           { section: "Features", name: "アクティブ文書", value: "無制限*" },
           { section: "Features", name: "月間メッセージ数", value: "無制限*" },
           { section: "Features", name: "自律型AIエージェント", value: true },
-          { section: "Security", name: "フランス国内100%ホスティング", value: true },
+          { section: "Security", name: "日本国内100%ホスティング", value: true },
           { section: "Security", name: "データの再利用なし", value: true },
           {
             section: "Security",
@@ -312,13 +312,13 @@ export const dictionary: Dictionary = {
           question: "データはどこにホストされていますか？",
           answer: (
             <>
-              PDF、抽出コンテンツ、ベクターデータベース、DB、キャッシュなど、すべてのデータはパリにあるSecNumCloud認証データセンターでフランス国内にのみ保管されます。
+              PDF、抽出コンテンツ、ベクターデータベース、DB、キャッシュなど、すべてのデータは東京にある認証データセンターで日本国内にのみ保管されます。
               <br />
               <br />
               インフラはGDPRに準拠しており、データがEU域外に出ることはありません。
               <br />
               <br />
-              処理はすべてプライベートで安全なフランスのサーバー上で行われます。
+              処理はすべてプライベートで安全な日本のサーバー上で行われます。
             </>
           ),
         },
@@ -345,17 +345,17 @@ export const dictionary: Dictionary = {
         {
           question: "外部サービスと通信しない構成はありますか？",
           answer:
-            "はい。\n\nBusinessプランでは、OpenAIやMistralの外部APIを使わず、フランス国内の専用サーバー上だけで処理を行います。\n\n機密性が求められる業界でも安心してご利用いただけます。",
+            "はい。\n\nBusinessプランでは、OpenAIやMistralの外部APIを使わず、日本国内の専用サーバー上だけで処理を行います。\n\n機密性が求められる業界でも安心してご利用いただけます。",
         },
         {
           question: "回答に使用するモデルは何ですか？",
           answer:
-            "OpenAI（ゼロフットプリントポリシー）: データは保存・学習に利用されず、処理後すぐに削除され、ホスティングもフランス国内のみです。\n\nMistral AI: 高性能なフランス製モデルで、API経由またはGPU上のローカル実行（Businessプラン）に対応します。",
+            "OpenAI（ゼロフットプリントポリシー）: データは保存・学習に利用されず、処理後すぐに削除され、ホスティングも日本国内のみです。\n\nMistral AI: 高性能なフランス製モデルで、API経由またはGPU上のローカル実行（Businessプラン）に対応します。",
         },
         {
           question: "GDPRに準拠していますか？",
           answer:
-            "はい。以下の点でGDPRに完全準拠しています:\n• フランス国内ホスティング\n• 商業利用や学習目的でデータを使用しない\n• 消去権の尊重\n• ユーザープロファイリングなし\n• 監査ログやモニタリングはリクエストに応じて提供",
+            "はい。以下の点でGDPRに完全準拠しています:\n• 日本国内ホスティング\n• 商業利用や学習目的でデータを使用しない\n• 消去権の尊重\n• ユーザープロファイリングなし\n• 監査ログやモニタリングはリクエストに応じて提供",
         },
       ],
     },
@@ -382,15 +382,15 @@ export const dictionary: Dictionary = {
     metadata: {
       title: "企業情報",
       description:
-        "フランスでホストされた安全なAIで、ナレッジマネジメントを変革することが使命です。",
+        "日本でホストされた安全なAIで、ナレッジマネジメントを変革することが使命です。",
     },
     header: {
       title: "知識を成長の原動力に。",
       lead: "社内の知を解放し、セキュリティと主権性を最優先に組織のパフォーマンスを高めることが私たちの使命です。",
       missionTitle: "私たちの使命",
       missionBody: [
-        "Aliénorの目標は一つ。社内のあらゆる情報に素早く、賢くアクセスできる高性能なフランス製ソリューションを提供することです。文書、議事録、データベース、会話——必要な要素を見つけ、理解し、文脈を踏まえて提示することで、意思決定を加速させます。",
-        "フランスで設計・ホストされるAliénorは、プライバシーとデータ主権を徹底して守ります。最高水準の機密性と性能を両立し、信頼できる社内検索ツールを提供することが私たちの野望です。知識を競争力に変え、信頼を損なうことはありません。",
+        "Aliénorの目標は一つ。社内のあらゆる情報に素早く、賢くアクセスできる高性能な日本製ソリューションを提供することです。文書、議事録、データベース、会話——必要な要素を見つけ、理解し、文脈を踏まえて提示することで、意思決定を加速させます。",
+        "日本で設計・ホストされるAliénorは、プライバシーとデータ主権を徹底して守ります。最高水準の機密性と性能を両立し、信頼できる社内検索ツールを提供することが私たちの野望です。知識を競争力に変え、信頼を損なうことはありません。",
       ],
       cta: "料金を見る",
       quotes: [
@@ -408,7 +408,7 @@ export const dictionary: Dictionary = {
       metrics: [
         { label: "平均検索時間", value: 3, suffix: "秒" },
         { label: "インデックス済み文書", value: 1, suffix: "M+" },
-        { label: "フランス国内ホスティング率", value: 100, suffix: "%" },
+        { label: "日本国内ホスティング率", value: 100, suffix: "%" },
         { label: "平均削減時間", value: 60, suffix: "%" },
       ],
     },
